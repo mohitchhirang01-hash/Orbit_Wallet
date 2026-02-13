@@ -66,7 +66,7 @@ export default function FloatingCard() {
                         rotation: 0,
                         opacity: 1,
                         filter: "blur(0px)",
-                        zIndex: 10 // Above backgrounds, below text
+                        zIndex: 30 // Increased to be above Interoperability content (z-20)
                     });
 
                     // MASTER TIMELINE - Single ScrollTrigger attached to BODY
@@ -181,7 +181,7 @@ export default function FloatingCard() {
                         yPercent: -50,
                         scale: 0.6,
                         opacity: 1,
-                        zIndex: 10
+                        zIndex: 30
                     });
 
                     gsap.to(card, {
@@ -206,7 +206,7 @@ export default function FloatingCard() {
     return (
         <div
             ref={containerRef}
-            className="fixed inset-0 pointer-events-none z-10 overflow-hidden"
+            className="fixed inset-0 pointer-events-none z-30 overflow-hidden"
             aria-hidden="true"
         >
             {/* 3D Perspective Container */}

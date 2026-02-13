@@ -127,7 +127,7 @@ export default function HorizontalScroll() {
                 <div className="horizontal-slide w-screen h-full flex flex-col md:flex-row flex-shrink-0 relative overflow-hidden bg-white">
 
                     {/* LEFT SIDE: TEXT CONTENT (50%) - LIGHT THEME */}
-                    <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col justify-center px-8 md:px-20 z-20 relative bg-white/90 backdrop-blur-sm">
+                    <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col justify-center px-8 md:px-20 z-40 relative bg-white/90 backdrop-blur-sm">
 
                         {/* Heading */}
                         <div className="mb-8 md:mb-12">

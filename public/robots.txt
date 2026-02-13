@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Disallow admin or API routes if any
+Disallow: /api/
+Disallow: /admin/
+
+# Allow search engines to crawl important sections
+Allow: /blog
+Allow: /ncmc-documentation
+Allow: /about
+
+# Sitemap location
+Sitemap: https://orbitwallet.com/sitemap.xml

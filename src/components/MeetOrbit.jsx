@@ -45,19 +45,22 @@ export default function MeetOrbit() {
     return (
         <section
             ref={containerRef}
-            className="relative w-full min-h-screen bg-white flex items-center justify-center px-8 md:px-16 py-32"
+            className="relative w-full min-h-screen bg-[#fff6ff] flex items-center justify-center px-8 md:px-16 py-32"
         >
-            <div ref={headlineRef} className="relative z-20 w-full max-w-5xl text-center">
+            {/* Top Gradient Overlay - Blends from Interoperability's #FAFBFF */}
+            <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-[#FAFBFF] via-[#FAFBFF]/80 to-transparent z-10" />
+
+            <div ref={headlineRef} className="relative z-40 w-full max-w-5xl text-center">
                 {/* Main Headline - "Meet Orbit wallet" in purple */}
                 <h1 className="meet-orbit-eyebrow font-bricolage font-bold text-5xl md:text-7xl mb-8 leading-tight">
-                    <span className="text-[#6C5CE7]">Meet Orbit Wallet</span>
+                    <span className="text-[#22075e]">Meet Orbit Wallet</span>
                 </h1>
 
                 {/* Main Description - Three parts with different colors */}
                 <h2 className="meet-orbit-headline font-bricolage font-bold text-4xl md:text-6xl mb-12 leading-[1.15]">
                     <span className="text-[#0B0B0F]">truly interoperable interface for the </span>
                     <span className="text-slate-400">New Bharat</span>
-                    <span className="text-[#6C5CE7]">.</span>
+                    <span className="text-[#22075e]">.</span>
                 </h2>
 
                 {/* Subheading - Gray text */}
@@ -71,7 +74,7 @@ export default function MeetOrbit() {
                 <div className="meet-orbit-closing">
                     <p className="text-[#0B0B0F] text-xl md:text-2xl font-semibold font-inter">
                         Orbit brings the entire Indian infrastructure under one single tap
-                        <span className="text-[#6C5CE7]">.</span>
+                        <span className="text-[#22075e]">.</span>
                     </p>
                 </div>
             </div>

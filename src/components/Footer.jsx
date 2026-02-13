@@ -2,7 +2,13 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight } from 'lucide-react';
-import { indiaMapPath } from './IndiaMapPath';
+import { Link } from 'react-router-dom';
+import partnerMumbaiMetro from '../assets/mumbai_metro_icon.png';
+import partnerMumbaiBest from '../assets/mumbai_best_icon.png';
+import partnerLucknowMetro from '../assets/lucknow_metro_icon.png';
+import partnerDelhiMetro from '../assets/delhi_metro_icon.png';
+import partnerBangaloreMetro from '../assets/bangalore_metro_icon.png';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,14 +16,16 @@ const Footer = () => {
     const footerRef = useRef(null);
     const headingRef = useRef(null);
     const subtextRef = useRef(null);
-    const mapRef = useRef(null);
+    const iconsRef = useRef(null); // Ref for icons container
+
     const linksRef = useRef(null);
 
     useEffect(() => {
         const footer = footerRef.current;
         const heading = headingRef.current;
         const subtext = subtextRef.current;
-        const map = mapRef.current;
+        const icons = iconsRef.current; // Get icons container
+
         const links = linksRef.current;
 
         const tl = gsap.timeline({
@@ -40,17 +48,11 @@ const Footer = () => {
                 { opacity: 1, y: 0, duration: 1, delay: -1 },
                 "<+0.2"
             )
-            // 3. Map Reveal (Fade In + Scale Up slightly)
-            .fromTo(map,
-                { opacity: 0, scale: 0.95 },
-                { opacity: 1, scale: 1, duration: 2, ease: "power2.out" },
-                "-=1"
-            )
-            // 4. Map Nodes Activation (Stagger)
-            .fromTo(".map-node",
-                { opacity: 0, scale: 0 },
-                { opacity: 1, scale: 1, duration: 0.5, stagger: 0.3, ease: "back.out(1.7)" },
-                "-=1.5"
+            // 3. Icons Stagger (New Step)
+            .fromTo(icons.children,
+                { opacity: 0, scale: 0.8 },
+                { opacity: 1, scale: 1, duration: 0.8, stagger: 0.1, ease: "back.out(1.7)" },
+                "-=0.5"
             )
             // 5. Links Stagger
             .fromTo(links.children,
@@ -77,11 +79,11 @@ const Footer = () => {
 
             <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col gap-16">
 
-                {/* Top Section: Split Layout (Text Left, Map Right) */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+                {/* Top Section: Split Layout (Text Left, Icons Right) */}
+                <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-                    {/* 1. Cinematic Statement (Left) */}
-                    <div className="text-left w-full relative z-20">
+                    {/* Left Column: Text Content */}
+                    <div className="w-full relative z-20 flex flex-col items-start text-left">
                         <h2
                             ref={headingRef}
                             className="font-bold tracking-tight leading-[0.9] mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/70"
@@ -92,7 +94,7 @@ const Footer = () => {
 
                         <p
                             ref={subtextRef}
-                            className="text-lg md:text-xl text-white/70 max-w-[500px] leading-relaxed font-light"
+                            className="text-lg md:text-xl text-white/70 max-w-[600px] leading-relaxed font-light"
                         >
                             Everywhere You Are: From the buses of Chennai to the tech hubs of ELCIA. We are live, active, and expanding across the Indian map.
                         </p>
@@ -103,80 +105,31 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* 2. The Map Visualization (Right) */}
-                    <div ref={mapRef} className="relative w-full h-[350px] md:h-[500px] flex items-center justify-center lg:justify-end">
-
-                        {/* Orbital Rings / Radar Effect */}
-                        <div className="absolute w-[100%] h-[100%] border-[1px] border-white/5 rounded-full animate-spin-slow opacity-10 pointer-events-none" style={{ animationDuration: '40s' }}></div>
-                        <div className="absolute w-[70%] h-[70%] border-[1px] border-white/5 rounded-full animate-spin-reverse-slow opacity-5 pointer-events-none" style={{ animationDuration: '30s' }}></div>
-
-                        {/* India Map SVG (Detailed) */}
-                        <svg viewBox="0 0 1024 1024" className="w-full h-full drop-shadow-[0_0_30px_rgba(60,100,255,0.2)]">
-                            <defs>
-                                <linearGradient id="mapGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" stopColor="rgba(255,255,255,0.1)" />
-                                    <stop offset="100%" stopColor="rgba(255,255,255,0.02)" />
-                                </linearGradient>
-                            </defs>
-
-                            <g transform="translate(0,1024) scale(0.1,-0.1)" fill="url(#mapGradient)" stroke="rgba(255,255,255,0.5)" strokeWidth="20">
-                                <path d={indiaMapPath} className="opacity-60 hover:opacity-100 transition-opacity duration-700" />
-                            </g>
-
-                            {/* Network Lines */}
-                            <g stroke="rgba(255, 255, 255, 0.4)" strokeWidth="3" strokeDasharray="6 6" className="animate-pulse">
-                                {/* Delhi -> Mumbai */}
-                                <line x1="320" y1="220" x2="280" y2="600" />
-                                {/* Delhi -> Kolkata */}
-                                <line x1="420" y1="320" x2="740" y2="530" />
-                                {/* Mumbai -> Bengaluru */}
-                                <line x1="280" y1="600" x2="420" y2="820" />
-                                {/* Bengaluru -> Chennai */}
-                                <line x1="420" y1="820" x2="550" y2="840" />
-                                {/* Chennai -> Kolkata */}
-                                <line x1="550" y1="840" x2="740" y2="530" />
-                                {/* Delhi -> Bengaluru (Spine) */}
-                                <line x1="420" y1="320" x2="420" y2="820" strokeOpacity="0.2" />
-                            </g>
-
-                            {/* Metro City Nodes */}
-
-                            {/* Delhi (North) */}
-                            <g className="map-node" transform="translate(420, 320)">
-                                <circle r="8" fill="#60A5FA" className="animate-ping absolute opacity-75" />
-                                <circle r="5" fill="white" />
-                                <text x="12" y="5" fontSize="14" fill="rgba(255,255,255,0.9)" fontFamily="monospace" className="tracking-widest font-bold">DELHI</text>
-                            </g>
-
-                            {/* Mumbai (West) */}
-                            <g className="map-node" transform="translate(280, 600)">
-                                <circle r="8" fill="#60A5FA" className="animate-ping absolute opacity-75" style={{ animationDelay: '0.5s' }} />
-                                <circle r="5" fill="white" />
-                                <text x="-75" y="5" fontSize="14" fill="rgba(255,255,255,0.9)" fontFamily="monospace" className="tracking-widest font-bold">MUMBAI</text>
-                            </g>
-
-                            {/* Kolkata (East) */}
-                            <g className="map-node" transform="translate(740, 530)">
-                                <circle r="8" fill="#60A5FA" className="animate-ping absolute opacity-75" style={{ animationDelay: '1s' }} />
-                                <circle r="5" fill="white" />
-                                <text x="12" y="5" fontSize="14" fill="rgba(255,255,255,0.9)" fontFamily="monospace" className="tracking-widest font-bold">KOLKATA</text>
-                            </g>
-
-                            {/* Bengaluru (South) */}
-                            <g className="map-node" transform="translate(420, 820)">
-                                <circle r="8" fill="#60A5FA" className="animate-ping absolute opacity-75" style={{ animationDelay: '1.5s' }} />
-                                <circle r="5" fill="white" />
-                                <text x="-105" y="5" fontSize="14" fill="rgba(255,255,255,0.9)" fontFamily="monospace" className="tracking-widest font-bold">BENGALURU</text>
-                            </g>
-
-                            {/* Chennai (South East) */}
-                            <g className="map-node" transform="translate(550, 840)">
-                                <circle r="8" fill="#60A5FA" className="animate-ping absolute opacity-75" style={{ animationDelay: '2s' }} />
-                                <circle r="5" fill="white" />
-                                <text x="12" y="5" fontSize="14" fill="rgba(255,255,255,0.9)" fontFamily="monospace" className="tracking-widest font-bold">CHENNAI</text>
-                            </g>
-
-                        </svg>
+                    {/* Right Column: Active Card Icons */}
+                    <div ref={iconsRef} className="w-full flex justify-center lg:justify-end gap-6 flex-wrap">
+                        {/* Wrapper for grid layout of icons */}
+                        <div className="grid grid-cols-3 gap-6">
+                            {[
+                                { name: 'Mumbai Metro', icon: partnerMumbaiMetro },
+                                { name: 'Mumbai BEST', icon: partnerMumbaiBest },
+                                { name: 'Lucknow Metro', icon: partnerLucknowMetro },
+                                { name: 'Delhi Metro', icon: partnerDelhiMetro },
+                                { name: 'Bangalore Metro', icon: partnerBangaloreMetro },
+                            ].map((item, index) => (
+                                <div key={index} className="flex flex-col items-center gap-3 group">
+                                    <div className="w-40 h-40 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center p-6 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                                        <img
+                                            src={item.icon}
+                                            alt={item.name}
+                                            className="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-all duration-500 hover:scale-110"
+                                        />
+                                    </div>
+                                    <span className="text-xs text-white/60 group-hover:text-white/80 transition-colors text-center max-w-[100px] leading-tight opacity-100 duration-300">
+                                        {item.name}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
 
@@ -186,73 +139,85 @@ const Footer = () => {
                 {/* 4. Lower Footer (Utility) */}
                 <div ref={linksRef} className="w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
 
-                    {/* Brand Column */}
-                    <div className="md:col-span-4 flex flex-col items-start">
+                    {/* Brand Column & Address */}
+                    <div className="md:col-span-5 flex flex-col items-start pr-4">
                         <div className="flex items-center gap-2 mb-6">
-                            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-lg">
-                                O
-                            </div>
-                            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">Orbit</span>
+                            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">Orbit Wallet</span>
                         </div>
-                        <p className="text-white/50 mb-8 max-w-xs leading-relaxed text-left">
-                            The operating system for national mobility and unified payments.
-                        </p>
+
+                        {/* Address */}
+                        <div className="text-white/50 text-sm leading-relaxed mb-6 font-light">
+                            <p className="font-medium text-white/70 mb-2">Registered Office:</p>
+                            <p>1241, 1st Floor, 18th cross road,<br />5th main road, Sector-7,<br />HSR Layout, Bengaluru 560102</p>
+                        </div>
+
+                        {/* Contact Info */}
+                        <div className="flex flex-col gap-2 mb-8 text-sm text-white/60">
+                            <a href="tel:+917676354969" className="hover:text-white transition-colors">+91 7676354969</a>
+                            <a href="mailto:contact@orbitwallet.in" className="hover:text-white transition-colors">contact@orbitwallet.in</a>
+                        </div>
+
                         <div className="flex gap-4">
-                            {/* Social Icons (Placeholders) */}
-                            <div className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 transition-colors flex items-center justify-center cursor-pointer border border-white/5">
-                                <span className="sr-only">Twitter</span>
-                                <svg className="w-4 h-4 text-white/70" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
-                            </div>
-                            <div className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 transition-colors flex items-center justify-center cursor-pointer border border-white/5">
+                            {/* Instagram */}
+                            <a href="https://www.instagram.com/orbit.wallet/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 transition-colors flex items-center justify-center cursor-pointer border border-white/5">
+                                <span className="sr-only">Instagram</span>
+                                <svg className="w-4 h-4 text-white/70" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+                            </a>
+                            {/* LinkedIn */}
+                            <a href="https://www.linkedin.com/company/orbit-wallet/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 transition-colors flex items-center justify-center cursor-pointer border border-white/5">
                                 <span className="sr-only">LinkedIn</span>
                                 <svg className="w-4 h-4 text-white/70" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                            </div>
+                            </a>
                         </div>
                     </div>
 
-                    {/* Links Columns */}
-                    <div className="md:col-span-2 text-left">
-                        <h4 className="text-white font-semibold mb-6">Product</h4>
-                        <ul className="space-y-4 text-white/60">
-                            <li className="hover:text-white transition-colors cursor-pointer">Interoperability</li>
-                            <li className="hover:text-white transition-colors cursor-pointer">NCMC Card</li>
-                            <li className="hover:text-white transition-colors cursor-pointer">Unified Ledger</li>
-                            <li className="hover:text-white transition-colors cursor-pointer">Rewards</li>
-                        </ul>
-                    </div>
+                    {/* Company Links */}
                     <div className="md:col-span-2 text-left">
                         <h4 className="text-white font-semibold mb-6">Company</h4>
                         <ul className="space-y-4 text-white/60">
-                            <li className="hover:text-white transition-colors cursor-pointer">About Orbit</li>
-                            <li className="hover:text-white transition-colors cursor-pointer">Careers</li>
-                            <li className="hover:text-white transition-colors cursor-pointer">Press</li>
-                            <li className="hover:text-white transition-colors cursor-pointer">Contact</li>
-                        </ul>
-                    </div>
-                    <div className="md:col-span-2 text-left">
-                        <h4 className="text-white font-semibold mb-6">Legal</h4>
-                        <ul className="space-y-4 text-white/60">
-                            <li className="hover:text-white transition-colors cursor-pointer">Privacy Policy</li>
-                            <li className="hover:text-white transition-colors cursor-pointer">Terms of Service</li>
-                            <li className="hover:text-white transition-colors cursor-pointer">Security</li>
-                            <li className="hover:text-white transition-colors cursor-pointer">Compliance</li>
+                            <li className="hover:text-white transition-colors">
+                                <a href="https://www.orbitwallet.in/" target="_blank" rel="noopener noreferrer">About Us</a>
+                            </li>
+                            <li className="hover:text-white transition-colors">
+                                <Link to="/blog">Blogs</Link>
+                            </li>
                         </ul>
                     </div>
 
-                    {/* CTA Column */}
+                    {/* Important Links */}
+                    <div className="md:col-span-3 text-left">
+                        <h4 className="text-white font-semibold mb-6">Important Links</h4>
+                        <ul className="space-y-4 text-white/60">
+                            <li className="hover:text-white transition-colors">
+                                <a href="https://orbitwallet.notion.site/Privacy-Policy-03a80c22b72f4b53b057bd4965015142" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                            </li>
+                            <li className="hover:text-white transition-colors">
+                                <a href="https://orbitwallet.notion.site/Terms-Conditions-71db29ea149e443e92516e2e8499969c" target="_blank" rel="noopener noreferrer">Terms and Conditions</a>
+                            </li>
+                            <li className="hover:text-white transition-colors">
+                                <a href="https://orbitwallet.notion.site/Pricing-Fees-Terms-b7b16445650c416dacd1a0d780501162" target="_blank" rel="noopener noreferrer">Pricing and Fees</a>
+                            </li>
+                            <li className="hover:text-white transition-colors">
+                                <a href="https://orbitwallet.notion.site/Refund-Policy-53bd02d3ae7f4ee8a9de8860d7dfe9d5" target="_blank" rel="noopener noreferrer">Refund Policy</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* App Store CTA */}
                     <div className="md:col-span-2 flex flex-col items-start md:items-end">
-                        <h4 className="text-white font-semibold mb-6 opacity-0 md:opacity-100">Action</h4>
-                        <button className="group relative px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full transition-all duration-300 flex items-center gap-2">
+                        <h4 className="text-white font-semibold mb-6 opacity-0 md:opacity-100">Download</h4>
+                        <a href="https://apps.apple.com/in/app/orbit-wallet/id6480415069" target="_blank" rel="noopener noreferrer" className="group relative px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full transition-all duration-300 flex items-center gap-2">
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70 font-medium">Get Orbit</span>
                             <ArrowUpRight className="w-4 h-4 text-white/70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                             <div className="absolute inset-0 rounded-full ring-1 ring-white/20 group-hover:ring-white/40 transition-all duration-500"></div>
-                        </button>
+                        </a>
                     </div>
 
                 </div>
 
-                <div className="mt-20 text-center text-white/20 text-xs tracking-wider">
-                    © 2024 ORBIT TECHNOLOGIES. RUNNING ON INDIAN INFRASTRUCTURE.
+                <div className="mt-20 flex flex-col md:flex-row items-center justify-between text-white/20 text-xs tracking-wider gap-4">
+                    <p>Copyright © 2026 Sakaera Technologies Pvt. Ltd.</p>
+                    <p>Made with ❤️ in India</p>
                 </div>
 
             </div>

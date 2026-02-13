@@ -88,8 +88,9 @@ export default function Navbar() {
 
     const links = [
         { name: 'About Us', href: '/about', internal: true },
-        { name: 'Investors', href: 'https://www.orbitwallet.in/investors/', internal: false },
-        { name: 'Blogs', href: 'https://www.orbitwallet.in/blogs/', internal: false },
+        { name: 'Features', href: '/features', internal: true },
+        { name: 'NCMC Documentation', href: '/ncmc-documentation', internal: true },
+        { name: 'Blogs', href: '/blog', internal: true },
         { name: 'Contact Us', href: 'mailto:contact@orbitwallet.in', internal: false },
     ];
 
@@ -134,7 +135,7 @@ export default function Navbar() {
             <Link ref={ref} to={href} className={className}>
                 <span className="relative z-10 inline-block transition-transform duration-300 group-hover:scale-[1.02]">{children}</span>
                 <span className={cn(
-                    "absolute inset-x-0 bottom-0 h-0.5 bg-cyan-400 transform origin-left transition-transform duration-300",
+                    "absolute inset-x-0 bottom-0 h-0.5 bg-[#22075e] transform origin-left transition-transform duration-300",
                     isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                 )} />
             </Link>

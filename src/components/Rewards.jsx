@@ -45,65 +45,16 @@ export default function Rewards() {
             "-=0.5"
         );
 
-        // Step 3: Numbers Burst
-        // Select all stat-number classes inside pods (Scoped)
-        const numbers = gsap.utils.toArray('.stat-number', sectionRef.current);
-        numbers.forEach((num) => {
-            const target = parseFloat(num.getAttribute('data-target'));
-            const isPercent = num.innerText.includes('%');
-            const prefix = num.innerText.includes('₹') ? '₹' : '';
 
-            gsap.fromTo(num,
-                { innerText: 0, scale: 0.65, opacity: 0 },
-                {
-                    innerText: target,
-                    scale: 1,
-                    opacity: 1,
-                    duration: 1.5,
-                    snap: { innerText: 1 },
-                    ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: num,
-                        start: "top 85%",
-                        toggleActions: "play none none reverse"
-                    },
-                    onUpdate: function () {
-                        if (this.targets()[0]) {
-                            this.targets()[0].innerText = prefix + Math.ceil(this.targets()[0].innerText) + (isPercent ? "%" : "");
-                        }
-                    }
-                }
-            );
-        });
 
     }, { scope: sectionRef });
 
     return (
         <section
             ref={sectionRef}
-            className="relative min-h-screen flex flex-col items-center pt-32 pb-24 overflow-hidden bg-gradient-to-b from-slate-50 to-white"
+            className="relative min-h-screen flex flex-col items-center pt-32 pb-24 overflow-hidden bg-[#fcfdfe]"
         >
-            {/* Gradient Wave Background (Updated Colors & Blur) */}
-            <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-                {/* Main animated gradient orb 1 - Soft Purple */}
-                <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-purple-200/30 blur-[150px] animate-pulse" style={{ animationDuration: '8s' }}></div>
 
-                {/* Main animated gradient orb 2 - Subtle Slate/Blue Mix */}
-                <div className="absolute top-[20%] right-[-10%] w-[70%] h-[70%] rounded-full bg-slate-200/40 blur-[180px] animate-pulse" style={{ animationDuration: '10s', animationDelay: '1s' }}></div>
-
-                {/* Main animated gradient orb 3 (The Wave) - White/Purple Flow */}
-                <div className="absolute bottom-[-10%] left-[20%] w-[90%] h-[60%] rounded-[100%] bg-gradient-to-r from-slate-100 via-purple-50 to-white blur-[130px] opacity-80"></div>
-
-                {/* Wave SVG Overlay for structure with blur */}
-                <div className="absolute bottom-0 left-0 right-0 h-[60%] opacity-30 blur-2xl"
-                    style={{
-                        background: 'radial-gradient(circle at 50% 100%, rgba(200, 200, 255, 0.15) 0%, rgba(255,255,255,0) 70%)'
-                    }}>
-                </div>
-
-                {/* Global Backdrop Blur for "frosted" atmosphere */}
-                <div className="absolute inset-0 backdrop-blur-[2px]"></div>
-            </div>
 
             {/* Noise Overlay (Kept for texture) - Reduced opacity */}
             <div className="absolute inset-0 opacity-[0.015] pointer-events-none mix-blend-multiply"
@@ -140,7 +91,7 @@ export default function Rewards() {
                     </div>
                     <div>
                         <div className="text-4xl font-bold text-slate-900 mb-1 flex items-baseline">
-                            <span className="stat-number" data-target="1">0</span>%
+                            1%
                         </div>
                         <div className="text-sm font-semibold text-blue-600 uppercase tracking-wider">Flat Return</div>
                     </div>
@@ -159,7 +110,7 @@ export default function Rewards() {
                     </div>
                     <div>
                         <div className="text-4xl font-bold text-slate-900 mb-1 flex items-baseline">
-                            Up to <span className="stat-number ml-2" data-target="30">0</span>%
+                            Up to <span className="ml-2">30</span>%
                         </div>
                         <div className="text-sm font-semibold text-indigo-600 uppercase tracking-wider">Off Rides</div>
                     </div>
@@ -176,7 +127,7 @@ export default function Rewards() {
                     </div>
                     <div>
                         <div className="text-4xl font-bold text-slate-900 mb-1 flex items-baseline">
-                            <span className="stat-number" data-target="100">0</span>
+                            100
                         </div>
                         <div className="text-sm font-semibold text-amber-600 uppercase tracking-wider">Per Friend</div>
                     </div>

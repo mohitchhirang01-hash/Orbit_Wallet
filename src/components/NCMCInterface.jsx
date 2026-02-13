@@ -82,7 +82,7 @@ export default function NCMCInterface() {
 
                 {/* Video Container (No Phone Frame) */}
                 {/* To change size: Adjust w-[300px] and h-[550px] below */}
-                <div ref={phoneRef} className="relative w-[250px] h-[550px] md:w-[302px] md:h-[550px] rounded-3xl overflow-hidden shadow-2xl shadow-purple-500/20 z-20 group">
+                <div ref={phoneRef} className="relative w-[250px] h-[550px] md:w-[302px] md:h-[550px] rounded-3xl overflow-hidden shadow-2xl shadow-[#22075e]/20 z-20 group">
                     <video
                         ref={videoRef}
                         src="/assets/ncmc_vid.mp4"
@@ -103,7 +103,7 @@ export default function NCMCInterface() {
                     ref={addToTagsRef}
                     className="absolute left-4 md:left-12 top-1/4 bg-white px-4 py-2.5 rounded-full shadow-lg shadow-slate-200/50 border border-slate-100 flex items-center gap-2 z-30"
                 >
-                    <div className="w-6 h-6 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 text-xs">💳</div>
+                    <div className="w-6 h-6 rounded-full bg-[#22075e]/10 flex items-center justify-center text-[#22075e] text-xs">💳</div>
                     <span className="text-xs font-semibold text-slate-700">Manage Balance</span>
                 </div>
 
@@ -126,7 +126,7 @@ export default function NCMCInterface() {
                 </div>
 
                 {/* Background Glow */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-purple-500/10 blur-[120px] rounded-full z-0"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-[#22075e]/10 blur-[120px] rounded-full z-0"></div>
                 <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-blue-100/20 blur-[100px] rounded-full z-0 pointer-events-none"></div>
             </div>
 
@@ -135,7 +135,7 @@ export default function NCMCInterface() {
                 <div ref={textRef} className="max-w-lg">
                     {/* Eyebrow */}
                     <div className="inline-block mb-6">
-                        <span className="px-4 py-1.5 rounded-full bg-[#6C63FF]/10 text-[#6C63FF] text-xs font-bold tracking-widest uppercase border border-[#6C63FF]/20">
+                        <span className="px-4 py-1.5 rounded-full bg-[#22075e]/10 text-[#22075e] text-xs font-bold tracking-widest uppercase border border-[#22075e]/20">
                             NCMC Interface
                         </span>
                     </div>
@@ -143,7 +143,7 @@ export default function NCMCInterface() {
                     {/* Heading */}
                     <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold font-bricolage leading-[1.1] mb-6 text-slate-900">
                         Already Have a RuPay NCMC Card? <br className="hidden md:block" />
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#6C63FF] to-[#7C72FF]">
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#22075e] to-[#1a0548]">
                             Give It a Superpower.
                         </span>
                     </h2>
@@ -157,7 +157,7 @@ export default function NCMCInterface() {
                     {/* CTA Button (Optional enhancement) */}
                     <button className="group relative inline-flex items-center justify-center px-8 py-3 bg-slate-900 text-white rounded-full overflow-hidden transition-transform active:scale-95">
                         <span className="relative z-10 font-semibold tracking-wide">Explore Features</span>
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#6C63FF] to-[#7C72FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#22075e] to-[#1a0548] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </button>
                 </div>
             </div>

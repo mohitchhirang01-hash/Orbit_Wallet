@@ -114,8 +114,6 @@ export default function Unification() {
                     alt="Orbit Wallet connecting India"
                     className="w-full h-full object-cover object-center"
                 />
-                {/* Gradient overlay for text readability */}
-                <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/40 to-white/70" />
             </div>
 
             {/* Animated Connection Rays SVG Overlay */}
@@ -135,7 +133,7 @@ export default function Unification() {
 
                     <linearGradient id="ray-gradient-2" x1="0%" y1="0%" x2="100%" y2="0%">
                         <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.7" />
-                        <stop offset="50%" stopColor="#6366F1" stopOpacity="0.8" />
+                        <stop offset="50%" stopColor="#22075e" stopOpacity="0.8" />
                         <stop offset="100%" stopColor="#EC4899" stopOpacity="0.6" />
                     </linearGradient>
 
@@ -279,11 +277,11 @@ export default function Unification() {
 
             {/* Subtle Purple Glow Background */}
             <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none z-[2]">
-                <div className="w-full h-full rounded-full bg-gradient-radial from-[#6C5CE7]/10 to-transparent blur-3xl" />
+                <div className="w-full h-full rounded-full bg-gradient-radial from-[#22075e]/10 to-transparent blur-3xl" />
             </div>
 
             {/* Main Layout Container */}
-            <div className="relative w-full h-full flex items-center justify-end px-8 md:px-16 z-20">
+            <div className="relative w-full h-full flex items-center justify-end px-8 md:px-16 z-40">
 
                 {/* Centered Text Content */}
                 <div className="relative w-full max-w-4xl h-full flex flex-col items-end justify-center text-right">
@@ -293,11 +291,11 @@ export default function Unification() {
                         className="font-bricolage font-bold text-4xl md:text-6xl mb-8 leading-tight"
                     >
                         <BlurText text="One" className="text-[#0B0B0F]" animateBy="chars" />{' '}
-                        <BlurText text="Nation" className="text-[#6C5CE7]" animateBy="chars" delay={0.1} />.{' '}
+                        <BlurText text="Nation" className="text-[#22075e]" animateBy="chars" delay={0.1} />.{' '}
                         <BlurText text="One" className="text-[#0B0B0F]" animateBy="chars" delay={0.2} />{' '}
-                        <BlurText text="Card" className="text-[#6C5CE7]" animateBy="chars" delay={0.3} />.<br />
+                        <BlurText text="Card" className="text-[#22075e]" animateBy="chars" delay={0.3} />.<br />
                         <BlurText text="Zero" className="text-[#0B0B0F]" animateBy="chars" delay={0.4} />{' '}
-                        <BlurText text="Friction" className="text-[#6C5CE7]" animateBy="chars" delay={0.5} />.
+                        <BlurText text="Friction" className="text-[#22075e]" animateBy="chars" delay={0.5} />.
                     </h2>
 
                     {/* Supporting Copy */}

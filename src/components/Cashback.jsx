@@ -66,7 +66,7 @@ export default function Cashback() {
                 <div ref={gridRef} className="grid md:grid-cols-3 gap-12">
                     {[
                         { label: "Cashback on Commute", value: 5, suffix: "%", color: "from-blue-400 to-indigo-500" },
-                        { label: "Partner Brands", value: 30, suffix: "+", color: "from-purple-400 to-pink-500" },
+                        { label: "Partner Brands", value: 30, suffix: "+", color: "from-[#22075e] to-pink-500" },
                         { label: "Annual Savings", value: 12000, prefix: "₹", color: "from-emerald-400 to-teal-500" },
                     ].map((stat, i) => (
                         <div key={i} className="relative group p-8 rounded-2xl bg-white border border-slate-200 hover:border-transparent transition-all duration-300 hover:-translate-y-2">

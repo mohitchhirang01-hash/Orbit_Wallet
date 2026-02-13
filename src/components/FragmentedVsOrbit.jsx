@@ -4,7 +4,6 @@ import { useGSAP } from '@gsap/react';
 
 const FragmentedVsOrbit = () => {
     const containerRef = useRef(null);
-    const leftTrunkLineRef = useRef(null);
     const leftBranchLinesRef = useRef([]);
     const leftDotsRef = useRef([]);
     const leftLabelsRef = useRef([]);
@@ -22,31 +21,7 @@ const FragmentedVsOrbit = () => {
 
         // --- LEFT SIDE ANIMATION ---
 
-        // 1. Trunk Line (Stop -> Queue)
-        tl.to(leftTrunkLineRef.current, {
-            scaleY: 1,
-            duration: 0.5,
-            ease: "none"
-        }, 0);
 
-        // 2. Trunk Dots (Stop, Queue)
-        // Assuming first 2 dots are trunk
-        const trunkDots = leftDotsRef.current.slice(0, 2);
-        trunkDots.forEach((dot, index) => {
-            tl.to(dot, {
-                scale: 1,
-                autoAlpha: 1,
-                duration: 0.2,
-                ease: "back.out(1.7)",
-                boxShadow: "0 0 0 6px rgba(239,68,68,0.3)"
-            }, index * 0.2);
-
-            tl.to(leftLabelsRef.current[index], {
-                y: 0,
-                autoAlpha: 1,
-                duration: 0.4
-            }, index * 0.2);
-        });
 
         // 3. Branch Lines (Connectors + Vertical)
         // Animate connectors and vertical lines together
@@ -61,8 +36,8 @@ const FragmentedVsOrbit = () => {
         // Remaining dots are branches. 3 branches x 5 steps = 15 dots.
         // Or if we map them by branch index.
         // Let's assume standard order: Trunk(2) -> BranchA(5) -> BranchB(5) -> BranchC(5)
-        const branchDots = leftDotsRef.current.slice(2);
-        const branchLabels = leftLabelsRef.current.slice(2);
+        const branchDots = leftDotsRef.current;
+        const branchLabels = leftLabelsRef.current;
 
         // We have 3 branches, so we animate them simultaneously
         const stepsPerBranch = 5;
@@ -114,7 +89,7 @@ const FragmentedVsOrbit = () => {
                     autoAlpha: 1,
                     duration: 0.2,
                     ease: "back.out(1.7)",
-                    boxShadow: "0 0 20px 5px rgba(147,51,234,0.6)"
+                    boxShadow: "0 0 20px 5px #22075e"
                 }, startTime);
 
                 tl.to(rightLabelsRef.current[index + 1], {
@@ -148,7 +123,7 @@ const FragmentedVsOrbit = () => {
     };
 
     // Data points
-    const trunkSteps = ['Stop', 'Queue'];
+    const trunkSteps = ['', ''];
     const branchSteps = ['Recharge', 'Wait', 'Find AVM', 'Tap', 'Stop'];
 
     return (
@@ -160,7 +135,7 @@ const FragmentedVsOrbit = () => {
             <div className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 bg-slate-200 z-10"></div>
 
             {/* --- LEFT SIDE: THE OLD WAY --- */}
-            <div className="left-side-container flex flex-col items-center justify-center p-4 relative z-20 h-full w-full">
+            <div className="left-side-container flex flex-col items-center justify-center p-4 relative z-40 h-full w-full">
                 <div className="w-full max-w-2xl mx-auto h-full flex flex-col justify-center">
                     <h3 className="text-[clamp(24px,2.5vw,42px)] font-bold font-bricolage tracking-tight mb-8 text-center text-slate-900">
                         The <span className="text-red-500">Old Way</span>
@@ -169,30 +144,7 @@ const FragmentedVsOrbit = () => {
                     {/* Diagram Container */}
                     <div className="relative flex flex-col items-center h-[70vh] w-full">
 
-                        {/* TRUNK SECTION */}
-                        <div className="relative flex flex-col items-center w-full h-[15%]">
-                            {/* Trunk Line */}
-                            <div
-                                ref={leftTrunkLineRef}
-                                className="absolute top-0 bottom-0 w-[3px] bg-red-500 origin-top scale-y-0 rounded-t-full"
-                            ></div>
 
-                            {/* Trunk Steps */}
-                            {trunkSteps.map((step, i) => (
-                                <div key={`trunk-${i}`} className="relative w-full flex items-center justify-center flex-1">
-                                    <div
-                                        ref={el => addToRefs(el, leftDotsRef)}
-                                        className="w-[12px] h-[12px] rounded-full bg-red-500 z-20 opacity-0 scale-0 shadow-md"
-                                    ></div>
-                                    <div
-                                        ref={el => addToRefs(el, leftLabelsRef)}
-                                        className="absolute left-[calc(50%+16px)] text-sm font-medium text-slate-500 whitespace-nowrap opacity-0 translate-y-1"
-                                    >
-                                        {step}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
 
                         {/* CONNECTOR LINES (Using SVG) */}
                         <div className="w-full h-[60px] relative -mt-[2px] z-0">
@@ -265,17 +217,17 @@ const FragmentedVsOrbit = () => {
             </div>
 
             {/* --- RIGHT SIDE: THE ORBIT WAY (Same as before) --- */}
-            <div className="right-side-container flex flex-col items-center justify-center p-[6vw] relative h-full bg-slate-50">
+            <div className="right-side-container flex flex-col items-center justify-center p-[6vw] relative z-40 h-full bg-slate-50">
                 <div className="w-full max-w-md mx-auto h-full flex flex-col justify-center">
                     <h3 className="text-[clamp(32px,3vw,52px)] font-bold font-bricolage tracking-tight mb-12 text-center text-slate-900">
-                        The <span className="text-purple-600">Orbit Way</span>
+                        The <span className="text-[#22075e]">Orbit Way</span>
                     </h3>
 
                     {/* Diagram Container */}
                     <div className="relative flex flex-col items-center h-[60vh]">
                         <div
                             ref={rightLineRef}
-                            className="absolute top-0 bottom-0 w-[3px] bg-purple-600 origin-top scale-y-0 rounded-full shadow-[0_0_15px_rgba(147,51,234,0.4)]"
+                            className="absolute top-0 bottom-0 w-[3px] bg-[#22075e] origin-top scale-y-0 rounded-full shadow-[0_0_15px_rgba(147,51,234,0.4)]"
                         ></div>
 
                         {['Enter', 'Tap', 'Exit'].map((step, i) => (

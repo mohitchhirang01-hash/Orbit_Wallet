@@ -26,7 +26,7 @@ export default function TransitBackground() {
                 vx: (Math.random() - 0.5) * 2,
                 vy: (Math.random() - 0.5) * 2,
                 length: Math.random() * 100 + 50,
-                color: Math.random() > 0.5 ? '#00D1FF' : '#6366F1'
+                color: Math.random() > 0.5 ? '#00D1FF' : '#22075e'
             });
         }
 
