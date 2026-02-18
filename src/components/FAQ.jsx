@@ -110,7 +110,7 @@ const FAQ = () => {
                                 className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition-colors"
                                 aria-expanded={openIndex === index}
                             >
-                                <h3 className="text-lg font-semibold text-slate-900 pr-4">
+                                <h3 className="text-lg font-semibold text-slate-900 pr-4 font-bricolage">
                                     {faq.question}
                                 </h3>
                                 {openIndex === index ? (

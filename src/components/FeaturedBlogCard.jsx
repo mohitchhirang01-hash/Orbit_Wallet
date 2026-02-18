@@ -42,7 +42,7 @@ const FeaturedBlogCard = ({ article }) => {
                         </div>
 
                         {/* Title */}
-                        <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-[#22075e] transition-colors duration-300">
+                        <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-[#22075e] transition-colors duration-300 font-bricolage">
                             {article.title}
                         </h2>
 

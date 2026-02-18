@@ -180,7 +180,7 @@ const NCMCDocumentation = () => {
                         <aside className="lg:col-span-3">
                             <div className="lg:sticky lg:top-24">
                                 <nav className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-                                    <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">
+                                    <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 font-bricolage">
                                         Table of Contents
                                     </h3>
                                     <ul className="space-y-2">
@@ -217,7 +217,7 @@ const NCMCDocumentation = () => {
                                         </p>
 
                                         <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm mb-6">
-                                            <h3 className="text-xl font-semibold text-slate-900 mb-4">NCMC allows users to:</h3>
+                                            <h3 className="text-xl font-semibold text-slate-900 mb-4 font-bricolage">NCMC allows users to:</h3>
                                             <ul className="space-y-2 text-slate-700">
                                                 <li className="flex items-start gap-2">
                                                     <span className="text-[#22075e] mt-1">•</span>
@@ -249,7 +249,7 @@ const NCMCDocumentation = () => {
                                         <div className="grid md:grid-cols-2 gap-4">
                                             <div className="bg-gradient-to-br from-[#22075e]/10 to-[#22075e]/5 rounded-xl p-6">
                                                 <h4 className="font-semibold text-slate-900 mb-2">Commonly Known As</h4>
-                                                <p className="text-[#22075e] font-bold text-lg">"One Nation One Card"</p>
+                                                <p className="text-[#22075e] font-bold text-lg pb-2">"One Nation <br /> One Card"</p>
                                             </div>
                                             <div className="bg-gradient-to-br from-slate-100 to-slate-50 rounded-xl p-6">
                                                 <h4 className="font-semibold text-slate-900 mb-2">Launched Under</h4>
@@ -267,7 +267,7 @@ const NCMCDocumentation = () => {
                                     </h2>
                                     <div className="space-y-6">
                                         <div className="bg-red-50 border-l-4 border-red-500 rounded-r-xl p-6">
-                                            <h3 className="text-xl font-semibold text-slate-900 mb-3">The Problem</h3>
+                                            <h3 className="text-xl font-semibold text-slate-900 mb-3 font-bricolage">The Problem</h3>
                                             <p className="text-slate-700 mb-4">India's transit systems historically operated in silos:</p>
                                             <ul className="space-y-2 text-slate-700">
                                                 <li className="flex items-start gap-2">
@@ -290,7 +290,7 @@ const NCMCDocumentation = () => {
                                         </div>
 
                                         <div className="bg-green-50 border-l-4 border-green-500 rounded-r-xl p-6">
-                                            <h3 className="text-xl font-semibold text-slate-900 mb-3">The Solution</h3>
+                                            <h3 className="text-xl font-semibold text-slate-900 mb-3 font-bricolage">The Solution</h3>
                                             <p className="text-slate-700 mb-4">NCMC solves:</p>
                                             <ul className="space-y-2 text-slate-700">
                                                 <li className="flex items-start gap-2">
@@ -313,7 +313,7 @@ const NCMCDocumentation = () => {
                                         </div>
 
                                         <div className="bg-[#22075e] text-white rounded-xl p-6">
-                                            <h3 className="text-xl font-semibold mb-2">Goal</h3>
+                                            <h3 className="text-xl font-semibold mb-2 font-bricolage">Goal</h3>
                                             <p className="text-purple-100 text-lg">
                                                 Create an open-loop, bank-issued, interoperable card usable across cities and systems.
                                             </p>
@@ -346,7 +346,7 @@ const NCMCDocumentation = () => {
                                     {/* Architecture Components */}
                                     <div className="grid md:grid-cols-2 gap-6">
                                         <div className="stagger-item bg-white rounded-xl p-6 border border-slate-200 hover:shadow-lg transition-shadow">
-                                            <h3 className="text-lg font-bold text-slate-900 mb-3">EMV Contactless Standard</h3>
+                                            <h3 className="text-lg font-bold text-slate-900 mb-3 font-bricolage">EMV Contactless Standard</h3>
                                             <ul className="space-y-2 text-slate-700 text-sm">
                                                 <li>• Based on RuPay</li>
                                                 <li>• ISO/IEC 14443</li>
@@ -355,7 +355,7 @@ const NCMCDocumentation = () => {
                                         </div>
 
                                         <div className="stagger-item bg-white rounded-xl p-6 border border-slate-200 hover:shadow-lg transition-shadow">
-                                            <h3 className="text-lg font-bold text-slate-900 mb-3">Open-Loop System</h3>
+                                            <h3 className="text-lg font-bold text-slate-900 mb-3 font-bricolage">Open-Loop System</h3>
                                             <ul className="space-y-2 text-slate-700 text-sm">
                                                 <li>• Bank-issued</li>
                                                 <li>• Works across merchants</li>
@@ -364,7 +364,7 @@ const NCMCDocumentation = () => {
                                         </div>
 
                                         <div className="stagger-item bg-white rounded-xl p-6 border border-slate-200 hover:shadow-lg transition-shadow">
-                                            <h3 className="text-lg font-bold text-slate-900 mb-3">Offline Transaction Capability</h3>
+                                            <h3 className="text-lg font-bold text-slate-900 mb-3 font-bricolage">Offline Transaction Capability</h3>
                                             <ul className="space-y-2 text-slate-700 text-sm">
                                                 <li>• Essential for metro turnstiles</li>
                                                 <li>• Fast tap (&lt;300 ms)</li>
@@ -373,7 +373,7 @@ const NCMCDocumentation = () => {
                                         </div>
 
                                         <div className="stagger-item bg-white rounded-xl p-6 border border-slate-200 hover:shadow-lg transition-shadow">
-                                            <h3 className="text-lg font-bold text-slate-900 mb-3">Clearing & Settlement</h3>
+                                            <h3 className="text-lg font-bold text-slate-900 mb-3 font-bricolage">Clearing & Settlement</h3>
                                             <ul className="space-y-2 text-slate-700 text-sm">
                                                 <li>• NPCI manages switching</li>
                                                 <li>• T+1 or defined cycle settlement</li>
@@ -396,7 +396,7 @@ const NCMCDocumentation = () => {
                                             { name: 'Co-branded Metro Cards', desc: 'Partnership cards with metro operators' }
                                         ].map((card, i) => (
                                             <div key={i} className="stagger-item bg-white rounded-xl p-6 border border-slate-200 hover:border-[#22075e]/30 transition-all">
-                                                <h3 className="font-bold text-slate-900 mb-2">{card.name}</h3>
+                                                <h3 className="font-bold text-slate-900 mb-2 font-bricolage">{card.name}</h3>
                                                 <p className="text-slate-600 text-sm">{card.desc}</p>
                                             </div>
                                         ))}
@@ -485,14 +485,14 @@ const NCMCDocumentation = () => {
                                             { title: 'Fraud Detection', desc: 'Real-time monitoring and alerts' }
                                         ].map((item, i) => (
                                             <div key={i} className="stagger-item bg-white rounded-xl p-6 border border-slate-200 hover:shadow-lg transition-shadow">
-                                                <h3 className="font-bold text-slate-900 mb-2">{item.title}</h3>
+                                                <h3 className="font-bold text-slate-900 mb-2 font-bricolage">{item.title}</h3>
                                                 <p className="text-slate-600 text-sm">{item.desc}</p>
                                             </div>
                                         ))}
                                     </div>
 
                                     <div className="mt-6 bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-6">
-                                        <h3 className="font-bold text-slate-900 mb-2">Offline Risk Management</h3>
+                                        <h3 className="font-bold text-slate-900 mb-2 font-bricolage">Offline Risk Management</h3>
                                         <p className="text-slate-700">
                                             NCMC implements sophisticated offline risk management rules to balance transaction speed with security, including transaction limits and cumulative offline spend tracking.
                                         </p>
@@ -516,7 +516,7 @@ const NCMCDocumentation = () => {
                                         ].map((useCase, i) => (
                                             <div key={i} className="stagger-item bg-white rounded-xl p-6 border border-slate-200 hover:border-[#22075e]/30 hover:shadow-lg transition-all">
                                                 <div className="text-4xl mb-3">{useCase.icon}</div>
-                                                <h3 className="font-bold text-slate-900 mb-2">{useCase.title}</h3>
+                                                <h3 className="font-bold text-slate-900 mb-2 font-bricolage">{useCase.title}</h3>
                                                 <p className="text-slate-600 text-sm">{useCase.desc}</p>
                                             </div>
                                         ))}
@@ -532,7 +532,7 @@ const NCMCDocumentation = () => {
                                     <div className="grid md:grid-cols-2 gap-8">
                                         {/* For Citizens */}
                                         <div className="space-y-4">
-                                            <h3 className="text-xl font-bold text-slate-900 mb-4">For Citizens</h3>
+                                            <h3 className="text-xl font-bold text-slate-900 mb-4 font-bricolage">For Citizens</h3>
                                             {[
                                                 'One card nationwide',
                                                 'No multiple recharges',
@@ -548,7 +548,7 @@ const NCMCDocumentation = () => {
 
                                         {/* For Operators */}
                                         <div className="space-y-4">
-                                            <h3 className="text-xl font-bold text-slate-900 mb-4">For Operators</h3>
+                                            <h3 className="text-xl font-bold text-slate-900 mb-4 font-bricolage">For Operators</h3>
                                             {[
                                                 'Reduced operational overhead',
                                                 'Interoperable infrastructure',
@@ -564,7 +564,7 @@ const NCMCDocumentation = () => {
 
                                         {/* For Government */}
                                         <div className="space-y-4 md:col-span-2">
-                                            <h3 className="text-xl font-bold text-slate-900 mb-4">For Government</h3>
+                                            <h3 className="text-xl font-bold text-slate-900 mb-4 font-bricolage">For Government</h3>
                                             <div className="grid md:grid-cols-3 gap-4">
                                                 {[
                                                     'Unified infrastructure',
@@ -643,7 +643,7 @@ const NCMCDocumentation = () => {
                                                 { title: 'AI-Powered Routing', desc: 'Smart journey planning with integrated payment' }
                                             ].map((item, i) => (
                                                 <div key={i} className="stagger-item bg-gradient-to-br from-[#22075e]/5 to-transparent rounded-xl p-6 border border-[#22075e]/20">
-                                                    <h3 className="font-bold text-slate-900 mb-2">{item.title}</h3>
+                                                    <h3 className="font-bold text-slate-900 mb-2 font-bricolage">{item.title}</h3>
                                                     <p className="text-slate-600 text-sm">{item.desc}</p>
                                                 </div>
                                             ))}

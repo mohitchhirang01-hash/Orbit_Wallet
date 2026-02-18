@@ -36,7 +36,7 @@ export default function Hero() {
             </div>
 
             {/* Hero Content Container */}
-            <div className="relative z-40 w-full flex flex-col items-center justify-center gap-8 px-4 mt-7 pt-16">
+            <div className="relative z-40 w-full flex flex-col items-center justify-center gap-8 px-4 mt-7 pt-24 md:pt-26">
 
                 {/* Premium Fintech Heading */}
                 <div className="relative max-w-[1100px] mx-auto text-center">
@@ -51,14 +51,8 @@ export default function Hero() {
                         {/* Line 1 with reveal wrapper */}
                         <div className="overflow-hidden">
                             <span ref={line1Ref} className="inline-block">
-                                <BlurText text="The Pulse of a Nation in" animateBy="words" triggerOnMount={true} delay={0.3} />
-                            </span>
-                        </div>
-
-                        {/* Line 2 with gradient keyword */}
-                        <div className="overflow-hidden">
-                            <span ref={line2Ref} className="inline-block">
-                                <span className="bg-gradient-to-r from-[#5aa7ff] to-[#7c5cff] font-bold bg-clip-text text-transparent">Motion</span>.
+                                <span className="text-slate-900">Movement</span>{" "}
+                                <span className="bg-gradient-to-r from-[#5aa7ff] to-[#22075e] font-bold bg-clip-text text-transparent">Unlocked</span>.
                             </span>
                         </div>
                     </h1>

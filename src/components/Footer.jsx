@@ -86,7 +86,7 @@ const Footer = () => {
                     <div className="w-full relative z-20 flex flex-col items-start text-left">
                         <h2
                             ref={headingRef}
-                            className="font-bold tracking-tight leading-[0.9] mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/70"
+                            className="font-bold tracking-tight leading-[0.9] mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/70 font-bricolage"
                             style={{ fontSize: 'clamp(3rem, 6vw, 6rem)', letterSpacing: '-0.03em' }}
                         >
                             A Nation,<br />Already in Orbit.

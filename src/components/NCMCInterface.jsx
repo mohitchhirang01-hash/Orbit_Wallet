@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -75,10 +76,10 @@ export default function NCMCInterface() {
     return (
         <section
             ref={sectionRef}
-            className="w-full h-screen relative overflow-hidden bg-gradient-to-br from-slate-50 to-white text-slate-900 flex flex-col md:flex-row"
+            className="w-full relative overflow-hidden bg-gradient-to-br from-slate-50 to-white text-slate-900 flex flex-col md:flex-row py-16 md:py-24"
         >
             {/* LEFT SIDE: VIDEO SHOWCASE (50%) */}
-            <div className="w-full md:w-1/2 h-1/2 md:h-full relative flex items-center justify-center p-8 md:p-16 bg-slate-100/50">
+            <div className="w-full md:w-1/2 relative flex items-center justify-center p-8 md:p-16">
 
                 {/* Video Container (No Phone Frame) */}
                 {/* To change size: Adjust w-[300px] and h-[550px] below */}
@@ -131,9 +132,8 @@ export default function NCMCInterface() {
             </div>
 
             {/* RIGHT SIDE: CONTENT (50%) */}
-            <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col justify-center px-8 md:px-20 relative z-30">
-                <div ref={textRef} className="max-w-lg">
-                    {/* Eyebrow */}
+            <div className="w-full md:w-1/2 flex flex-col justify-center px-8 md:px-20 relative z-40 pointer-events-none">
+                <div ref={textRef} className="max-w-lg pointer-events-auto">
                     <div className="inline-block mb-6">
                         <span className="px-4 py-1.5 rounded-full bg-[#22075e]/10 text-[#22075e] text-xs font-bold tracking-widest uppercase border border-[#22075e]/20">
                             NCMC Interface
@@ -141,24 +141,24 @@ export default function NCMCInterface() {
                     </div>
 
                     {/* Heading */}
-                    <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold font-bricolage leading-[1.1] mb-6 text-slate-900">
+                    <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold font-bricolage leading-[1.1] mb-10 text-[#22075e]">
                         Already Have a RuPay NCMC Card? <br className="hidden md:block" />
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#22075e] to-[#1a0548]">
+                        <span className="text-black">
                             Give It a Superpower.
                         </span>
                     </h2>
 
                     {/* Description */}
-                    <p className="text-lg text-slate-500 leading-relaxed mb-8">
+                    <p className="text-lg text-slate-600 leading-relaxed mb-8">
                         Orbit acts as the premium frontend for any NCMC card — manage balance,
                         track spends, and claim recharges effortlessly from one intelligent app.
                     </p>
 
-                    {/* CTA Button (Optional enhancement) */}
-                    <button className="group relative inline-flex items-center justify-center px-8 py-3 bg-slate-900 text-white rounded-full overflow-hidden transition-transform active:scale-95">
-                        <span className="relative z-10 font-semibold tracking-wide">Explore Features</span>
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#22075e] to-[#1a0548] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </button>
+                    {/* CTA Button */}
+                    <Link to="/blog" className="group relative inline-flex items-center justify-center px-8 py-3 bg-[#22075e] text-white rounded-full overflow-hidden transition-all hover:shadow-lg hover:shadow-[#22075e]/30 active:scale-95">
+                        <span className="relative z-10 font-semibold tracking-wide">Read Our Blog</span>
+                        <div className="absolute inset-0 bg-[#1a0548] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </Link>
                 </div>
             </div>
         </section>

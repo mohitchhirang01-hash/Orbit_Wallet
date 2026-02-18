@@ -61,7 +61,7 @@ export default function Cashback() {
     return (
         <section ref={containerRef} className="py-32 bg-[var(--orbit-primary)] relative overflow-visible">
             <div className="max-w-7xl mx-auto px-6 text-center relative">
-                <h2 ref={headerRef} className="text-3xl md:text-5xl font-bold mb-16 text-slate-900">Rewards That Grow</h2>
+                <h2 ref={headerRef} className="text-3xl md:text-5xl font-bold mb-16 text-slate-900 font-bricolage">Rewards That Grow</h2>
 
                 <div ref={gridRef} className="grid md:grid-cols-3 gap-12">
                     {[

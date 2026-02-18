@@ -1,1 +1,0 @@
-(binary content - will be handled by upload but simulating save here for the tool call)

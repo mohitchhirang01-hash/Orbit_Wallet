@@ -127,7 +127,7 @@ export default function AppIntegration() {
                     <span>NCMC Enabled</span>
                 </div>
 
-                <h2 className="text-4xl font-bold leading-tight text-slate-900">
+                <h2 className="text-4xl font-bold leading-tight text-slate-900 font-bricolage">
                     Your Phone is Now <br /> Your Wallet.
                 </h2>
                 <p className="text-lg text-slate-600">

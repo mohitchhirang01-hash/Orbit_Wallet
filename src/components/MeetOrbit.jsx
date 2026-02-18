@@ -70,9 +70,9 @@ export default function MeetOrbit() {
                     </p>
                 </div>
 
-                {/* Closing Statement - Black text with purple period */}
+                {/* Closing Statement - Blue text with purple period */}
                 <div className="meet-orbit-closing">
-                    <p className="text-[#0B0B0F] text-xl md:text-2xl font-semibold font-inter">
+                    <p className="text-[#22075e] text-xl md:text-2xl font-semibold font-inter">
                         Orbit brings the entire Indian infrastructure under one single tap
                         <span className="text-[#22075e]">.</span>
                     </p>

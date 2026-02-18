@@ -162,10 +162,10 @@ export default function Unification() {
                     Adjust control points (C commands) to modify curve shape
                 */}
 
-                {/* Ray 1: Card → Delhi (North) */}
+                {/* Ray 1: Card → North-ish */}
                 <path
                     className="connection-ray"
-                    d="M 400 540 C 700 400, 900 350, 1200 420"
+                    d="M 400 540 C 500 500, 700 450, 900 480"
                     fill="none"
                     stroke="url(#ray-gradient-1)"
                     strokeWidth="2.5"
@@ -176,10 +176,10 @@ export default function Unification() {
                     opacity="0"
                 />
 
-                {/* Ray 2: Card → Mumbai (West) */}
+                {/* Ray 2: Card → West-ish */}
                 <path
                     className="connection-ray"
-                    d="M 400 540 C 650 480, 850 520, 1100 580"
+                    d="M 400 540 C 500 520, 700 540, 850 560"
                     fill="none"
                     stroke="url(#ray-gradient-2)"
                     strokeWidth="2.5"
@@ -190,10 +190,10 @@ export default function Unification() {
                     opacity="0"
                 />
 
-                {/* Ray 3: Card → Bengaluru (South) */}
+                {/* Ray 3: Card → South-ish */}
                 <path
                     className="connection-ray"
-                    d="M 400 540 C 700 600, 950 650, 1250 720"
+                    d="M 400 540 C 500 580, 650 640, 800 660"
                     fill="none"
                     stroke="url(#ray-gradient-3)"
                     strokeWidth="2.5"
@@ -204,10 +204,10 @@ export default function Unification() {
                     opacity="0"
                 />
 
-                {/* Ray 4: Card → Chennai (Southeast) */}
+                {/* Ray 4: Card → Southeast-ish */}
                 <path
                     className="connection-ray"
-                    d="M 400 540 C 750 580, 1000 620, 1350 700"
+                    d="M 400 540 C 550 580, 750 630, 900 650"
                     fill="none"
                     stroke="url(#ray-gradient-1)"
                     strokeWidth="2.5"
@@ -218,10 +218,10 @@ export default function Unification() {
                     opacity="0"
                 />
 
-                {/* Ray 5: Card → Kolkata (East) */}
+                {/* Ray 5: Card → East-ish (Shortened) */}
                 <path
                     className="connection-ray"
-                    d="M 400 540 C 800 480, 1100 450, 1400 520"
+                    d="M 400 540 C 550 530, 750 500, 950 520"
                     fill="none"
                     stroke="url(#ray-gradient-2)"
                     strokeWidth="2.5"
@@ -232,10 +232,10 @@ export default function Unification() {
                     opacity="0"
                 />
 
-                {/* Ray 6: Card → Hyderabad (Central) */}
+                {/* Ray 6: Card → Central-ish */}
                 <path
                     className="connection-ray"
-                    d="M 400 540 C 720 560, 950 580, 1280 640"
+                    d="M 400 540 C 550 540, 700 560, 850 580"
                     fill="none"
                     stroke="url(#ray-gradient-3)"
                     strokeWidth="2.5"
@@ -246,10 +246,10 @@ export default function Unification() {
                     opacity="0"
                 />
 
-                {/* Ray 7: Card → Kochi (Southwest) */}
+                {/* Ray 7: Card → Southwest-ish */}
                 <path
                     className="connection-ray"
-                    d="M 400 540 C 650 620, 850 680, 1150 760"
+                    d="M 400 540 C 500 560, 600 640, 750 680"
                     fill="none"
                     stroke="url(#ray-gradient-1)"
                     strokeWidth="2.5"
@@ -260,10 +260,10 @@ export default function Unification() {
                     opacity="0"
                 />
 
-                {/* Ray 8: Card → Pune (West-Central) */}
+                {/* Ray 8: Card → Near West */}
                 <path
                     className="connection-ray"
-                    d="M 400 540 C 680 540, 900 550, 1180 600"
+                    d="M 400 540 C 500 540, 600 550, 700 560"
                     fill="none"
                     stroke="url(#ray-gradient-2)"
                     strokeWidth="2.5"
@@ -273,6 +273,8 @@ export default function Unification() {
                     filter="url(#ray-glow)"
                     opacity="0"
                 />
+
+
             </svg>
 
             {/* Subtle Purple Glow Background */}
@@ -288,10 +290,10 @@ export default function Unification() {
                     {/* Headline */}
                     <h2
                         ref={headlineRef}
-                        className="font-bricolage font-bold text-4xl md:text-6xl mb-8 leading-tight"
+                        className="font-bricolage font-bold text-4xl md:text-6xl lg:text-7xl mb-16 md:mb-20 leading-tight"
                     >
                         <BlurText text="One" className="text-[#0B0B0F]" animateBy="chars" />{' '}
-                        <BlurText text="Nation" className="text-[#22075e]" animateBy="chars" delay={0.1} />.{' '}
+                        <BlurText text="Nation" className="text-[#22075e]" animateBy="chars" delay={0.1} />.<br />
                         <BlurText text="One" className="text-[#0B0B0F]" animateBy="chars" delay={0.2} />{' '}
                         <BlurText text="Card" className="text-[#22075e]" animateBy="chars" delay={0.3} />.<br />
                         <BlurText text="Zero" className="text-[#0B0B0F]" animateBy="chars" delay={0.4} />{' '}
@@ -302,16 +304,26 @@ export default function Unification() {
                     <div ref={supportingCopyRef} className="mb-6">
                         <p className="text-slate-600 text-lg md:text-xl font-medium font-inter leading-relaxed mb-3">
                             <BlurText
-                                text="We have unified the fragmented layers of Indian transit into a single, sovereign tap."
+                                text="We have unified the fragmented layers of"
                                 animateBy="words"
                                 delay={0.6}
+                            /><br />
+                            <BlurText
+                                text="Indian transit into a single, sovereign tap."
+                                animateBy="words"
+                                delay={0.7}
                             />
                         </p>
                         <p className="text-slate-600 text-lg md:text-xl font-medium font-inter leading-relaxed">
                             <BlurText
-                                text="One card to move the country. One app to manage the journey."
+                                text="One card to move the country."
                                 animateBy="words"
                                 delay={0.8}
+                            /><br />
+                            <BlurText
+                                text="One app to manage the journey."
+                                animateBy="words"
+                                delay={0.9}
                             />
                         </p>
                     </div>
@@ -319,15 +331,15 @@ export default function Unification() {
                     {/* Closing Line */}
                     <p
                         ref={closingLineRef}
-                        className="text-slate-500 text-sm md:text-base font-inter"
+                        className="text-[#22075e] text-xl md:text-2xl font-inter font-semibold mt-8"
                     >
                         <BlurText
-                            text="Interoperability isn't a feature."
+                            text="“Interoperability isn't a feature,"
                             animateBy="words"
                             delay={1.0}
-                        /><br />
+                        />{" "}
                         <BlurText
-                            text="It's the end of friction."
+                            text="It's the end of friction.”"
                             animateBy="words"
                             delay={1.2}
                         />

@@ -5,29 +5,65 @@ import BlogHero from '../components/BlogHero';
 import FeaturedBlogCard from '../components/FeaturedBlogCard';
 import BlogCard from '../components/BlogCard';
 import Footer from '../components/Footer';
-import { blogArticles, getFeaturedArticle, getArticlesByCategory, searchArticles } from '../data/blogData';
+// NEW: Use blog provider instead of direct data import
+import { getAllPosts, getFeaturedPost, getPostsByCategory, searchPosts } from '../lib/blogProvider';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Blog = () => {
     const [activeCategory, setActiveCategory] = useState('all');
     const [searchQuery, setSearchQuery] = useState('');
-    const [displayArticles, setDisplayArticles] = useState(blogArticles.filter(a => !a.featured));
-    const featuredArticle = getFeaturedArticle();
+    const [displayArticles, setDisplayArticles] = useState([]);
+    const [featuredArticle, setFeaturedArticle] = useState(null);
+    const [loading, setLoading] = useState(true);
     const gridRef = useRef(null);
 
+    // Initial data load
     useEffect(() => {
-        // Filter articles based on category and search
-        let filtered = blogArticles.filter(a => !a.featured);
+        async function loadInitialData() {
+            try {
+                setLoading(true);
+                const [posts, featured] = await Promise.all([
+                    getAllPosts(),
+                    getFeaturedPost()
+                ]);
+                setDisplayArticles(posts.filter(a => !a.featured));
+                setFeaturedArticle(featured);
+            } catch (error) {
+                console.error('Error loading blog data:', error);
+            } finally {
+                setLoading(false);
+            }
+        }
+        loadInitialData();
+    }, []);
 
-        if (searchQuery) {
-            filtered = searchArticles(searchQuery).filter(a => !a.featured);
-        } else if (activeCategory !== 'all') {
-            filtered = getArticlesByCategory(activeCategory).filter(a => !a.featured);
+    useEffect(() => {
+        async function filterArticles() {
+            try {
+                let filtered = [];
+
+                if (searchQuery) {
+                    const results = await searchPosts(searchQuery);
+                    filtered = results.filter(a => !a.featured);
+                } else if (activeCategory !== 'all') {
+                    const results = await getPostsByCategory(activeCategory);
+                    filtered = results.filter(a => !a.featured);
+                } else {
+                    const allPosts = await getAllPosts();
+                    filtered = allPosts.filter(a => !a.featured);
+                }
+
+                setDisplayArticles(filtered);
+            } catch (error) {
+                console.error('Error filtering articles:', error);
+            }
         }
 
-        setDisplayArticles(filtered);
-    }, [activeCategory, searchQuery]);
+        if (!loading) {
+            filterArticles();
+        }
+    }, [activeCategory, searchQuery, loading]);
 
     useEffect(() => {
         // GSAP Animations
@@ -90,8 +126,18 @@ const Blog = () => {
                 activeCategory={activeCategory}
             />
 
+            {/* Loading State */}
+            {loading && (
+                <div className="max-w-7xl mx-auto px-6 py-20">
+                    <div className="text-center">
+                        <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-[#22075e] border-t-transparent"></div>
+                        <p className="mt-4 text-slate-600">Loading articles...</p>
+                    </div>
+                </div>
+            )}
+
             {/* Featured Article Section */}
-            {featuredArticle && !searchQuery && (
+            {!loading && featuredArticle && !searchQuery && (
                 <div className="max-w-7xl mx-auto px-6 mb-20">
                     <div className="mb-8">
                         <h2 className="text-3xl md:text-4xl font-bold font-bricolage text-[#22075e]">Featured Article</h2>

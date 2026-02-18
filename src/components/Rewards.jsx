@@ -2,6 +2,8 @@ import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import rewardsBg from '../assets/reward_section_bg.png';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,8 +54,16 @@ export default function Rewards() {
     return (
         <section
             ref={sectionRef}
-            className="relative min-h-screen flex flex-col items-center pt-32 pb-24 overflow-hidden bg-[#fcfdfe]"
+            className="relative min-h-screen flex flex-col items-center pt-32 pb-24 overflow-hidden bg-white"
         >
+            {/* Background Image - Absolute Positioned */}
+            <div className="absolute inset-0 z-0 flex items-center justify-center opacity-40">
+                <img
+                    src={rewardsBg}
+                    alt="Background"
+                    className="w-full h-full object-contain pointer-events-none"
+                />
+            </div>
 
 
             {/* Noise Overlay (Kept for texture) - Reduced opacity */}
@@ -68,7 +78,7 @@ export default function Rewards() {
                 </p>
                 <h2 className="text-[clamp(48px,6vw,72px)] leading-[1.1] font-bold text-[#0f172a] tracking-tight font-bricolage mb-8">
                     Movement that <br className="hidden md:block" />
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#5B8CFF] to-[#7B61FF]">
+                    <span className="text-[#22075e]">
                         Pays You Back.
                     </span>
                 </h2>
@@ -86,7 +96,7 @@ export default function Rewards() {
                         <div className="w-12 h-12 rounded-2xl bg-blue-50/50 flex items-center justify-center mb-6 text-blue-600">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /><path d="M12 18V6" /></svg>
                         </div>
-                        <h3 className="text-2xl font-bold text-slate-800 mb-2">Cashback</h3>
+                        <h3 className="text-2xl font-bold text-slate-800 mb-2 font-bricolage">Cashback</h3>
                         <p className="text-slate-500 leading-relaxed">Instant cashback on every prepaid transaction you make.</p>
                     </div>
                     <div>
@@ -105,7 +115,7 @@ export default function Rewards() {
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5" /><path d="m12 19-7-7 7-7" /></svg>
                             {/* Transit Icon */}
                         </div>
-                        <h3 className="text-2xl font-bold text-slate-800 mb-2">Transit</h3>
+                        <h3 className="text-2xl font-bold text-slate-800 mb-2 font-bricolage">Transit</h3>
                         <p className="text-slate-500 leading-relaxed">Massive discounts on metro and bus journeys nationwide.</p>
                     </div>
                     <div>
@@ -122,7 +132,7 @@ export default function Rewards() {
                         <div className="w-12 h-12 rounded-2xl bg-amber-50/50 flex items-center justify-center mb-6 text-amber-600">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
                         </div>
-                        <h3 className="text-2xl font-bold text-slate-800 mb-2">Referrals</h3>
+                        <h3 className="text-2xl font-bold text-slate-800 mb-2 font-bricolage">Referrals</h3>
                         <p className="text-slate-500 leading-relaxed">Invite friends to Orbit and get paid when they join.</p>
                     </div>
                     <div>

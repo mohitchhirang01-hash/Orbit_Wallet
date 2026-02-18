@@ -35,14 +35,21 @@ const FrictionSection = () => {
                         <span className="inline-block py-1 px-3 rounded-full bg-slate-200/50 text-slate-500 text-xs font-semibold tracking-wider uppercase mb-4">
                             The Reality
                         </span>
-                        <h2 className="text-[clamp(32px,4vw,56px)] font-bold tracking-tight leading-[1.1] text-[#0F172A] mb-6">
-                            Friction is <br />
-                            <span className="text-slate-400">the default.</span>
+                        <h2 className="text-[clamp(32px,4vw,56px)] font-bold tracking-tight leading-[1.1] text-[#0F172A] mb-8 font-bricolage">
+                            We Are Losing <br />
+                            <span className="text-[#22075e]">Time at the Gate.</span>
                         </h2>
-                        <p className="text-lg md:text-xl text-[#475569] leading-relaxed">
-                            Commuters lose an average of 15 minutes every day in queues.
-                            Outdated systems force you to stop when you should be moving.
-                        </p>
+                        <div className="space-y-6">
+                            <p className="text-lg md:text-xl text-[#475569] leading-relaxed">
+                                In a country with such traffic in transit infra, every second lost is a national bottleneck.
+                                QR codes are a <span className="font-semibold text-slate-900 text-base md:text-lg">"Stop-and-Scan"</span> bottleneck.
+                                NCMC is a <span className="font-semibold text-[#22075e] text-base md:text-lg">"Tap-and-Fly"</span> reality.
+                            </p>
+                            <p className="text-lg md:text-xl text-[#475569] leading-relaxed">
+                                By removing 5 seconds of friction per person, we unlock 100x more capacity in the same infrastructure.
+                                We aren't just building a wallet; we're <span className="text-[#22075e] font-medium">upgrading the nation's bandwidth.</span>
+                            </p>
+                        </div>
                     </div>
 
                     {/* Optional: List points or stats could go here */}

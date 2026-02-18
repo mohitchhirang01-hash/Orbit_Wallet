@@ -2,7 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import { Clock, User, Calendar, Share2, Facebook, Twitter, Linkedin } from 'lucide-react';
-import { blogAuthors, getArticleBySlug, getRelatedArticles } from '../data/blogData';
+import { blogAuthors } from '../data/blogData';
+// NEW: Use blog provider
+import { getPostBySlug, getRelatedPosts } from '../lib/blogProvider';
+import NotionContent from '../components/NotionContent';
 import BlogCard from '../components/BlogCard';
 import Footer from '../components/Footer';
 import { gsap } from 'gsap';
@@ -12,11 +15,34 @@ gsap.registerPlugin(ScrollTrigger);
 
 const BlogArticle = () => {
     const { slug } = useParams();
-    const article = getArticleBySlug(slug);
+    const [article, setArticle] = useState(null);
+    const [relatedArticles, setRelatedArticles] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [readingProgress, setReadingProgress] = useState(0);
     const [activeSection, setActiveSection] = useState('');
     const progressBarRef = useRef(null);
     const contentRef = useRef(null);
+
+    // Load article data
+    useEffect(() => {
+        async function loadArticle() {
+            try {
+                setLoading(true);
+                const post = await getPostBySlug(slug);
+                setArticle(post);
+
+                if (post && post.relatedArticles) {
+                    const related = await getRelatedPosts(post.relatedArticles);
+                    setRelatedArticles(related);
+                }
+            } catch (error) {
+                console.error('Error loading article:', error);
+            } finally {
+                setLoading(false);
+            }
+        }
+        loadArticle();
+    }, [slug]);
 
     useEffect(() => {
         // Scroll to top when article changes
@@ -67,19 +93,30 @@ const BlogArticle = () => {
         );
     }, []);
 
+    // Show loading state
+    if (loading) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-[#F8F9FC]">
+                <div className="text-center">
+                    <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-[#22075e] border-t-transparent"></div>
+                    <p className="mt-4 text-slate-600">Loading article...</p>
+                </div>
+            </div>
+        );
+    }
+
     if (!article) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-[#F8F9FC]">
                 <div className="text-center">
-                    <h1 className="text-4xl font-bold text-slate-900 mb-4">Article Not Found</h1>
+                    <h1 className="text-4xl font-bold text-slate-900 mb-4 font-bricolage">Article Not Found</h1>
                     <p className="text-slate-600">The article you're looking for doesn't exist.</p>
                 </div>
             </div>
         );
     }
 
-    const author = blogAuthors[article.author];
-    const relatedArticles = getRelatedArticles(article.id);
+    const author = blogAuthors[article.author] || blogAuthors.rajesh;
     const formattedDate = new Date(article.date).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
@@ -105,7 +142,7 @@ const BlogArticle = () => {
                 </div>
 
                 {/* Title */}
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-8 leading-tight">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-8 leading-tight font-bricolage">
                     {article.title}
                 </h1>
 
@@ -149,48 +186,55 @@ const BlogArticle = () => {
                             lineHeight: '1.8',
                         }}
                     >
-                        <ReactMarkdown
-                            components={{
-                                h1: ({ node, ...props }) => (
-                                    <h1 className="text-3xl font-bold text-slate-900 mt-12 mb-6" {...props} />
-                                ),
-                                h2: ({ node, ...props }) => (
-                                    <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4" {...props} />
-                                ),
-                                h3: ({ node, ...props }) => (
-                                    <h3 className="text-xl font-bold text-slate-900 mt-8 mb-3" {...props} />
-                                ),
-                                p: ({ node, ...props }) => (
-                                    <p className="text-slate-700 mb-6 leading-relaxed" {...props} />
-                                ),
-                                blockquote: ({ node, ...props }) => (
-                                    <blockquote
-                                        className="border-l-4 border-[#22075e] pl-6 py-2 my-6 bg-[#22075e]/5 rounded-r-lg italic text-slate-700"
-                                        {...props}
-                                    />
-                                ),
-                                ul: ({ node, ...props }) => (
-                                    <ul className="list-disc list-inside mb-6 space-y-2 text-slate-700" {...props} />
-                                ),
-                                ol: ({ node, ...props }) => (
-                                    <ol className="list-decimal list-inside mb-6 space-y-2 text-slate-700" {...props} />
-                                ),
-                                strong: ({ node, ...props }) => (
-                                    <strong className="font-bold text-[#22075e]" {...props} />
-                                ),
-                                code: ({ node, inline, ...props }) =>
-                                    inline ? (
-                                        <code className="px-2 py-1 bg-slate-100 text-[#22075e] rounded text-sm font-mono" {...props} />
-                                    ) : (
-                                        <code className="block p-4 bg-slate-900 text-green-400 rounded-lg text-sm font-mono overflow-x-auto" {...props} />
+                        {/* Conditional rendering: Notion recordMap OR Markdown string */}
+                        {typeof article.content === 'string' ? (
+                            // Legacy markdown rendering
+                            <ReactMarkdown
+                                components={{
+                                    h1: ({ node, ...props }) => (
+                                        <h1 className="text-3xl font-bold text-slate-900 mt-12 mb-6 font-bricolage" {...props} />
                                     ),
-                                hr: ({ node, ...props }) => (
-                                    <hr className="my-12 border-slate-200" {...props} />
-                                ),
-                            }}
-                        >
-                            {article.content}
-                        </ReactMarkdown>
+                                    h2: ({ node, ...props }) => (
+                                        <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4 font-bricolage" {...props} />
+                                    ),
+                                    h3: ({ node, ...props }) => (
+                                        <h3 className="text-xl font-bold text-slate-900 mt-8 mb-3 font-bricolage" {...props} />
+                                    ),
+                                    p: ({ node, ...props }) => (
+                                        <p className="text-slate-700 mb-6 leading-relaxed" {...props} />
+                                    ),
+                                    blockquote: ({ node, ...props }) => (
+                                        <blockquote
+                                            className="border-l-4 border-[#22075e] pl-6 py-2 my-6 bg-[#22075e]/5 rounded-r-lg italic text-slate-700"
+                                            {...props}
+                                        />
+                                    ),
+                                    ul: ({ node, ...props }) => (
+                                        <ul className="list-disc list-inside mb-6 space-y-2 text-slate-700" {...props} />
+                                    ),
+                                    ol: ({ node, ...props }) => (
+                                        <ol className="list-decimal list-inside mb-6 space-y-2 text-slate-700" {...props} />
+                                    ),
+                                    strong: ({ node, ...props }) => (
+                                        <strong className="font-bold text-[#22075e]" {...props} />
+                                    ),
+                                    code: ({ node, inline, ...props }) =>
+                                        inline ? (
+                                            <code className="px-2 py-1 bg-slate-100 text-[#22075e] rounded text-sm font-mono" {...props} />
+                                        ) : (
+                                            <code className="block p-4 bg-slate-900 text-green-400 rounded-lg text-sm font-mono overflow-x-auto" {...props} />
+                                        ),
+                                    hr: ({ node, ...props }) => (
+                                        <hr className="my-12 border-slate-200" {...props} />
+                                    ),
+                                }}
+                            >
+                                {article.content}
+                            </ReactMarkdown>
+                        ) : (
+                            // Notion recordMap rendering
+                            <NotionContent recordMap={article.content} />
+                        )}
                     </article>
 
                     {/* Sidebar */}
@@ -198,7 +242,7 @@ const BlogArticle = () => {
                         <div className="sticky top-24 space-y-8">
                             {/* Share Buttons */}
                             <div className="bg-white rounded-2xl p-6 shadow-md">
-                                <h3 className="text-lg font-bold text-slate-900 mb-4">Share Article</h3>
+                                <h3 className="text-lg font-bold text-slate-900 mb-4 font-bricolage">Share Article</h3>
                                 <div className="flex gap-3">
                                     <button className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
                                         <Twitter className="w-4 h-4" />
@@ -215,7 +259,7 @@ const BlogArticle = () => {
                             {/* Table of Contents */}
                             {article.tableOfContents && article.tableOfContents.length > 0 && (
                                 <div className="bg-white rounded-2xl p-6 shadow-md">
-                                    <h3 className="text-lg font-bold text-slate-900 mb-4">Table of Contents</h3>
+                                    <h3 className="text-lg font-bold text-slate-900 mb-4 font-bricolage">Table of Contents</h3>
                                     <ul className="space-y-2">
                                         {article.tableOfContents.map((item, index) => (
                                             <li key={index}>
@@ -238,7 +282,7 @@ const BlogArticle = () => {
             {/* Related Articles */}
             {relatedArticles && relatedArticles.length > 0 && (
                 <div className="related-articles-section max-w-7xl mx-auto px-6 pb-20">
-                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12">Related Articles</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 font-bricolage">Related Articles</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {relatedArticles.map((relatedArticle) => (
                             <div key={relatedArticle.id} className="related-article-card">

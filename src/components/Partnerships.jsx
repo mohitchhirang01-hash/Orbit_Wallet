@@ -7,6 +7,8 @@ import partnerLivquik from '../assets/partner_livquik.png';
 import partnerIob from '../assets/partner_iob.png';
 import partnerRbl from '../assets/partner_rbl.png';
 import npciLogo from '../assets/npci_logo.png';
+import mtcLogo from '../assets/mtc_logo.png';
+import elciaLogo from '../assets/elcia_logo.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -143,7 +145,7 @@ const Partnerships = () => {
 
                 {/* Header Section */}
                 <div className="mb-10">
-                    <h2 ref={headerRef} className="text-5xl md:text-7xl font-bold tracking-tight mb-4 text-[#22075e]">
+                    <h2 ref={headerRef} className="text-5xl md:text-7xl font-bold tracking-tight mb-4 text-[#22075e] font-bricolage">
                         {splitText("Built on Giants")}
                     </h2>
                     <p ref={subtextRef} className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
@@ -201,11 +203,20 @@ const Partnerships = () => {
                 {/* Tier 3: Clients / Adoption Proof */}
                 <div>
                     <p className="text-xs font-semibold tracking-[0.2em] text-[#22075e]/80 mb-6 uppercase">Trusted By</p>
-                    <div ref={tier3Ref} className="flex flex-wrap justify-center gap-12 md:gap-24 items-center opacity-70 hover:opacity-100 transition-opacity duration-300">
-
-                        {['MTC', 'ELCIA'].map((client, index) => (
-                            <div key={index} className="text-3xl font-bold text-slate-400 hover:text-slate-600 transition-all duration-300 cursor-default">
-                                {client}
+                    <div ref={tier3Ref} className="flex flex-wrap justify-center gap-12 md:gap-16 items-center">
+                        {[
+                            { name: 'MTC', image: mtcLogo, height: 'h-32' },
+                            { name: 'ELCIA', image: elciaLogo, height: 'h-28' }
+                        ].map((client, index) => (
+                            <div
+                                key={index}
+                                className="transition-transform duration-300 hover:scale-110 cursor-pointer"
+                            >
+                                <img
+                                    src={client.image}
+                                    alt={client.name}
+                                    className={`${client.height} w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300`}
+                                />
                             </div>
                         ))}
                     </div>

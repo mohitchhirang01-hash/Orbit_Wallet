@@ -10,6 +10,7 @@ const FragmentedVsOrbit = () => {
     const rightLineRef = useRef(null);
     const rightDotsRef = useRef([]);
     const rightLabelsRef = useRef([]);
+    const pathLabelsRef = useRef([]);
 
     useGSAP(() => {
         const tl = gsap.timeline({
@@ -31,6 +32,15 @@ const FragmentedVsOrbit = () => {
             duration: 0.8,
             ease: "power1.inOut"
         }, 0.6);
+
+        // 3.5 Path Labels reveal
+        tl.to(pathLabelsRef.current, {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power2.out"
+        }, 1.0);
 
         // 4. Branch Dots (Parallel)
         // Remaining dots are branches. 3 branches x 5 steps = 15 dots.
@@ -124,7 +134,9 @@ const FragmentedVsOrbit = () => {
 
     // Data points
     const trunkSteps = ['', ''];
-    const branchSteps = ['Recharge', 'Wait', 'Find AVM', 'Tap', 'Stop'];
+    const branchStepsLeft = ['Go to Counter', 'Queue', 'Ask for ticket', 'Payment Hasle', 'No records'];
+    const branchStepsMiddle = ['Recharge', 'Wait', 'Find AVM', 'Tap', 'Stop'];
+    const branchStepsRight = ['Open the App', 'Scan the Code', 'Network Delay', 'Enter Amount', 'No Instant Proof'];
 
     return (
         <div
@@ -189,21 +201,27 @@ const FragmentedVsOrbit = () => {
                                         className="absolute top-0 bottom-0 w-[2px] bg-red-500 origin-top scale-y-0 opacity-50"
                                     ></div>
 
+                                    {/* Path Label */}
+                                    <div
+                                        ref={el => addToRefs(el, pathLabelsRef)}
+                                        className="absolute -top-6 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-0 -translate-y-2 pointer-events-none"
+                                    >
+                                        <span className="text-[10px] font-bold text-red-500/80 tracking-widest uppercase">
+                                            {branchIdx === 0 ? "Bus Journey" : branchIdx === 1 ? "Metro Journey" : "QR Scanning"}
+                                        </span>
+                                    </div>
+
                                     {/* Branch Steps */}
-                                    {branchSteps.map((step, i) => (
+                                    {(branchIdx === 0 ? branchStepsLeft : branchIdx === 1 ? branchStepsMiddle : branchStepsRight).map((step, i) => (
                                         <div key={`b${branchIdx}-${i}`} className="relative w-full flex items-center justify-center flex-1">
                                             <div
                                                 ref={el => addToRefs(el, leftDotsRef)}
                                                 className="w-[8px] h-[8px] rounded-full bg-red-500 z-20 opacity-0 scale-0"
                                             ></div>
-                                            {/* Only show labels for middle branch to avoid clutter, or alternate? 
-                                                User asked for "same points", so let's show all but small */}
                                             <div
                                                 ref={el => addToRefs(el, leftLabelsRef)}
                                                 className={`absolute ${branchIdx === 0 ? 'right-[calc(50%+10px)] text-right' : 'left-[calc(50%+10px)] text-left'} text-[10px] md:text-xs font-medium text-slate-400 whitespace-nowrap opacity-0 translate-y-1`}
                                             >
-                                                {/* Show labels only for outer branches to avoid overlap? Or just middle? 
-                                                    Let's try showing all. */}
                                                 {step}
                                             </div>
                                         </div>
@@ -213,18 +231,22 @@ const FragmentedVsOrbit = () => {
                         </div>
 
                     </div>
+                    {/* Note at the bottom */}
+                    <p className="text-slate-400 text-sm md:text-base font-medium text-center mt-8 italic opacity-80">
+                        "The Metro cards will be soon invisible"
+                    </p>
                 </div>
             </div>
 
             {/* --- RIGHT SIDE: THE ORBIT WAY (Same as before) --- */}
             <div className="right-side-container flex flex-col items-center justify-center p-[6vw] relative z-40 h-full bg-slate-50">
                 <div className="w-full max-w-md mx-auto h-full flex flex-col justify-center">
-                    <h3 className="text-[clamp(32px,3vw,52px)] font-bold font-bricolage tracking-tight mb-12 text-center text-slate-900">
+                    <h3 className="text-[clamp(32px,3vw,52px)] font-bold font-bricolage tracking-tight mb-8 text-center text-slate-900">
                         The <span className="text-[#22075e]">Orbit Way</span>
                     </h3>
 
                     {/* Diagram Container */}
-                    <div className="relative flex flex-col items-center h-[60vh]">
+                    <div className="relative flex flex-col items-center h-[70vh]">
                         <div
                             ref={rightLineRef}
                             className="absolute top-0 bottom-0 w-[3px] bg-[#22075e] origin-top scale-y-0 rounded-full shadow-[0_0_15px_rgba(147,51,234,0.4)]"
@@ -245,6 +267,10 @@ const FragmentedVsOrbit = () => {
                             </div>
                         ))}
                     </div>
+                    {/* Spacer to match Left Side "Metro cards..." text height + margin */}
+                    <p className="invisible text-sm md:text-base font-medium mt-8">
+                        Placeholder
+                    </p>
                 </div>
             </div>
 

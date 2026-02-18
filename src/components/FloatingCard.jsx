@@ -30,7 +30,7 @@ export default function FloatingCard() {
         // 1. MOUSE TILT EFFECT (Interactive)
         // ===========================================================================
         const handleMouseMove = (e) => {
-            if (!isHome && window.innerWidth < 768) return;
+            if (!isHome && window.innerWidth < 1024) return;
             const { clientX, clientY, innerWidth, innerHeight } = window;
             const xPos = (clientX / innerWidth - 0.5) * 2;
             const yPos = (clientY / innerHeight - 0.5) * 2;
@@ -50,7 +50,7 @@ export default function FloatingCard() {
         // ===========================================================================
         if (isHome) {
             ScrollTrigger.matchMedia({
-                "(min-width: 768px)": function () {
+                "(min-width: 1024px)": function () {
                     const card = scrollRef.current;
 
                     // INITIAL POSITION (Hero Section)
@@ -97,11 +97,11 @@ export default function FloatingCard() {
                         // =========================================================
                         .to(card, {
                             rotation: 0,
-                            x: "30vw",
-                            y: "-32vh",
+                            x: "35vw",
+                            y: "-40vh",
                             scale: 0.8,
                             ease: "power1.inOut",
-                            duration: 1
+                            duration: .7
                         })
 
                         // =========================================================
@@ -109,9 +109,9 @@ export default function FloatingCard() {
                         // =========================================================
                         .to(card, {
                             rotation: 10,
-                            x: "-12vw",
+                            x: "-52vw",
                             y: "20vh",
-                            scale: 1.1,
+                            scale: 0,
                             ease: "power1.inOut",
                             duration: 1,
                             opacity: 0.2 // User requested opacity change here? Checking history.. yes user added opacity: "0.2"
@@ -121,79 +121,78 @@ export default function FloatingCard() {
                         // 4. TO HORIZONTAL SCROLL (SLIDE 1: FRAGMENTED)
                         // =========================================================
                         .to(card, {
-                            x: "40vw",
-                            y: "-40vh",
+                            x: "45vw",
+                            y: "-45vh",
                             rotation: 15,
-                            scale: 1,
+                            scale: .5, // Shrink to 0
                             ease: "power1.inOut",
-                            duration: 1,
-                            opacity: 0.8
+                            duration: .7,
+                            opacity: 1 // Fade out
                         })
 
                         // =========================================================
                         // 5. HORIZONTAL SLIDE 2 (FRICTION)
                         // =========================================================
                         .to(card, {
-                            opacity: 0, // Hidden during friction
+                            opacity: .3,
                             filter: "blur(4px)",
-                            x: "80vw",
-                            y: "-110vh",
+                            x: "40vw",
+                            y: "10vh",
                             rotation: 360,
-                            scale: 0.1,
+                            scale: .5, // Keep hidden
                             ease: "power1.inOut",
-                            duration: 1
+                            duration: 1,
+                            color:"black"
                         })
 
                         // =========================================================
                         // 6. HORIZONTAL SLIDE 3 (EASE / SOLUTION)
                         // =========================================================
                         .to(card, {
-                            opacity: 1,
+                            opacity: 0,
                             filter: "blur(0px)",
-                            scale: 1.3, // User requested 1.3
-                            x: "20vw", // User requested -20vw
+                            scale: .7,
+                            x: "400vw",
                             rotation: 1,
                             ease: "power1.inOut",
-                            duration: 1
+                            duration: 1.8
                         })
 
 
                         .to(card, {
-                            opacity: 1,
+                            opacity: 0,
                             filter: "blur(0px)",
-                            scale: 1.3, // User requested 1.3
-                            x: "-20vw", // User requested -20vw
+                            scale: 1.3,
+                            x: "-60vw",
                             rotation: 0,
                             ease: "power1.inOut",
-                            duration: 3
+                            duration: 1
+                        })
+
+                        .to(card, {
+                            opacity: 0,
+                            filter: "blur(0px)",
+                            scale: 1.3,
+                            x: "60vw",
+                            rotation: 0,
+                            ease: "power1.inOut",
+                            duration: 1
+                        })
+                        
+                        .to(card, {
+                            opacity: 0,
+                            filter: "blur(0px)",
+                            scale: 1.3,
+                            x: "-60vw",
+                            rotation: 0,
+                            ease: "power1.inOut",
+                            duration: 1
                         });
 
                 },
 
-                "(max-width: 767px)": function () {
-                    // Simple Mobile Logic
-                    const card = scrollRef.current;
-                    gsap.set(card, {
-                        position: "fixed",
-                        top: "60%",
-                        left: "52%",
-                        xPercent: -50,
-                        yPercent: -50,
-                        scale: 0.6,
-                        opacity: 1,
-                        zIndex: 30
-                    });
-
-                    gsap.to(card, {
-                        scrollTrigger: {
-                            trigger: "body",
-                            start: "top top",
-                            end: "15% top",
-                            scrub: 1
-                        },
-                        opacity: 0,
-                        y: -50
-                    });
+                "(max-width: 1023px)": function () {
+                    // Card is hidden via CSS on mobile/tablet, no animation needed
                 }
             });
         } else {
@@ -206,7 +205,7 @@ export default function FloatingCard() {
     return (
         <div
             ref={containerRef}
-            className="fixed inset-0 pointer-events-none z-30 overflow-hidden"
+            className="fixed inset-0 pointer-events-none z-30 overflow-hidden hidden lg:block"
             aria-hidden="true"
         >
             {/* 3D Perspective Container */}
@@ -232,23 +231,12 @@ export default function FloatingCard() {
                                 }}
                             >
                                 {/* Background "Orbit" Text */}
-                                <div className="absolute -top-4 -right-4 text-[9rem] font-bold text-white/[0.03] select-none leading-none tracking-tighter pointer-events-none">
+                                <div className="absolute -top-4 -right-0 text-[6.8rem] font-bold text-white/[0.09] select-none leading-none tracking-tighter pointer-events-none">
                                     Orbit
                                 </div>
 
                                 {/* Top Row: Contactless & Chip (Actually standard layouts have these separate or top/bottom) */}
                                 {/* Based on image: Contactless waves top left. Chip middle right. */}
-
-                                <div className="max-w-full flex justify-between items-start relative z-10 w-full">
-                                    {/* Contactless Icon (Waves) */}
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className="text-white/20">
-                                        <path d="M8.5 10C9.37 9.13 10.57 8.64 11.8 8.64C13.03 8.64 14.23 9.13 15.1 10M5.5 13C7.24 11.26 9.64 10.29 12.1 10.29C14.56 10.29 16.96 11.26 18.7 13M2.5 16C5.11 13.39 8.71 11.93 12.4 11.93C16.09 11.93 19.69 13.39 22.3 16" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-                                        <path d="M12 12L12 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="opacity-0" /> {/* Hack to keep size */}
-                                    </svg>
-                                </div>
-
-
-
 
                                 <div className="absolute top-1/2 right-6 -translate-y-1/2 z-30">
                                     {/* EMV Chip */}
@@ -261,25 +249,13 @@ export default function FloatingCard() {
                                 </div>
 
 
-                                {/* Bottom Row: View Details & Logo */}
-                                <div className="relative z-10 flex justify-between items-end mt-auto">
-                                    {/* View Details */}
-                                    <div className="flex items-center gap-2 group cursor-pointer">
-                                        <div className="p-1.5 rounded-full bg-white text-[#1e1b4b]">
-                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-                                                <circle cx="12" cy="12" r="3" />
-                                            </svg>
-                                        </div>
-                                        <span className="text-white font-medium text-sm group-hover:text-cyan-300 transition-colors">View Details</span>
-                                    </div>
-
+                                {/* Bottom Row: Logo only */}
+                                <div className="relative z-10 flex justify-end items-end mt-auto">
                                     {/* RuPay Logo section */}
                                     <div className="text-right">
-                                        <div className="flex items-center gap-1 justify-end translate-y-2">
+                                        <div className="flex items-center gap-1 justify-end translate-y-5">
                                             <img src={rupayLogo} alt="RuPay" className="h-16 w-auto object-contain" />
                                         </div>
-                                        <div className="text-white/80 text-xs font-bold tracking-wide">Prepaid</div>
                                     </div>
                                 </div>
 

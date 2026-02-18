@@ -32,7 +32,7 @@ const BlogCard = ({ article }) => {
                 {/* Content */}
                 <div className="p-6">
                     {/* Title */}
-                    <h3 className="text-xl font-bold text-slate-900 mb-3 leading-tight line-clamp-2 group-hover:text-[#22075e] transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-slate-900 mb-3 leading-tight line-clamp-2 group-hover:text-[#22075e] transition-colors duration-300 font-bricolage">
                         {article.title}
                     </h3>
 

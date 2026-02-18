@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '../lib/utils';
 import gsap from 'gsap';
@@ -21,128 +21,57 @@ export default function Navbar() {
         const el = navRef.current;
         const container = containerRef.current;
 
-        // Initial entrance animation
-        gsap.fromTo(el,
-            { y: -100, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.5 }
-        );
+        let ctx = gsap.context(() => {
+            // Force visible on load
+            gsap.set(el, { y: 0, opacity: 1, autoAlpha: 1 });
 
-        // Scroll-based width and shape animation
-        ScrollTrigger.create({
-            start: 'top top',
-            end: 100,
-            scrub: true,
-            animation: gsap.to(container, {
-                width: '70%',
-                borderRadius: '50px',
-                marginTop: '20px',
-                ease: 'none',
-                paused: true
-            })
-        });
-
-        // Hide/Show on scroll direction
-        ScrollTrigger.create({
-            start: 'top top',
-            end: 99999,
-            onUpdate: (self) => {
-                if (self.direction === -1) {
-                    gsap.to(el, { y: 0, duration: 0.3, autoAlpha: 1 });
-                } else if (self.direction === 1 && self.progress > 0.05) {
-                    gsap.to(el, { y: -100, duration: 0.3, autoAlpha: 0 });
-                }
-            }
-        });
-
-        // Hide navbar before HorizontalScroll section, show when scrolling back up
-        const horizontalSection = document.querySelector('#horizontal-scroll-section');
-
-        if (horizontalSection) {
+            // Scroll-based width and shape animation
             ScrollTrigger.create({
-                trigger: horizontalSection,
-                start: 'top 90%', // Start fading out earlier
-                end: 'top 20%',   // Finish fading out when section is near top
-                scrub: 1,         // Smooth scrubbing (1s lag for softness)
-                animation: gsap.fromTo(el,
-                    { y: 0, autoAlpha: 1 },
-                    { y: -100, autoAlpha: 0, ease: 'none' }
-                ),
-                // We need a separate trigger to show it again after the section
+                start: 'top top',
+                end: 100,
+                scrub: true,
+                animation: gsap.to(container, {
+                    width: '70%',
+                    borderRadius: '50px',
+                    marginTop: '20px',
+                    ease: 'none',
+                })
             });
 
-            // Show navbar again after leaving the section
-            ScrollTrigger.create({
-                trigger: horizontalSection,
-                start: 'bottom 80%', // Start fading in before section fully leaves
-                end: 'bottom 20%',   // Fully visible
-                scrub: 1,
-                animation: gsap.fromTo(el,
-                    { y: -100, autoAlpha: 0 },
-                    { y: 0, autoAlpha: 1, ease: 'none' }
-                )
-            });
-        }
+
+
+
+        }, navRef);
+
+        return () => ctx.revert();
     }, []);
 
 
 
     const links = [
-        { name: 'About Us', href: '/about', internal: true },
-        { name: 'Features', href: '/features', internal: true },
+        { name: 'Orbit Card', href: '/orbit-card', internal: true },
         { name: 'NCMC Documentation', href: '/ncmc-documentation', internal: true },
         { name: 'Blogs', href: '/blog', internal: true },
-        { name: 'Contact Us', href: 'mailto:contact@orbitwallet.in', internal: false },
+        { name: 'About Us', href: '/about', internal: true },
     ];
 
     const MagneticLink = ({ children, href, internal, isActive }) => {
-        const ref = useRef(null);
-
-        useEffect(() => {
-            const xTo = gsap.quickTo(ref.current, "x", { duration: 0.5, ease: "power3" });
-            const yTo = gsap.quickTo(ref.current, "y", { duration: 0.5, ease: "power3" });
-
-            const mouseMove = (e) => {
-                const { clientX, clientY } = e;
-                const { height, width, left, top } = ref.current.getBoundingClientRect();
-                const x = clientX - (left + width / 2);
-                const y = clientY - (top + height / 2);
-                xTo(x * 0.3);
-                yTo(y * 0.3);
-            };
-
-            const mouseLeave = () => {
-                xTo(0);
-                yTo(0);
-            };
-
-            ref.current.addEventListener("mousemove", mouseMove);
-            ref.current.addEventListener("mouseleave", mouseLeave);
-
-            return () => {
-                if (ref.current) {
-                    ref.current.removeEventListener("mousemove", mouseMove);
-                    ref.current.removeEventListener("mouseleave", mouseLeave);
-                }
-            };
-        }, []);
-
         const className = cn(
-            "group relative px-4 py-2 text-sm font-medium transition-colors block",
+            "group relative px-4 py-2 text-sm font-medium transition-all duration-300 block hover:scale-110",
             isActive ? "text-slate-900" : "text-slate-600 hover:text-black"
         );
 
         return internal ? (
-            <Link ref={ref} to={href} className={className}>
-                <span className="relative z-10 inline-block transition-transform duration-300 group-hover:scale-[1.02]">{children}</span>
+            <Link to={href} className={className}>
+                <span className="relative z-10 inline-block transition-transform duration-300">{children}</span>
                 <span className={cn(
                     "absolute inset-x-0 bottom-0 h-0.5 bg-[#22075e] transform origin-left transition-transform duration-300",
-                    isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                    isActive ? "scale-x-100" : "scale-x-0"
                 )} />
             </Link>
         ) : (
-            <a ref={ref} href={href} className={className}>
-                <span className="relative z-10 inline-block transition-transform duration-300 group-hover:scale-[1.02]">{children}</span>
-                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-cyan-400 transform origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
+            <a href={href} className={className}>
+                <span className="relative z-10 inline-block transition-transform duration-300">{children}</span>
             </a>
         );
     };
@@ -163,7 +92,7 @@ export default function Navbar() {
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                     className="flex items-center gap-2"
                 >
-                    <img src={orbitLogo} alt="Orbit" className="h-10 w-auto object-contain" />
+                    <img src={orbitLogo} alt="Orbit" className="h-12 w-auto object-contain" />
                 </Link>
 
                 {/* Desktop Links */}
