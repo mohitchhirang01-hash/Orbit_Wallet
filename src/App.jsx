@@ -12,8 +12,8 @@ import FloatingCard from './components/FloatingCard';
 
 function Layout() {
   const location = useLocation();
-  // Don't show FloatingCard on /orbit-card
-  const showFloatingCard = location.pathname !== '/orbit-card';
+  // show FloatingCard only on /
+  const showFloatingCard = location.pathname === '/';
 
   return (
     <div className="min-h-screen bg-[var(--orbit-primary)] text-slate-900 selection:bg-cyan-500/30 font-sans transition-colors duration-300">
