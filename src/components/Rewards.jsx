@@ -73,9 +73,11 @@ export default function Rewards() {
 
             {/* Headline Section */}
             <div ref={headlineRef} className="z-20 text-center mb-16 relative">
-                <p className="uppercase tracking-[0.18em] text-[13px] font-medium text-slate-500 mb-6 opacity-60">
-                    Orbit Rewards
-                </p>
+                <div className="inline-block mb-6">
+                    <span className="px-4 py-1.5 rounded-full bg-[#22075e]/10 text-[#22075e] text-xs font-bold tracking-widest uppercase border border-[#22075e]/20">
+                        Orbit Rewards
+                    </span>
+                </div>
                 <h2 className="text-[clamp(48px,6vw,72px)] leading-[1.1] font-bold text-[#0f172a] tracking-tight font-bricolage mb-8">
                     Movement that <br className="hidden md:block" />
                     <span className="text-[#22075e]">
@@ -122,7 +124,7 @@ export default function Rewards() {
                         <div className="text-4xl font-bold text-slate-900 mb-1 flex items-baseline">
                             Up to <span className="ml-2">30</span>%
                         </div>
-                        <div className="text-sm font-semibold text-indigo-600 uppercase tracking-wider">Off Rides</div>
+                        <div className="text-sm font-semibold text-indigo-600 uppercase tracking-wider">Off on Rides</div>
                     </div>
                 </div>
 
@@ -137,7 +139,7 @@ export default function Rewards() {
                     </div>
                     <div>
                         <div className="text-4xl font-bold text-slate-900 mb-1 flex items-baseline">
-                            100
+                           ₹100
                         </div>
                         <div className="text-sm font-semibold text-amber-600 uppercase tracking-wider">Per Friend</div>
                     </div>

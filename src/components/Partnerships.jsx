@@ -8,7 +8,6 @@ import partnerIob from '../assets/partner_iob.png';
 import partnerRbl from '../assets/partner_rbl.png';
 import npciLogo from '../assets/npci_logo.png';
 import mtcLogo from '../assets/mtc_logo.png';
-import elciaLogo from '../assets/elcia_logo.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -172,7 +171,7 @@ const Partnerships = () => {
                                     <img
                                         src={partner.image}
                                         alt={partner.name}
-                                        className={`${partner.height} w-auto object-contain opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 grayscale-0`}
+                                        className={`${partner.height} w-auto object-contain opacity-100 group-hover:scale-110 transition-all duration-300 grayscale-0`}
                                     />
                                     {/* <span className="text-lg font-medium tracking-wide text-slate-700 group-hover:text-slate-900 transition-colors">{partner.name}</span> */}
                                 </div>
@@ -205,8 +204,7 @@ const Partnerships = () => {
                     <p className="text-xs font-semibold tracking-[0.2em] text-[#22075e]/80 mb-6 uppercase">Trusted By</p>
                     <div ref={tier3Ref} className="flex flex-wrap justify-center gap-12 md:gap-16 items-center">
                         {[
-                            { name: 'MTC', image: mtcLogo, height: 'h-32' },
-                            { name: 'ELCIA', image: elciaLogo, height: 'h-28' }
+                            { name: 'MTC', image: mtcLogo, height: 'h-32' }
                         ].map((client, index) => (
                             <div
                                 key={index}
@@ -215,7 +213,7 @@ const Partnerships = () => {
                                 <img
                                     src={client.image}
                                     alt={client.name}
-                                    className={`${client.height} w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300`}
+                                    className={`${client.height} w-auto object-contain opacity-100 transition-opacity duration-300`}
                                 />
                             </div>
                         ))}

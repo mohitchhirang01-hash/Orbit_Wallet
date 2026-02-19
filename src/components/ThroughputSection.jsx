@@ -134,8 +134,11 @@ export default function ThroughputSection({ containerAnimation }) {
                         It’s a <span className="text-[#22075e]">throughput engine.</span>
                     </p>
 
-                    <button className="tp-cta group relative inline-flex items-center gap-2 px-8 py-4 bg-[#22075e] text-white rounded-full font-bold text-lg shadow-lg hover:shadow-[0_0_25px_rgba(108,59,255,0.5)] active:scale-95 transition-all duration-300 opacity-0">
-                        <span>Upgrade Your NCMC</span>
+                    <button
+                        onClick={() => window.open('https://pages.razorpay.com/orbitcard', '_blank')}
+                        className="tp-cta group relative inline-flex items-center gap-2 px-8 py-4 bg-[#22075e] text-white rounded-full font-bold text-lg shadow-lg hover:shadow-[0_0_25px_rgba(108,59,255,0.5)] active:scale-95 transition-all duration-300 opacity-0"
+                    >
+                        <span>Get Your NCMC Card</span>
                         <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
 
                         {/* Subtle Glow Overlay */}

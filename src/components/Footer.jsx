@@ -1,6 +1,4 @@
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import partnerMumbaiMetro from '../assets/mumbai_metro_icon.png';
@@ -10,62 +8,10 @@ import partnerDelhiMetro from '../assets/delhi_metro_icon.png';
 import partnerBangaloreMetro from '../assets/bangalore_metro_icon.png';
 
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Footer = () => {
-    const footerRef = useRef(null);
-    const headingRef = useRef(null);
-    const subtextRef = useRef(null);
-    const iconsRef = useRef(null); // Ref for icons container
-
-    const linksRef = useRef(null);
-
-    useEffect(() => {
-        const footer = footerRef.current;
-        const heading = headingRef.current;
-        const subtext = subtextRef.current;
-        const icons = iconsRef.current; // Get icons container
-
-        const links = linksRef.current;
-
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: footer,
-                start: "top 60%",
-                end: "bottom bottom",
-                toggleActions: "play none none reverse"
-            }
-        });
-
-        // 1. Heading Reveal (Opacity + Y-up)
-        tl.fromTo(heading,
-            { opacity: 0, y: 50 },
-            { opacity: 1, y: 0, duration: 1.5, ease: "power3.out" }
-        )
-            // 2. Subtext Fade In
-            .fromTo(subtext,
-                { opacity: 0, y: 20 },
-                { opacity: 1, y: 0, duration: 1, delay: -1 },
-                "<+0.2"
-            )
-            // 3. Icons Stagger (New Step)
-            .fromTo(icons.children,
-                { opacity: 0, scale: 0.8 },
-                { opacity: 1, scale: 1, duration: 0.8, stagger: 0.1, ease: "back.out(1.7)" },
-                "-=0.5"
-            )
-            // 5. Links Stagger
-            .fromTo(links.children,
-                { opacity: 0, y: 20 },
-                { opacity: 1, y: 0, duration: 0.8, stagger: 0.1 },
-                "-=1"
-            );
-
-    }, []);
 
     return (
         <footer
-            ref={footerRef}
             className="relative w-full bg-[#0b1426] text-white overflow-hidden pt-24 pb-12"
         >
             {/* Background Effects */}
@@ -85,7 +31,6 @@ const Footer = () => {
                     {/* Left Column: Text Content */}
                     <div className="w-full relative z-20 flex flex-col items-start text-left">
                         <h2
-                            ref={headingRef}
                             className="font-bold tracking-tight leading-[0.9] mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/70 font-bricolage"
                             style={{ fontSize: 'clamp(3rem, 6vw, 6rem)', letterSpacing: '-0.03em' }}
                         >
@@ -93,10 +38,9 @@ const Footer = () => {
                         </h2>
 
                         <p
-                            ref={subtextRef}
                             className="text-lg md:text-xl text-white/70 max-w-[600px] leading-relaxed font-light"
                         >
-                            Everywhere You Are: From the buses of Chennai to the tech hubs of ELCIA. We are live, active, and expanding across the Indian map.
+                            Everywhere You Are: From the buses of Chennai to the tech hubs of Bangalore. We are live, active, and expanding across the Indian map.
                         </p>
 
                         {/* Trust Metric (Moved near text) */}
@@ -106,7 +50,7 @@ const Footer = () => {
                     </div>
 
                     {/* Right Column: Active Card Icons */}
-                    <div ref={iconsRef} className="w-full flex justify-center lg:justify-end gap-6 flex-wrap">
+                    <div className="w-full flex justify-center lg:justify-end gap-6 flex-wrap">
                         {/* Wrapper for grid layout of icons */}
                         <div className="grid grid-cols-3 gap-6">
                             {[
@@ -137,7 +81,7 @@ const Footer = () => {
                 <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent mb-16"></div>
 
                 {/* 4. Lower Footer (Utility) */}
-                <div ref={linksRef} className="w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+                <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
 
                     {/* Brand Column & Address */}
                     <div className="md:col-span-5 flex flex-col items-start pr-4">
@@ -154,7 +98,7 @@ const Footer = () => {
                         {/* Contact Info */}
                         <div className="flex flex-col gap-2 mb-8 text-sm text-white/60">
                             <a href="tel:+917676354969" className="hover:text-white transition-colors">+91 7676354969</a>
-                            <a href="mailto:contact@orbitwallet.in" className="hover:text-white transition-colors">contact@orbitwallet.in</a>
+                            <a href="mailto:help@orbitwallet.in" className="hover:text-white transition-colors">help@orbitwallet.in</a>
                         </div>
 
                         <div className="flex gap-4">
@@ -162,6 +106,11 @@ const Footer = () => {
                             <a href="https://www.instagram.com/orbit.wallet/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 transition-colors flex items-center justify-center cursor-pointer border border-white/5">
                                 <span className="sr-only">Instagram</span>
                                 <svg className="w-4 h-4 text-white/70" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+                            </a>
+                            {/* Facebook */}
+                            <a href="https://www.facebook.com/orbitwallet/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 transition-colors flex items-center justify-center cursor-pointer border border-white/5">
+                                <span className="sr-only">Facebook</span>
+                                <svg className="w-4 h-4 text-white/70" fill="currentColor" viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978 1.602 0 3.284.312 3.284.312v4.266h-2.172c-2.433 0-2.859 1.267-2.859 3.102v1.878h4.513l-.819 3.667h-3.694v7.98h-4.307z" /></svg>
                             </a>
                             {/* LinkedIn */}
                             <a href="https://www.linkedin.com/company/orbit-wallet/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 transition-colors flex items-center justify-center cursor-pointer border border-white/5">
