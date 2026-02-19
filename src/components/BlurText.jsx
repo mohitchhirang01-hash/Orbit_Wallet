@@ -71,7 +71,7 @@ export default function BlurText({
             {elements.map((element, index) => (
                 <span
                     key={index}
-                    className="blur-item inline-block"
+                    className="blur-item overlap-item inline-block"
                     style={{ whiteSpace: animateBy === 'words' ? 'pre' : 'normal' }}
                 >
                     {element}{animateBy === 'words' && index < elements.length - 1 ? '\u00A0' : ''}

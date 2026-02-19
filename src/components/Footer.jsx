@@ -37,11 +37,7 @@ const Footer = () => {
                             A Nation,<br />Already in Orbit.
                         </h2>
 
-                        <p
-                            className="text-lg md:text-xl text-white/70 max-w-[600px] leading-relaxed font-light"
-                        >
-                            Everywhere You Are: From the buses of Chennai to the tech hubs of Bangalore. We are live, active, and expanding across the Indian map.
-                        </p>
+
 
                         {/* Trust Metric (Moved near text) */}
                         <div className="mt-8 text-sm text-white/40 tracking-widest uppercase">

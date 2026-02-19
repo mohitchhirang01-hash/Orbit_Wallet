@@ -142,7 +142,7 @@ export default function FloatingCard() {
                             scale: .5, // Keep hidden
                             ease: "power1.inOut",
                             duration: 1,
-                            color:"black"
+                            color: "black"
                         })
 
                         // =========================================================
@@ -178,7 +178,7 @@ export default function FloatingCard() {
                             ease: "power1.inOut",
                             duration: 1
                         })
-                        
+
                         .to(card, {
                             opacity: 0,
                             filter: "blur(0px)",
@@ -189,6 +189,56 @@ export default function FloatingCard() {
                             duration: 1
                         });
 
+                    // =========================================================
+                    // OVERLAP DETECTION (Hero Heading)
+                    // =========================================================
+                    let overlapActive = false;
+
+                    const isOverlapping = (cardEl, itemEl) => {
+                        const cardRect = cardEl.getBoundingClientRect();
+                        const itemRect = itemEl.getBoundingClientRect();
+
+                        // Reduce inset for the card to expand the detection area
+                        // 3% instead of 10% to capture words near the edges
+                        const insetW = cardRect.width * 0.03;
+                        const insetH = cardRect.height * 0.03;
+
+                        const r1 = {
+                            left: cardRect.left + insetW,
+                            right: cardRect.right - insetW,
+                            top: cardRect.top + insetH,
+                            bottom: cardRect.bottom - insetH
+                        };
+
+                        const r2 = itemRect;
+
+                        return !(
+                            r1.right < r2.left ||
+                            r1.left > r2.right ||
+                            r1.bottom < r2.top ||
+                            r1.top > r2.bottom
+                        );
+                    };
+
+                    const checkOverlap = () => {
+                        const cardElement = document.getElementById('floating-card-main');
+                        const overlapItems = document.querySelectorAll('.overlap-item');
+
+                        if (!cardElement || overlapItems.length === 0) return;
+
+                        overlapItems.forEach(item => {
+                            const isItemOverlapping = isOverlapping(cardElement, item);
+                            const currentlyHasClass = item.classList.contains('is-overlapping');
+
+                            if (isItemOverlapping !== currentlyHasClass) {
+                                item.classList.toggle('is-overlapping', isItemOverlapping);
+                            }
+                        });
+                    };
+
+                    // Use GSAP ticker for high-performance continuous checking
+                    gsap.ticker.add(checkOverlap);
+                    window._checkOverlap = checkOverlap;
                 },
 
                 "(max-width: 1023px)": function () {
@@ -199,7 +249,13 @@ export default function FloatingCard() {
             gsap.set(scrollRef.current, { opacity: 0 });
         }
 
-        return () => window.removeEventListener("mousemove", handleMouseMove);
+        return () => {
+            window.removeEventListener("mousemove", handleMouseMove);
+            if (window._checkOverlap) {
+                gsap.ticker.remove(window._checkOverlap);
+                delete window._checkOverlap;
+            }
+        };
     }, { scope: containerRef, dependencies: [isHome] });
 
     return (
@@ -218,7 +274,7 @@ export default function FloatingCard() {
                     <div ref={floatRef} className="will-change-transform preserve-3d">
 
                         {/* Layer 3: TILT (Mouse interaction) */}
-                        <div ref={tiltRef} className="floating-card relative w-[340px] h-[215px] rounded-2xl shadow-2xl preserve-3d will-change-transform"
+                        <div ref={tiltRef} id="floating-card-main" className="floating-card relative w-[340px] h-[215px] rounded-2xl shadow-2xl preserve-3d will-change-transform"
                             style={{
                                 background: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)",
                                 boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)"

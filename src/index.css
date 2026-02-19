@@ -17,7 +17,12 @@
   }
 
   body {
-    @apply bg-[var(--orbit-primary)] text-[var(--orbit-text)] font-sans antialiased overflow-x-hidden;
+    background-color: var(--orbit-primary);
+    color: var(--orbit-text);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   h1,
@@ -26,7 +31,7 @@
   h4,
   h5,
   h6 {
-    @apply font-display;
+    font-family: 'Space Grotesk', sans-serif;
   }
 }
 
@@ -66,14 +71,75 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-[var(--orbit-accent)];
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #6366f1, var(--orbit-accent));
   }
 
   .glass-panel {
-    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-xl;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   }
 
   .perspective-1000 {
     perspective: 1000px;
   }
+}
+
+/* Granular Overlap Styles */
+.overlap-item {
+  transition: color 0.05s ease, filter 0.05s ease;
+  display: inline-block;
+}
+
+.overlap-item.is-overlapping {
+  color: #ffffff !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  filter: none !important;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+.overlap-heading .gradient-text {
+  background: linear-gradient(to right, #5aa7ff, #22075e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: all 0.3s ease;
+}
+
+/* ── Get Orbit shimmer button ───────────────────────────────────────────── */
+@keyframes btn-shine {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.35) 50%,
+      transparent 60%);
+  background-size: 200% 100%;
+  animation: btn-shine 2.8s ease infinite;
+  animation-delay: 1s;
+  pointer-events: none;
+  border-radius: inherit;
 }

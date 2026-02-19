@@ -122,7 +122,7 @@ export default function Rewards() {
                     </div>
                     <div>
                         <div className="text-4xl font-bold text-slate-900 mb-1 flex items-baseline">
-                            Up to <span className="ml-2">30</span>%
+                            Upto <span>30</span>%
                         </div>
                         <div className="text-sm font-semibold text-indigo-600 uppercase tracking-wider">Off on Rides</div>
                     </div>
@@ -139,7 +139,7 @@ export default function Rewards() {
                     </div>
                     <div>
                         <div className="text-4xl font-bold text-slate-900 mb-1 flex items-baseline">
-                           ₹100
+                            ₹100
                         </div>
                         <div className="text-sm font-semibold text-amber-600 uppercase tracking-wider">Per Friend</div>
                     </div>

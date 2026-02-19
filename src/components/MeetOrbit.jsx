@@ -53,28 +53,32 @@ export default function MeetOrbit() {
             <div ref={headlineRef} className="relative z-40 w-full max-w-5xl text-center">
                 {/* Main Headline - "Meet Orbit wallet" in purple */}
                 <h1 className="meet-orbit-eyebrow font-bricolage font-bold text-5xl md:text-7xl mb-8 leading-tight">
-                    <span className="text-[#22075e]">Meet Orbit Wallet</span>
+                    <BlurText text="Meet Orbit Wallet" className="text-[#22075e]" animateBy="chars" />
                 </h1>
 
                 {/* Main Description - Three parts with different colors */}
                 <h2 className="meet-orbit-headline font-bricolage font-bold text-4xl md:text-6xl mb-12 leading-[1.15]">
-                    <span className="text-[#0B0B0F]">truly interoperable interface for the </span>
-                    <span className="text-slate-400">New Bharat</span>
-                    <span className="text-[#22075e]">.</span>
+                    <BlurText text="truly interoperable interface for the " className="text-[#0B0B0F]" animateBy="chars" />
+                    <BlurText text="New Bharat" className="text-slate-400" animateBy="chars" delay={0.1} />
+                    <BlurText text="." className="text-[#22075e]" animateBy="chars" delay={0.2} />
                 </h2>
 
                 {/* Subheading - Gray text */}
                 <div className="meet-orbit-description mb-8 max-w-4xl mx-auto">
                     <p className="text-slate-500 text-lg md:text-xl font-medium font-inter leading-relaxed">
-                        Tap for a Public transit across the country, Pay for online or offline needs, unlock turnstiles for access systems in events and institutes — all within a single, unified flow.
+                        <BlurText
+                            text="Tap for a Public transit across the country, Pay for online or offline needs, unlock turnstiles for access systems in events and institutes — all within a single, unified flow."
+                            animateBy="words"
+                            delay={0.3}
+                        />
                     </p>
                 </div>
 
                 {/* Closing Statement - Blue text with purple period */}
                 <div className="meet-orbit-closing">
                     <p className="text-[#22075e] text-xl md:text-2xl font-semibold font-inter">
-                        Orbit brings the entire Indian infrastructure under one single tap
-                        <span className="text-[#22075e]">.</span>
+                        <BlurText text="Orbit brings the entire Indian infrastructure under one single tap" animateBy="words" delay={0.4} />
+                        <span className="overlap-item text-[#22075e]">.</span>
                     </p>
                 </div>
             </div>

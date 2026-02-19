@@ -4,6 +4,7 @@ import Hero from '../components/Hero';
 import Interoperability from '../components/Interoperability';
 import MeetOrbit from '../components/MeetOrbit';
 import Unification from '../components/Unification';
+import FragmentedVsOrbit from '../components/FragmentedVsOrbit';
 import HorizontalScroll from '../components/HorizontalScroll';
 import NCMCInterface from '../components/NCMCInterface';
 import Rewards from '../components/Rewards';
@@ -32,6 +33,9 @@ export default function Home() {
                 </div>
                 <div id="unification-section">
                     <Unification />
+                </div>
+                <div id="fragmented-vs-orbit-section">
+                    <FragmentedVsOrbit />
                 </div>
                 <div id="horizontal-scroll-section-wrapper">
                     <HorizontalScroll />

@@ -53,10 +53,10 @@ export default function Interoperability() {
 
                 {/* Header */}
                 <div ref={headerRef} className="text-left mb-12 flex-shrink-0 max-w-4xl">
-                    <span className="header-eyebrow inline-block py-1 px-3 rounded-full bg-[#22075e]/10 text-[#22075e] text-sm font-semibold tracking-wide uppercase mb-6">
+                    <span className="overlap-heading inline-block py-1 px-3 rounded-full bg-[#22075e]/10 text-[#22075e] text-sm font-semibold tracking-wide uppercase mb-6">
                         Let's Think
                     </span>
-                    <h2 className="text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.1] font-bold text-[#0B0B0F] tracking-tight font-bricolage mb-10">
+                    <h2 id="interop-heading" className="overlap-heading text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.1] font-bold text-[#0B0B0F] tracking-tight font-bricolage mb-10">
                         <BlurText text="Why" animateBy="chars" />
                         {" "}<BlurText text="Interoperability" className="text-[#22075e]" animateBy="chars" delay={0.1} /><br />
                         <BlurText text="Matters" animateBy="chars" delay={0.2} />

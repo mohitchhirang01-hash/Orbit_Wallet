@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import FragmentedVsOrbit from './FragmentedVsOrbit';
 import FrictionSection from './FrictionSection';
 import ThroughputSection from './ThroughputSection';
 
@@ -86,23 +85,17 @@ export default function HorizontalScroll() {
             ref={containerRef}
             className="relative w-full h-screen overflow-hidden bg-white text-slate-900"
         >
-            {/* HORIZONTAL TRACK - 400vw Total Width (4 slides) */}
+            {/* HORIZONTAL TRACK - 200vw Total Width (2 slides) */}
             <div
                 ref={trackRef}
-                className="flex w-[300vw] h-full"
+                className="flex w-[200vw] h-full"
             >
-                {/* SLIDE 1: THE JOURNEY COMPARISON - FRAGMENTED VS ORBIT */}
-                <div className="horizontal-slide w-screen h-full flex-shrink-0 relative">
-                    <FragmentedVsOrbit />
-                </div>
-
-
-                {/* SLIDE 2: THE PROBLEM - FRICTION SECTION */}
+                {/* SLIDE 1: THE PROBLEM - FRICTION SECTION */}
                 <div className="horizontal-slide w-screen h-full flex-shrink-0 relative bg-[#F7F9FC]">
                     <FrictionSection />
                 </div>
 
-                {/* SLIDE 3: THROUGHPUT IMPACT - RESOLUTION */}
+                {/* SLIDE 2: THROUGHPUT IMPACT - RESOLUTION */}
                 <div className="horizontal-slide w-screen h-full flex-shrink-0 relative overflow-hidden bg-[#FAFBFF]">
                     <ThroughputSection containerAnimation={horizontalTween} />
                 </div>
