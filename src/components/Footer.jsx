@@ -121,7 +121,10 @@ const Footer = () => {
                         <h4 className="text-white font-semibold mb-6">Company</h4>
                         <ul className="space-y-4 text-white/60">
                             <li className="hover:text-white transition-colors">
-                                <a href="https://www.orbitwallet.in/" target="_blank" rel="noopener noreferrer">About Us</a>
+                                <Link to="/about">About Us</Link>
+                            </li>
+                            <li className="hover:text-white transition-colors">
+                                <Link to="/media">Media</Link>
                             </li>
                             <li className="hover:text-white transition-colors">
                                 <Link to="/blog">Blogs</Link>
@@ -149,10 +152,15 @@ const Footer = () => {
                     </div>
 
                     {/* App Store CTA */}
-                    <div className="md:col-span-2 flex flex-col items-start md:items-end">
-                        <h4 className="text-white font-semibold mb-6 opacity-0 md:opacity-100">Download</h4>
-                        <a href="https://apps.apple.com/in/app/orbit-wallet/id6480415069" target="_blank" rel="noopener noreferrer" className="group relative px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full transition-all duration-300 flex items-center gap-2">
-                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70 font-medium">Get Orbit</span>
+                    <div className="md:col-span-2 flex flex-col items-start md:items-end gap-4">
+                        <h4 className="text-white font-semibold opacity-0 md:opacity-100">Download</h4>
+                        <a href="https://play.google.com/store/apps/details?id=com.orbitwallet&hl=en_IN" target="_blank" rel="noopener noreferrer" className="group relative px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full transition-all duration-300 flex items-center gap-2 w-full md:w-auto">
+                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70 font-medium">Google Play</span>
+                            <ArrowUpRight className="w-4 h-4 text-white/70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                            <div className="absolute inset-0 rounded-full ring-1 ring-white/20 group-hover:ring-white/40 transition-all duration-500"></div>
+                        </a>
+                        <a href="https://apps.apple.com/in/app/orbit-wallet/id6480415069" target="_blank" rel="noopener noreferrer" className="group relative px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full transition-all duration-300 flex items-center gap-2 w-full md:w-auto">
+                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70 font-medium">App Store</span>
                             <ArrowUpRight className="w-4 h-4 text-white/70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                             <div className="absolute inset-0 rounded-full ring-1 ring-white/20 group-hover:ring-white/40 transition-all duration-500"></div>
                         </a>

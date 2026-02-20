@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown, FileText, Newspaper } from 'lucide-react';
+import { Menu, X, ChevronDown, FileText, Newspaper, Info, Megaphone } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '../lib/utils';
 import gsap from 'gsap';
@@ -11,6 +11,18 @@ gsap.registerPlugin(ScrollTrigger);
 import orbitLogo from '../assets/orbit_logo.png';
 
 const companyItems = [
+    {
+        name: 'About Us',
+        href: '/about',
+        icon: Info,
+        desc: 'Our mission, vision and values',
+    },
+    {
+        name: 'Media',
+        href: '/media',
+        icon: Megaphone,
+        desc: 'Latest news and press releases',
+    },
     {
         name: 'NCMC Documentation',
         href: '/ncmc-documentation',
@@ -105,7 +117,7 @@ export default function Navbar() {
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                     className="flex items-center gap-2"
                 >
-                    <img src={orbitLogo} alt="Orbit" className="h-12 w-auto object-contain" />
+                    <img src={orbitLogo} alt="Orbit Wallet" className="h-12 w-auto object-contain" />
                 </Link>
 
                 {/* Desktop Links */}
@@ -113,7 +125,7 @@ export default function Navbar() {
 
                     {/* Orbit Card – direct link */}
                     <MagneticLink href="/orbit-card" internal isActive={location.pathname === '/orbit-card'}>
-                        Orbit Card
+                        Orbit Wallet Card
                     </MagneticLink>
 
                     {/* Company Dropdown */}
@@ -188,19 +200,15 @@ export default function Navbar() {
                         </AnimatePresence>
                     </div>
 
-                    {/* About Us */}
-                    <MagneticLink href="/about" internal isActive={location.pathname === '/about'}>
-                        About Us
-                    </MagneticLink>
                 </div>
 
                 {/* CTA & Mobile Toggle */}
                 <div className="flex items-center gap-4">
                     <button
-                        onClick={() => window.open('https://pages.razorpay.com/orbitcard', '_blank')}
+                        onClick={() => window.open('https://play.google.com/store/apps/details?id=com.orbitwallet&hl=en_IN', '_blank')}
                         className="btn-shimmer hidden md:flex items-center gap-2 px-6 py-2.5 rounded-full bg-slate-900 text-white font-semibold text-sm hover:scale-105 active:scale-95 transition-transform shadow-lg hover:shadow-cyan-500/25"
                     >
-                        Get Orbit
+                        Get Orbit Wallet
                     </button>
 
                     <button
@@ -227,7 +235,7 @@ export default function Navbar() {
                             className="text-slate-700 hover:text-black font-medium py-3 px-4 rounded-xl hover:bg-slate-100 transition-colors"
                             onClick={() => setIsOpen(false)}
                         >
-                            Orbit Card
+                            Orbit Wallet Card
                         </Link>
 
                         {/* Company section – mobile collapsible */}
@@ -272,19 +280,12 @@ export default function Navbar() {
                             </AnimatePresence>
                         </div>
 
-                        <Link
-                            to="/about"
-                            className="text-slate-700 hover:text-black font-medium py-3 px-4 rounded-xl hover:bg-slate-100 transition-colors"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            About Us
-                        </Link>
 
                         <button
-                            onClick={() => window.open('https://pages.razorpay.com/orbitcard', '_blank')}
+                            onClick={() => window.open('https://play.google.com/store/apps/details?id=com.orbitwallet&hl=en_IN', '_blank')}
                             className="w-full py-4 rounded-xl bg-slate-900 text-white font-bold shadow-lg mt-1"
                         >
-                            Get Orbit
+                            Get Orbit Wallet
                         </button>
                     </motion.div>
                 )}

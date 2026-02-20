@@ -76,14 +76,14 @@ export default function NCMCInterface() {
     return (
         <section
             ref={sectionRef}
-            className="w-full relative overflow-hidden bg-gradient-to-br from-slate-50 to-white text-slate-900 flex flex-col md:flex-row py-16 md:py-24"
+            className="w-full relative overflow-hidden bg-gradient-to-br from-slate-50 to-white text-slate-900 flex flex-col md:flex-row py-12 md:py-16"
         >
             {/* LEFT SIDE: VIDEO SHOWCASE (50%) */}
-            <div className="w-full md:w-1/2 relative flex items-center justify-center p-8 md:p-16">
+            <div className="w-full md:w-1/2 relative flex items-center justify-center p-6 md:p-10">
 
                 {/* Video Container (No Phone Frame) */}
                 {/* To change size: Adjust w-[300px] and h-[550px] below */}
-                <div ref={phoneRef} className="relative w-[250px] h-[550px] md:w-[302px] md:h-[550px] rounded-3xl overflow-hidden shadow-2xl shadow-[#22075e]/20 z-20 group">
+                <div ref={phoneRef} className="relative w-[210px] h-[460px] md:w-[240px] md:h-[480px] rounded-2xl overflow-hidden shadow-xl shadow-[#22075e]/15 z-20 group">
                     <video
                         ref={videoRef}
                         src="/assets/ncmc_vid.mp4"
@@ -141,7 +141,7 @@ export default function NCMCInterface() {
                     </div>
 
                     {/* Heading */}
-                    <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold font-bricolage leading-[1.1] mb-10 text-[#22075e]">
+                    <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold font-bricolage leading-[1.1] mb-6 text-[#22075e]">
                         Already Have a RuPay NCMC Card? <br className="hidden md:block" />
                         <span className="text-black">
                             Give It a Superpower.
@@ -150,13 +150,13 @@ export default function NCMCInterface() {
 
                     {/* Description */}
                     <p className="text-lg text-slate-600 leading-relaxed mb-8">
-                        Orbit acts as the premium frontend for any NCMC card — manage balance,
-                        track spends, and claim recharges effortlessly from one intelligent app.
+                        Orbit Wallet acts as the premium frontend for any NCMC card — Add money,
+                        Check balance, and claim recharges effortlessly from one intelligent app.
                     </p>
 
                     {/* CTA Button */}
-                    <Link to="/blog" className="group relative inline-flex items-center justify-center px-8 py-3 bg-[#22075e] text-white rounded-full overflow-hidden transition-all hover:shadow-lg hover:shadow-[#22075e]/30 active:scale-95">
-                        <span className="relative z-10 font-semibold tracking-wide">Read Our Blog</span>
+                    <Link to="/blog" className="group relative inline-flex items-center justify-center px-6 py-2.5 bg-[#22075e] text-white rounded-full overflow-hidden transition-all hover:shadow-lg hover:shadow-[#22075e]/30 active:scale-95">
+                        <span className="relative z-10 font-semibold tracking-wide text-sm">Read Our Blog</span>
                         <div className="absolute inset-0 bg-[#1a0548] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </Link>
                 </div>

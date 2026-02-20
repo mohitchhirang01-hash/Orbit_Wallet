@@ -12,19 +12,19 @@ const FAQ = () => {
     const faqs = [
         {
             question: "What is Orbit Wallet?",
-            answer: "Orbit Wallet is a comprehensive NCMC (National Common Mobility Card) solution that enables seamless travel and payments across India. With one card, you can pay for metro, bus, toll, parking, and retail purchases nationwide."
+            answer: "Orbit Wallet is a comprehensive NCMC (National Common Mobility Card) solution that enables seamless travel and payments across India. With one card, you can pay for metro, bus, rope ways, parking, and retail + e-commerce purchases nationwide."
         },
         {
             question: "What is NCMC (National Common Mobility Card)?",
-            answer: "NCMC is an interoperable, EMV-based contactless payment system launched by the Government of India. It allows users to make transit and retail payments using a single card across multiple cities and transport systems. It's also known as 'One Nation One Card'."
+            answer: "NCMC is an interoperable, EMV-based contactless payment system launched by the Government of India. It allows users to make transit and retail + e-commerce payments using a single card across multiple cities and transport systems. It's also known as 'One Nation One Card'."
         },
         {
             question: "How does Orbit Wallet work?",
-            answer: "Orbit Wallet works on NCMC technology. Simply tap your Orbit Card on compatible readers at metro gates, bus entry points, toll plazas, parking facilities, or retail POS terminals. The payment is processed instantly, and you can track all your transactions in real-time."
+            answer: "Orbit Wallet works on NCMC technology. Simply tap your Orbit Wallet Card on compatible readers at metro gates, bus entry points, ropeway stations, parking facilities, or Retail + Ecom POS terminals. The payment is processed instantly, and you can track all your transactions in real-time."
         },
         {
             question: "Where can I use my NCMC card?",
-            answer: "You can use your NCMC-enabled Orbit Card across 15+ cities in India for metro, bus, and suburban rail. It also works at toll plazas, parking facilities, and retail stores that accept contactless payments. The network is continuously expanding."
+            answer: "You can use your NCMC-enabled Orbit Wallet Card across 15+ cities in India for metro, bus, and suburban rail. It also works at ropeway stations, parking facilities, and retail stores or e-commerce sites that accept contactless payments. The network is continuously expanding."
         },
         {
             question: "Is NCMC different from a regular metro card?",
@@ -35,12 +35,12 @@ const FAQ = () => {
             answer: "While UPI requires internet connectivity, Orbit Wallet's NCMC card works offline with instant tap-and-go payments (<300ms). This makes it ideal for high-traffic transit scenarios where speed is critical. You also don't need to open an app or enter a PIN for small transactions."
         },
         {
-            question: "Is my Orbit Card secure?",
-            answer: "Absolutely. Orbit Cards use EMV cryptography, dynamic data authentication, and PCI-DSS compliant security standards. All transactions are encrypted, and the card follows RBI guidelines with built-in fraud detection mechanisms."
+            question: "Is my Orbit Wallet Card secure?",
+            answer: "Absolutely. Orbit Wallet Cards use EMV cryptography, dynamic data authentication, and PCI-DSS compliant security standards. All transactions are encrypted, and the card follows RBI guidelines with built-in fraud detection mechanisms."
         },
         {
-            question: "How do I recharge my Orbit Card?",
-            answer: "You can recharge your Orbit Card through the Orbit Wallet app, at metro stations, authorized retail outlets, or online through net banking. The card balance updates instantly and can be checked anytime through the app."
+            question: "How do I recharge my Orbit Wallet Card?",
+            answer: "You can recharge your Orbit Wallet Card through the Orbit Wallet app, at metro stations, authorized retail outlets, or online through net banking. The card balance updates instantly and can be checked anytime through the app."
         }
     ];
 

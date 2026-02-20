@@ -48,7 +48,7 @@ const Features = () => {
             label: 'FEATURE 03',
             icon: <Cpu className="w-8 h-8" />,
             title: 'Unified Payment Dashboard',
-            description: 'One financial control layer for transit, retail, tolls, and smart city payments.',
+            description: 'One financial control layer for transit, retail + e-commerce, rope ways, and smart city payments.',
             highlights: [
                 'Spending categorization',
                 'Smart insights',
@@ -63,7 +63,7 @@ const Features = () => {
             label: 'FEATURE 04',
             icon: <Lock className="w-8 h-8" />,
             title: 'Smart Access & Identity Layer',
-            description: 'Use Orbit as a digital access key for institutions, campuses, events, and gated systems.',
+            description: 'Use Orbit Wallet as a digital access key for institutions, campuses, events, and gated systems.',
             highlights: [
                 'QR + NFC access',
                 'Temporary credentials',
@@ -221,7 +221,7 @@ const Features = () => {
                                 href="#"
                                 className="px-8 py-4 bg-[#22075e] hover:bg-[#1a0548] text-white font-semibold rounded-full transition-all transform hover:scale-105 shadow-lg shadow-[#22075e]/30 flex items-center gap-2"
                             >
-                                Get Orbit
+                                Get Orbit Wallet
                                 <ArrowRight className="w-5 h-5" />
                             </a>
                             <Link
@@ -311,7 +311,7 @@ const Features = () => {
                                 href="#"
                                 className="px-8 py-4 bg-[#22075e] hover:bg-[#1a0548] text-white font-semibold rounded-full transition-all transform hover:scale-105 shadow-lg shadow-[#22075e]/30"
                             >
-                                Get Orbit
+                                Get Orbit Wallet
                             </a>
                             <Link
                                 to="/ncmc-documentation"

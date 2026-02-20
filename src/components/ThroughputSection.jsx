@@ -127,18 +127,11 @@ export default function ThroughputSection({ containerAnimation }) {
                         When Movement Flows, <span className="text-[#22075e]">Cities Breathe.</span>
                     </h2>
 
-                    {/* Metrics area removed as per user request */}
-
-                    <p className="tp-subtext-item text-2xl font-bold text-[#0B0B0F] mb-10 leading-snug opacity-0">
-                        Orbit isn’t a wallet.<br />
-                        It’s a <span className="text-[#22075e]">throughput engine.</span>
-                    </p>
-
                     <button
-                        onClick={() => window.open('https://pages.razorpay.com/orbitcard', '_blank')}
+                        onClick={() => window.open('https://play.google.com/store/apps/details?id=com.orbitwallet&hl=en_IN', '_blank')}
                         className="tp-cta group relative inline-flex items-center gap-2 px-8 py-4 bg-[#22075e] text-white rounded-full font-bold text-lg shadow-lg hover:shadow-[0_0_25px_rgba(108,59,255,0.5)] active:scale-95 transition-all duration-300 opacity-0"
                     >
-                        <span>Get Your NCMC Card</span>
+                        <span>Get Your Orbit Card</span>
                         <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
 
                         {/* Subtle Glow Overlay */}

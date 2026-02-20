@@ -4,7 +4,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Lock, Smartphone, ArrowRight, Star, Sparkles, Palette } from 'lucide-react';
 
-import card1 from '../assets/card_1.png';
 import card2 from '../assets/card_2.png';
 import card3 from '../assets/card_3.png';
 import card4 from '../assets/card_4.png';
@@ -121,37 +120,27 @@ export default function CardShowcase() {
             img: card2, // Dark purple/black
             title: "Orbit × OG ",
             subtitle: "Premium Experience",
-            desc: "This is our general card for the public.",
-            tags: ["High Limits", "Premium", "Exclusive"],
+            desc: "Orbit card is your all in one transit and payment card that works across for transit, online/offline payments across India. Easily add money, check balance and claim balance from your NFC phone without the need to visit any counter or add value machine for your seamless tap in and out journey!",
+            tags: ["1% Cashback on all spends", "upto 20% on transit spends", "KYC onboarding"],
             bgColors: "bg-slate-100 text-slate-900",
             orientation: "landscape"
         },
         {
             id: 2,
             img: card4, // Assuming blue is similar to standard/prepaid
-            title: "Orbit × Singara Chennai",
+            title: " Singara Chennai × Orbit Wallet ",
             subtitle: "Minimalist Blue",
-            desc: "Card specially designed to promote the Digitise Chennai initiative.",
-            tags: ["Prepaid", "Contactless", "Universal"],
+            desc: "Singara card is designed in collaboration with Metropolitan transport corporation Chennai to promote and digitise transit transactions in the city. It works across all NCMC enabled transit systems across nation.",
+            tags: ["No - KYC onboarding", "Works across all NCMC enabled public transit", "Reloadable upto Rs 2000"],
             bgColors: "bg-blue-50 text-blue-900",
             orientation: "landscape"
-        },
-        {
-            id: 1,
-            img: card1,
-            title: "Orbit × Elcia",
-            subtitle: "The All-Rounder",
-            desc: "The classic yellow card for the people of the electronic cities of the yellow line.",
-            tags: ["Transit Ready", "RuPay", "Secure"],
-            bgColors: "bg-yellow-50 text-yellow-900",
-            orientation: "portrait"
         },
         {
             id: 3,
             img: card3, // The ID card
             title: "Orbit × Campus",
-            subtitle: "Student ID + Payments",
-            desc: "Your university identity and your wallet, combined. Access campus facilities and pay at the canteen with a single tap.",
+            subtitle: "Enterprise & Campus Identity",
+            desc: "Your university / Institution ID card can now act as one single card to access campus facilities, make payments and use public transit without the need to manage multiple Ids, passes and cards.",
             tags: ["Identity", "Access Control", "NCMC"],
             bgColors: "bg-pink-50 text-pink-900",
             orientation: "portrait"
@@ -163,11 +152,7 @@ export default function CardShowcase() {
 
             {/* 1. HERO SECTION */}
             <div className="hero-section relative min-h-screen bg-cover bg-top bg-no-repeat flex flex-col items-center justify-center text-center px-6 md:px-12 pt-20 pb-20" style={{ backgroundImage: `url(${cardSectionBg})` }}>
-                <div className="hero-element mb-6">
-                    <span className="inline-block py-1 px-3 rounded-full bg-[#22075e]/10 text-[#22075e] text-sm font-semibold tracking-wide uppercase">
-                        The Future of Payments
-                    </span>
-                </div>
+
                 <h1 className="hero-element text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.1] font-bold text-[#0B0B0F] tracking-tight font-bricolage mb-6 max-w-4xl">
                     One Card. <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#22075e] to-[#7c3aed]">Limitless Possibilities.</span>
@@ -179,18 +164,16 @@ export default function CardShowcase() {
                     <button className="px-8 py-4 bg-[#0F172A] text-white rounded-full font-semibold transition-all hover:shadow-lg hover:-translate-y-1 flex items-center gap-2">
                         Get Your Card <ArrowRight size={18} />
                     </button>
-                    <button className="px-8 py-4 text-slate-700 font-semibold hover:text-[#22075e] transition-colors">
-                        View Plans
-                    </button>
+
                 </div>
             </div>
 
             {/* 2. CARD VARIANTS SECTION - New Sticky Layout */}
             <div className="py-24 border-t border-slate-200/60 relative bg-gradient-to-b from-transparent via-[#F4F5F7]/80 to-[#F4F5F7]">
                 <div className="max-w-7xl mx-auto px-6 md:px-12 mb-24 text-center">
-                    <span className="text-[#22075e] font-bold tracking-widest text-sm uppercase block mb-2">Our Collection</span>
+                    <span className="text-[#22075e] font-bold tracking-widest text-sm uppercase block mb-2">Card for all your daily movements across the city.</span>
                     <h2 className="text-5xl md:text-7xl font-bold font-bricolage text-[#0B0B0F] tracking-tighter leading-none">Cards for every need</h2>
-                    <p className="text-slate-600 text-lg font-light mt-4 max-w-2xl mx-auto">Precision-engineered for every lifestyle.</p>
+
                 </div>
 
                 <div className="relative">
@@ -199,7 +182,7 @@ export default function CardShowcase() {
 
                             {/* Text Content */}
                             <div className={`w-full md:w-1/2 ${index % 2 === 1 ? 'md:pl-16' : 'md:pr-16'} mb-12 md:mb-0 px-6 md:px-12`}>
-                                <span className={`${card.bgColors.split(' ')[1]} font-bold tracking-widest text-sm uppercase mb-4 block font-bricolage`}>0{index + 1}. {card.title.replace('Orbit', '').trim() || card.title}</span>
+                                <span className={`${card.bgColors.split(' ')[1]} font-bold tracking-widest text-sm uppercase mb-4 block font-bricolage`}>0{index + 1}. {card.title.replace('Orbit Wallet', '').replace('Orbit', '').trim() || card.title}</span>
                                 <h3 className="text-6xl md:text-8xl font-bold text-[#0B0B0F] mb-6 tracking-tighter font-bricolage">{card.title}</h3>
                                 <p className="text-lg text-slate-600 font-light mb-8 max-w-md leading-relaxed">
                                     {card.desc}
@@ -273,26 +256,6 @@ export default function CardShowcase() {
                             </div>
                         ))}
                     </div>
-                </div>
-            </div>
-
-            {/* 5. CTA SECTION */}
-            <div className="py-32 px-6 md:px-12 bg-gradient-to-b from-white to-[#f0f4ff] border-t border-slate-100">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-4xl md:text-6xl font-bold text-[#0B0B0F] mb-8 tracking-tight font-bricolage">
-                        Which design speaks to you?
-                    </h2>
-                    <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
-                        Pick your favorite theme and join 2+ million users enjoying seamless transit across India.
-                    </p>
-                    <button className="px-10 py-5 bg-[#0F172A] text-white text-lg rounded-full font-bold transition-all hover:shadow-[0_0_30px_-5px_var(--orbit-accent)] hover:-translate-y-1 relative overflow-hidden group">
-                        <span className="relative z-10">Select Your Design</span>
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#22075e] to-[#7c3aed] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    </button>
-                    <p className="mt-8 text-sm text-slate-400">
-                        No extra cost for designs. <br />
-                        <span className="opacity-70">Terms and conditions apply.</span>
-                    </p>
                 </div>
             </div>
 

@@ -33,7 +33,7 @@ const BlogHero = ({ onSearch, onCategoryChange, activeCategory }) => {
                 {/* Heading */}
                 <div className="text-center mb-12">
                     <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold font-bricolage mb-6 text-[#22075e] tracking-tight">
-                        Orbit Insights
+                        Orbit Wallet Insights
                     </h1>
                     <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-light">
                         Deep dives into interoperability, fintech infrastructure, public systems & the future of unified payments.

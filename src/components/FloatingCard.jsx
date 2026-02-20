@@ -89,7 +89,7 @@ export default function FloatingCard() {
                             rotation: 15,
                             scale: 1.2,
                             ease: "power1.inOut",
-                            duration: 1
+                            duration: .7
                         })
 
                         // =========================================================
@@ -101,7 +101,7 @@ export default function FloatingCard() {
                             y: "-40vh",
                             scale: 0.8,
                             ease: "power1.inOut",
-                            duration: .7
+                            duration: .8
                         })
 
                         // =========================================================
@@ -109,11 +109,11 @@ export default function FloatingCard() {
                         // =========================================================
                         .to(card, {
                             rotation: 10,
-                            x: "-52vw",
+                            x: "-62vw",
                             y: "20vh",
                             scale: 0,
                             ease: "power1.inOut",
-                            duration: 1,
+                            duration: .8,
                             opacity: 0.2 // User requested opacity change here? Checking history.. yes user added opacity: "0.2"
                         })
 
@@ -121,12 +121,12 @@ export default function FloatingCard() {
                         // 4. TO HORIZONTAL SCROLL (SLIDE 1: FRAGMENTED)
                         // =========================================================
                         .to(card, {
-                            x: "45vw",
-                            y: "-45vh",
+                            x: "40vw",
+                            y: "-34vh",
                             rotation: 15,
-                            scale: .5, // Shrink to 0
+                            scale: 1, // Shrink to 0
                             ease: "power1.inOut",
-                            duration: .7,
+                            duration: .5,
                             opacity: 1 // Fade out
                         })
 
@@ -141,7 +141,7 @@ export default function FloatingCard() {
                             rotation: 360,
                             scale: .5, // Keep hidden
                             ease: "power1.inOut",
-                            duration: 1,
+                            duration: 1.4,
                             color: "black"
                         })
 

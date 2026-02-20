@@ -90,30 +90,8 @@
   }
 }
 
-/* Granular Overlap Styles */
-.overlap-item {
-  transition: color 0.05s ease, filter 0.05s ease;
-  display: inline-block;
-}
 
-.overlap-item.is-overlapping {
-  color: #ffffff !important;
-  background: none !important;
-  -webkit-background-clip: unset !important;
-  background-clip: unset !important;
-  filter: none !important;
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
-}
-
-.overlap-heading .gradient-text {
-  background: linear-gradient(to right, #5aa7ff, #22075e);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  transition: all 0.3s ease;
-}
-
-/* ── Get Orbit shimmer button ───────────────────────────────────────────── */
+/* ── Get Orbit Wallet shimmer button ───────────────────────────────────────────── */
 @keyframes btn-shine {
   0% {
     background-position: -200% center;

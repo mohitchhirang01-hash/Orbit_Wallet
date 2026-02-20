@@ -12,8 +12,8 @@ export default function OrbitCardPage() {
     return (
         <>
             <SEO
-                title="Orbit Card | One Card for Everything"
-                description="The Orbit NCMC card works across metro, bus, parking, and retail outlets nationwide. Secure, instant, and interoperable."
+                title="Orbit Wallet Card | One Card for Everything"
+                description="The Orbit Wallet NCMC card works across metro, bus, parking, and retail + e-commerce outlets nationwide. Secure, instant, and interoperable."
                 url="https://orbitwallet.com/orbit-card"
             />
             <main className="pt-20"> {/* Add padding for fixed navbar */}

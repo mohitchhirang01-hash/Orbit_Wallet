@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ChevronRight, Home, ChevronDown, ChevronUp, Copy, Check } from 'lucide-react';
+import { ChevronRight, Home, ChevronDown, ChevronUp, Copy, Check, TrainFront, Bus, CableCar, ShoppingBag, CircleParking, Ticket } from 'lucide-react';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
 
@@ -20,7 +20,6 @@ const NCMCDocumentation = () => {
         { id: 'core-objective', title: 'Core Objective' },
         { id: 'technical-architecture', title: 'Technical Architecture' },
         { id: 'card-types', title: 'Card Types' },
-        { id: 'implementation', title: 'Implementation Model' },
         { id: 'security', title: 'Security & Compliance' },
         { id: 'use-cases', title: 'Use Cases' },
         { id: 'benefits', title: 'Benefits' },
@@ -218,30 +217,34 @@ const NCMCDocumentation = () => {
 
                                         <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm mb-6">
                                             <h3 className="text-xl font-semibold text-slate-900 mb-4 font-bricolage">NCMC allows users to:</h3>
-                                            <ul className="space-y-2 text-slate-700">
-                                                <li className="flex items-start gap-2">
-                                                    <span className="text-[#22075e] mt-1">•</span>
-                                                    Pay for metro, bus, suburban rail
+                                            <ul className="space-y-3 text-slate-700">
+                                                <li className="flex items-start gap-3">
+                                                    <TrainFront className="w-5 h-5 text-[#22075e] shrink-0 mt-0.5" />
+                                                    <span>Pay for metro, bus, suburban rail</span>
                                                 </li>
-                                                <li className="flex items-start gap-2">
-                                                    <span className="text-[#22075e] mt-1">•</span>
-                                                    Pay toll charges
+                                                <li className="flex items-start gap-3">
+                                                    <CableCar className="w-5 h-5 text-[#22075e] shrink-0 mt-0.5" />
+                                                    <span>Pay for Rope Ways</span>
                                                 </li>
-                                                <li className="flex items-start gap-2">
-                                                    <span className="text-[#22075e] mt-1">•</span>
-                                                    Retail purchases
+                                                <li className="flex items-start gap-3">
+                                                    <div className="w-5 h-5 rounded-full border-2 border-[#22075e] flex items-center justify-center shrink-0 mt-0.5">
+                                                        <div className="w-1.5 h-1.5 rounded-full bg-[#22075e]"></div>
+                                                    </div>
+                                                    <span>Pay toll charges</span>
                                                 </li>
-                                                <li className="flex items-start gap-2">
-                                                    <span className="text-[#22075e] mt-1">•</span>
-                                                    Parking
+                                                <li className="flex items-start gap-3">
+                                                    <ShoppingBag className="w-5 h-5 text-[#22075e] shrink-0 mt-0.5" />
+                                                    <span>Retail + Ecom</span>
                                                 </li>
-                                                <li className="flex items-start gap-2">
-                                                    <span className="text-[#22075e] mt-1">•</span>
-                                                    ATM withdrawals (if enabled)
+                                                <li className="flex items-start gap-3">
+                                                    <CircleParking className="w-5 h-5 text-[#22075e] shrink-0 mt-0.5" />
+                                                    <span>Parking</span>
                                                 </li>
-                                                <li className="flex items-start gap-2">
-                                                    <span className="text-[#22075e] mt-1">•</span>
-                                                    Online and offline transactions
+                                                <li className="flex items-start gap-3">
+                                                    <div className="w-5 h-5 rounded-full border-2 border-[#22075e] flex items-center justify-center shrink-0 mt-0.5">
+                                                        <div className="w-2.5 h-1.5 border-b-2 border-r-2 border-[#22075e] rotate-45 mb-1"></div>
+                                                    </div>
+                                                    <span>ATM withdrawals (if enabled)</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -376,7 +379,7 @@ const NCMCDocumentation = () => {
                                             <h3 className="text-lg font-bold text-slate-900 mb-3 font-bricolage">Clearing & Settlement</h3>
                                             <ul className="space-y-2 text-slate-700 text-sm">
                                                 <li>• NPCI manages switching</li>
-                                                <li>• T+1 or defined cycle settlement</li>
+                                                <li>• T+3 or defined cycle settlement</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -391,9 +394,7 @@ const NCMCDocumentation = () => {
                                     <div className="grid md:grid-cols-2 gap-4 mb-6">
                                         {[
                                             { name: 'Debit Card with NCMC', desc: 'Full banking functionality with transit payments' },
-                                            { name: 'Prepaid Card', desc: 'Load and use for transit and retail' },
-                                            { name: 'Stored Value Transit Card', desc: 'Dedicated transit payment card' },
-                                            { name: 'Co-branded Metro Cards', desc: 'Partnership cards with metro operators' }
+                                            { name: 'Prepaid Card', desc: 'Load and use for transit, retail and e-commerce' },
                                         ].map((card, i) => (
                                             <div key={i} className="stagger-item bg-white rounded-xl p-6 border border-slate-200 hover:border-[#22075e]/30 transition-all">
                                                 <h3 className="font-bold text-slate-900 mb-2 font-bricolage">{card.name}</h3>
@@ -433,43 +434,7 @@ const NCMCDocumentation = () => {
                                     </div>
                                 </section>
 
-                                {/* Section 5: Implementation Model */}
-                                <section id="implementation" className="doc-section">
-                                    <h2 className="text-3xl md:text-4xl font-bold font-bricolage text-[#22075e] mb-6">
-                                        How NCMC Is Implemented in Cities
-                                    </h2>
-
-                                    <div className="space-y-4">
-                                        {[
-                                            { title: 'Step 1: Transit operator upgrades AFC gates', content: 'Automatic Fare Collection systems are upgraded to support contactless EMV card reading.' },
-                                            { title: 'Step 2: EMV Level 1 & Level 2 certification', content: 'Hardware and software undergo rigorous testing for EMV compliance and interoperability.' },
-                                            { title: 'Step 3: Integration with acquiring bank', content: 'Transit operator partners with an acquiring bank to process card transactions.' },
-                                            { title: 'Step 4: NPCI routing', content: 'Transactions are routed through NPCI\'s switching infrastructure for settlement.' },
-                                            { title: 'Step 5: Backend reconciliation', content: 'Automated reconciliation systems ensure accurate accounting and settlement.' }
-                                        ].map((step, i) => (
-                                            <div key={i} className="stagger-item bg-white rounded-xl border border-slate-200 overflow-hidden">
-                                                <button
-                                                    onClick={() => setExpandedAccordion(expandedAccordion === i ? null : i)}
-                                                    className="w-full px-6 py-4 flex items-center justify-between hover:bg-slate-50 transition-colors"
-                                                >
-                                                    <span className="font-semibold text-slate-900">{step.title}</span>
-                                                    {expandedAccordion === i ? (
-                                                        <ChevronUp className="w-5 h-5 text-[#22075e]" />
-                                                    ) : (
-                                                        <ChevronDown className="w-5 h-5 text-slate-400" />
-                                                    )}
-                                                </button>
-                                                {expandedAccordion === i && (
-                                                    <div className="px-6 pb-4 text-slate-700 border-t border-slate-200 pt-4">
-                                                        {step.content}
-                                                    </div>
-                                                )}
-                                            </div>
-                                        ))}
-                                    </div>
-                                </section>
-
-                                {/* Section 6: Security & Compliance */}
+                                {/* Section 5: Security & Compliance */}
                                 <section id="security" className="doc-section">
                                     <h2 className="text-3xl md:text-4xl font-bold font-bricolage text-[#22075e] mb-6">
                                         Security Framework
@@ -499,7 +464,7 @@ const NCMCDocumentation = () => {
                                     </div>
                                 </section>
 
-                                {/* Section 7: Use Cases */}
+                                {/* Section 6: Use Cases */}
                                 <section id="use-cases" className="doc-section">
                                     <h2 className="text-3xl md:text-4xl font-bold font-bricolage text-[#22075e] mb-6">
                                         Use Cases
@@ -507,15 +472,17 @@ const NCMCDocumentation = () => {
 
                                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                         {[
-                                            { icon: '🚇', title: 'Metro Systems', desc: 'Seamless entry/exit across metro networks' },
-                                            { icon: '🚌', title: 'State Transport Buses', desc: 'Pay for intercity and local bus rides' },
-                                            { icon: '🛣️', title: 'Toll Payments', desc: 'Fast-lane toll collection on highways' },
-                                            { icon: '🛒', title: 'Retail POS', desc: 'Shopping at enabled merchant outlets' },
-                                            { icon: '🅿️', title: 'Smart City Parking', desc: 'Automated parking fee collection' },
-                                            { icon: '🎫', title: 'Event Access Control', desc: 'Entry to venues and controlled areas' }
+                                            { icon: TrainFront, title: 'Metro Systems', desc: 'Seamless entry/exit across metro networks', color: 'text-blue-600', bg: 'bg-blue-50' },
+                                            { icon: Bus, title: 'State Transport Buses', desc: 'Pay for intercity and local bus rides', color: 'text-green-600', bg: 'bg-green-50' },
+                                            { icon: CableCar, title: 'Rope Ways', desc: 'Pay for scenic and urban ropeway journeys', color: 'text-purple-600', bg: 'bg-purple-50' },
+                                            { icon: ShoppingBag, title: 'Retail + Ecom POS', desc: 'Shopping at enabled merchant outlets and online', color: 'text-amber-600', bg: 'bg-amber-50' },
+                                            { icon: CircleParking, title: 'Smart City Parking', desc: 'Automated parking fee collection', color: 'text-slate-600', bg: 'bg-slate-50' },
+                                            { icon: Ticket, title: 'Event Access Control', desc: 'Entry to venues and controlled areas', color: 'text-pink-600', bg: 'bg-pink-50' }
                                         ].map((useCase, i) => (
-                                            <div key={i} className="stagger-item bg-white rounded-xl p-6 border border-slate-200 hover:border-[#22075e]/30 hover:shadow-lg transition-all">
-                                                <div className="text-4xl mb-3">{useCase.icon}</div>
+                                            <div key={i} className="stagger-item bg-white rounded-xl p-6 border border-slate-200 hover:border-[#22075e]/30 hover:shadow-lg transition-all group">
+                                                <div className={`w-12 h-12 rounded-xl ${useCase.bg} ${useCase.color} flex items-center justify-center mb-4 transition-transform group-hover:scale-110`}>
+                                                    <useCase.icon size={24} />
+                                                </div>
                                                 <h3 className="font-bold text-slate-900 mb-2 font-bricolage">{useCase.title}</h3>
                                                 <p className="text-slate-600 text-sm">{useCase.desc}</p>
                                             </div>
@@ -523,7 +490,7 @@ const NCMCDocumentation = () => {
                                     </div>
                                 </section>
 
-                                {/* Section 8: Benefits */}
+                                {/* Section 7: Benefits */}
                                 <section id="benefits" className="doc-section">
                                     <h2 className="text-3xl md:text-4xl font-bold font-bricolage text-[#22075e] mb-6">
                                         Benefits
@@ -581,7 +548,7 @@ const NCMCDocumentation = () => {
                                     </div>
                                 </section>
 
-                                {/* Section 9: Comparison */}
+                                {/* Section 8: Comparison */}
                                 <section id="comparison" className="doc-section">
                                     <h2 className="text-3xl md:text-4xl font-bold font-bricolage text-[#22075e] mb-6">
                                         NCMC vs UPI vs Closed Loop
@@ -604,7 +571,7 @@ const NCMCDocumentation = () => {
                                                     { feature: 'Interoperable', ncmc: 'Yes', upi: 'Yes', closed: 'No' },
                                                     { feature: 'Tap Speed', ncmc: 'High', upi: 'Medium', closed: 'High' },
                                                     { feature: 'Internet Required', ncmc: 'No', upi: 'Yes', closed: 'No' },
-                                                    { feature: 'Multi-city', ncmc: 'Yes', upi: 'Yes', closed: 'No' }
+                                                    { feature: 'Multi-Utility', ncmc: 'Yes', upi: 'No', closed: 'No' }
                                                 ].map((row, i) => (
                                                     <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
                                                         <td className="px-6 py-4 text-sm text-slate-700 font-medium">{row.feature}</td>
@@ -622,7 +589,7 @@ const NCMCDocumentation = () => {
                                     </div>
                                 </section>
 
-                                {/* Section 10: Future Roadmap */}
+                                {/* Section 9: Future Roadmap */}
                                 <section id="future" className="doc-section">
                                     <h2 className="text-3xl md:text-4xl font-bold font-bricolage text-[#22075e] mb-6">
                                         The Future of Mobility Interoperability

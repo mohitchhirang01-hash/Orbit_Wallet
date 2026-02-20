@@ -53,14 +53,14 @@ export default function Interoperability() {
 
                 {/* Header */}
                 <div ref={headerRef} className="text-left mb-12 flex-shrink-0 max-w-4xl">
-                    <span className="overlap-heading inline-block py-1 px-3 rounded-full bg-[#22075e]/10 text-[#22075e] text-sm font-semibold tracking-wide uppercase mb-6">
+                    <span className="inline-block py-1 px-3 rounded-full bg-[#22075e]/10 text-[#22075e] text-sm font-semibold tracking-wide uppercase mb-6">
                         Let's Think
                     </span>
-                    <h2 id="interop-heading" className="overlap-heading text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.1] font-bold text-[#0B0B0F] tracking-tight font-bricolage mb-10">
-                        <BlurText text="Why" animateBy="chars" />
-                        {" "}<BlurText text="Interoperability" className="text-[#22075e]" animateBy="chars" delay={0.1} /><br />
+                    <h2 id="interop-heading" className="text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.1] font-bold text-[#0B0B0F] tracking-tight font-bricolage mb-10">
+                        <BlurText text="Why " animateBy="chars" />
+                        <BlurText text="Interoperability " className="text-[#22075e]" animateBy="chars" delay={0.1} /><br />
                         <BlurText text="Matters" animateBy="chars" delay={0.2} />
-                        {""}<BlurText text="?" className="text-[#22075e]" animateBy="chars" delay={0.3} />
+                        <BlurText text="?" className="text-[#22075e]" animateBy="chars" delay={0.3} />
                     </h2>
                     <p className="text-xl md:text-2xl text-slate-600 font-medium leading-relaxed">
                         <BlurText text="A " animateBy="words" delay={0.4} />
@@ -69,11 +69,11 @@ export default function Interoperability() {
                         <BlurText text="different token" animateBy="words" delay={0.5} className="text-[#22075e]" />
                         <BlurText text=" for the metro. A " animateBy="words" delay={0.55} />
                         <BlurText text="different ID" animateBy="words" delay={0.6} className="text-[#22075e]" /> <br />
-                        <BlurText text=" for the gate. QR codes " animateBy="words" delay={0.65} />
+                        <BlurText text="for the gate. QR codes " animateBy="words" delay={0.65} />
                         <BlurText text="fail in the dark" animateBy="words" delay={0.7} className="text-[#22075e]" />
                         <BlurText text=". Cash " animateBy="words" delay={0.75} />
-                        <BlurText text="fails in the rush" animateBy="words" delay={0.8} className="text-[#22075e]" />
-                        <BlurText text=". Millions of people, paused at every turnstile." animateBy="words" delay={0.85} />
+                        <BlurText text="fails in the rush." animateBy="words" delay={0.8} className="text-[#22075e]" />
+                        <BlurText text="Millions of people, paused at every turnstile." animateBy="words" delay={0.85} />
                     </p>
                 </div>
             </div>

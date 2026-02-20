@@ -8,6 +8,9 @@ import partnerIob from '../assets/partner_iob.png';
 import partnerRbl from '../assets/partner_rbl.png';
 import npciLogo from '../assets/npci_logo.png';
 import mtcLogo from '../assets/mtc_logo.png';
+import toyotaLogo from '../assets/toyota_mobility_logo.svg';
+import wriLogo from '../assets/wri-india-logo.svg';
+import isgLogo from '../assets/ISG_logo.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -148,7 +151,7 @@ const Partnerships = () => {
                         {splitText("Built on Giants")}
                     </h2>
                     <p ref={subtextRef} className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
-                        Orbit isn't just an app; it’s a financial fortress backed by India’s leading banking institutions.
+                        Orbit Wallet isn't just an app; it’s a financial fortress backed by India’s leading banking institutions.
                     </p>
                 </div>
 
@@ -183,16 +186,24 @@ const Partnerships = () => {
                 {/* Tier 2: Regulatory Strength */}
                 <div className="mb-12">
                     <p className="text-xs font-semibold tracking-[0.2em] text-[#22075e]/80 mb-6 uppercase">In Collaboration With</p>
-                    <div ref={tier2Ref} className="flex justify-center">
-                        <div className="relative bg-white backdrop-blur-xl border border-slate-200 rounded-3xl p-8 max-w-lg w-full shadow-lg overflow-hidden hover:shadow-[0_0_40px_-5px_rgba(108,99,255,0.3)] transition-shadow duration-500">
-                            {/* Subtle breathing glow - Purple for Light Theme (Adjusted for white background?) - removing if needed, but keeping for now */}
+                    <div ref={tier2Ref} className="flex flex-col md:flex-row gap-6 justify-center items-center">
+                        <div className="relative bg-white backdrop-blur-xl border border-slate-200 rounded-3xl p-8 max-w-sm w-full shadow-lg overflow-hidden hover:shadow-[0_0_40px_-5px_rgba(108,99,255,0.3)] transition-shadow duration-500">
                             <div className="absolute -inset-[100%] bg-white from-transparent via-[#22075e]/5 to-transparent rotate-45 animate-pulse"></div>
-
                             <div className="relative z-10 flex flex-col items-center justify-center">
                                 <img
                                     src={npciLogo}
                                     alt="NPCI - National Payments Corporation of India"
-                                    className="h-20 md:h-24 w-auto object-contain"
+                                    className="h-16 md:h-20 w-auto object-contain"
+                                />
+                            </div>
+                        </div>
+                        <div className="relative bg-white backdrop-blur-xl border border-slate-200 rounded-3xl p-8 max-w-sm w-full shadow-lg overflow-hidden hover:shadow-[0_0_40px_-5px_rgba(108,99,255,0.3)] transition-shadow duration-500">
+                            <div className="absolute -inset-[100%] bg-white from-transparent via-[#22075e]/5 to-transparent rotate-45 animate-pulse"></div>
+                            <div className="relative z-10 flex flex-col items-center justify-center">
+                                <img
+                                    src={isgLogo}
+                                    alt="ISG - Your Payments Partner"
+                                    className="h-16 md:h-20 w-auto object-contain"
                                 />
                             </div>
                         </div>
@@ -201,10 +212,12 @@ const Partnerships = () => {
 
                 {/* Tier 3: Clients / Adoption Proof */}
                 <div>
-                    <p className="text-xs font-semibold tracking-[0.2em] text-[#22075e]/80 mb-6 uppercase">Trusted By</p>
+                    <p className="text-xs font-semibold tracking-[0.2em] text-[#22075e]/80 mb-6 uppercase">Partners </p>
                     <div ref={tier3Ref} className="flex flex-wrap justify-center gap-12 md:gap-16 items-center">
                         {[
-                            { name: 'MTC', image: mtcLogo, height: 'h-32' }
+                            { name: 'MTC', image: mtcLogo, height: 'h-32' },
+                            { name: 'Toyota Mobility Foundation', image: toyotaLogo, height: 'h-[60px]' },
+                            { name: 'WRI India', image: wriLogo, height: 'h-[55px]' }
                         ].map((client, index) => (
                             <div
                                 key={index}

@@ -58,7 +58,7 @@ export default function MeetOrbit() {
 
                 {/* Main Description - Three parts with different colors */}
                 <h2 className="meet-orbit-headline font-bricolage font-bold text-4xl md:text-6xl mb-12 leading-[1.15]">
-                    <BlurText text="truly interoperable interface for the " className="text-[#0B0B0F]" animateBy="chars" />
+                    <BlurText text="truly interoperable interface for the" className="text-[#0B0B0F] whitespace-nowrap" animateBy="chars" />
                     <BlurText text="New Bharat" className="text-slate-400" animateBy="chars" delay={0.1} />
                     <BlurText text="." className="text-[#22075e]" animateBy="chars" delay={0.2} />
                 </h2>
@@ -67,7 +67,7 @@ export default function MeetOrbit() {
                 <div className="meet-orbit-description mb-8 max-w-4xl mx-auto">
                     <p className="text-slate-500 text-lg md:text-xl font-medium font-inter leading-relaxed">
                         <BlurText
-                            text="Tap for a Public transit across the country, Pay for online or offline needs, unlock turnstiles for access systems in events and institutes — all within a single, unified flow."
+                            text="Tap for a public transit across the country, pay for online or offline needs, unlock turnstiles for access systems in events and institutes — all within a single, unified flow."
                             animateBy="words"
                             delay={0.3}
                         />
@@ -77,8 +77,8 @@ export default function MeetOrbit() {
                 {/* Closing Statement - Blue text with purple period */}
                 <div className="meet-orbit-closing">
                     <p className="text-[#22075e] text-xl md:text-2xl font-semibold font-inter">
-                        <BlurText text="Orbit brings the entire Indian infrastructure under one single tap" animateBy="words" delay={0.4} />
-                        <span className="overlap-item text-[#22075e]">.</span>
+                        <BlurText text="Orbit Wallet brings the entire Indian infrastructure under one single tap" animateBy="words" delay={0.4} />
+                        <span className="text-[#22075e]">.</span>
                     </p>
                 </div>
             </div>

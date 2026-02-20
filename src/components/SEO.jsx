@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 
 const SEO = ({
     title = "Orbit Wallet | NCMC Card for Transit, Payments & Mobility Across India",
-    description = "Experience seamless travel with Orbit Wallet's NCMC card. One card for metro, bus, toll, parking & retail payments across India. National Common Mobility Card explained.",
+    description = "Experience seamless travel with Orbit Wallet's NCMC card. One card for metro, bus, rope ways, parking & retail + e-commerce payments across India. National Common Mobility Card explained.",
     keywords = "orbit wallet, ncmc, national common mobility card, transit card india, metro card, bus pass, mobility card",
     ogImage = "https://orbitwallet.com/og-image.jpg",
     url = "https://orbitwallet.com/",

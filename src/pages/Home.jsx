@@ -7,6 +7,7 @@ import Unification from '../components/Unification';
 import FragmentedVsOrbit from '../components/FragmentedVsOrbit';
 import HorizontalScroll from '../components/HorizontalScroll';
 import NCMCInterface from '../components/NCMCInterface';
+import NCMCCapabilities from '../components/NCMCCapabilities';
 import Rewards from '../components/Rewards';
 import Partnerships from '../components/Partnerships';
 import FAQ from '../components/FAQ';
@@ -17,7 +18,7 @@ export default function Home() {
         <>
             <SEO
                 title="Orbit Wallet | NCMC Card for Transit, Payments & Mobility Across India"
-                description="Experience seamless travel with Orbit Wallet's NCMC card. One card for metro, bus, toll, parking & retail payments across India. Payment interoperability made simple with National Common Mobility Card."
+                description="Experience seamless travel with Orbit Wallet's NCMC card. One card for metro, bus, rope ways, parking & retail + e-commerce payments across India. Payment interoperability made simple with National Common Mobility Card."
                 keywords="orbit wallet, ncmc, national common mobility card, transit card india, metro card, bus pass, mobility card, interoperable payment card, rupay card, unified transit payment, ncmc documentation"
                 url="https://orbitwallet.com/"
             />
@@ -42,6 +43,9 @@ export default function Home() {
                 </div>
                 <div id="ncmc-interface-section">
                     <NCMCInterface />
+                </div>
+                <div id="ncmc-capabilities-section">
+                    <NCMCCapabilities />
                 </div>
                 <div id="rewards-section">
                     <Rewards />

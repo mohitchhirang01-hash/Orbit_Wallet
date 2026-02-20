@@ -79,7 +79,7 @@ export default function AppIntegration() {
                     {/* Screen Content */}
                     <div className="p-6 pt-14 h-full flex flex-col text-white z-40">
                         <div className="flex justify-between items-center mb-8">
-                            <span className="text-xl font-bold">Orbit</span>
+                            <span className="text-xl font-bold">Orbit Wallet</span>
                             <Wifi size={18} />
                         </div>
 
