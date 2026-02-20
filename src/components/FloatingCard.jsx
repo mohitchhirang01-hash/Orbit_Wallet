@@ -149,44 +149,67 @@ export default function FloatingCard() {
                         // 6. HORIZONTAL SLIDE 3 (EASE / SOLUTION)
                         // =========================================================
                         .to(card, {
-                            opacity: 0,
+                            opacity: 1,
                             filter: "blur(0px)",
                             scale: .7,
-                            x: "400vw",
-                            rotation: 1,
-                            ease: "power1.inOut",
-                            duration: 1.8
-                        })
-
-
-                        .to(card, {
-                            opacity: 0,
-                            filter: "blur(0px)",
-                            scale: 1.3,
-                            x: "-60vw",
-                            rotation: 0,
+                            x: "200vw",
+                            rotation: 360,
                             ease: "power1.inOut",
                             duration: 1
                         })
 
+
                         .to(card, {
-                            opacity: 0,
+                            opacity: 1,
                             filter: "blur(0px)",
                             scale: 1.3,
-                            x: "60vw",
+                            x: "-130vw",
                             rotation: 0,
-                            ease: "power1.inOut",
+                            ease: "power1.back.out(1.7)",
                             duration: 1
                         })
 
                         .to(card, {
-                            opacity: 0,
+                            opacity: .8,
                             filter: "blur(0px)",
-                            scale: 1.3,
-                            x: "-60vw",
+                            scale: 1,
+                            x: "-40vw",
+                            y: "-30vh",
+                            rotation: -30,
+                            ease: "power1.inOut",
+                            duration: .3
+                        })
+
+                        .to(card, {
+                            opacity: 1,
+                            filter: "blur(0px)",
+                            scale: 1,
+                            x: "30vw",
                             rotation: 0,
                             ease: "power1.inOut",
-                            duration: 1
+                            duration: .8
+                        })
+
+                        .to(card, {
+                            opacity: .9,
+                            filter: "blur(0px)",
+                            scale: 1,
+                            x: "-40vw",
+                            y: "3vh",
+                            rotation: -15,
+                            ease: "power1.inOut",
+                            duration: .7
+                        })
+
+                        .to(card, {
+                            opacity: 1,
+                            filter: "blur(0px)",
+                            scale: 1.3,
+                            x: "-40vw",
+                            y: "90vh",
+                            rotation: 360,
+                            duration: 1.1,
+                            scale: 1
                         });
 
                     // =========================================================

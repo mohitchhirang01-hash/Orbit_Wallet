@@ -104,20 +104,20 @@ export default function NCMCCapabilities() {
             {/* Background Accent Element */}
             <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-gradient-to-br from-[#22075e]/5 to-blue-400/5 rounded-full blur-[100px] pointer-events-none z-0"></div>
 
-            <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center relative z-10">
+            <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center relative z-40">
 
                 {/* 1. LEFT COLUMN: Product Dominance (45%) */}
                 <div className="relative flex justify-center order-2 lg:order-1 lg:-ml-2">
                     {/* Elite Glow behind phone */}
                     <div
                         ref={glowRef}
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-radial from-[#22075e]/15 to-transparent blur-[80px] rounded-full opacity-40 z-0 pointer-events-none"
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-radial from-[#22075e]/15 to-transparent blur-[80px] rounded-full opacity-40 z-10 pointer-events-none"
                     ></div>
 
                     {/* Phone Mockup Wrapper */}
                     <div
                         ref={phoneRef}
-                        className="relative z-10 perspective-1000"
+                        className="relative z-20 perspective-1000"
                         style={{ willChange: 'transform' }}
                     >
                         <div className="relative transform-gpu transition-all duration-700 hover:scale-[1.02]">
