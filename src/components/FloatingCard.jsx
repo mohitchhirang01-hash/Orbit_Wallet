@@ -204,7 +204,6 @@ export default function FloatingCard() {
                         .to(card, {
                             opacity: 1,
                             filter: "blur(0px)",
-                            scale: 1.3,
                             x: "-40vw",
                             y: "90vh",
                             rotation: 360,
