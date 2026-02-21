@@ -56,6 +56,16 @@ export default function Hero() {
                             </span>
                         </div>
                     </h1>
+
+                    {/* Mobile Only CTA Button */}
+                    <div className="mt-8 md:hidden px-4">
+                        <button
+                            onClick={() => window.open('https://play.google.com/store/apps/details?id=com.orbitwallet&hl=en_IN', '_blank')}
+                            className="w-full max-w-[280px] py-4 rounded-2xl bg-[#0B0B0F] text-white font-bold shadow-xl active:scale-95 transition-transform"
+                        >
+                            Get Orbit Wallet
+                        </button>
+                    </div>
                 </div>
             </div>
 

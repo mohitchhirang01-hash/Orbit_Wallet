@@ -57,7 +57,7 @@ export default function FloatingCard() {
                     gsap.set(card, {
                         position: "fixed",
                         top: "60%",
-                        left: "52%",
+                        left: "50%",
                         xPercent: -50,
                         yPercent: -50,
                         x: "0vw",

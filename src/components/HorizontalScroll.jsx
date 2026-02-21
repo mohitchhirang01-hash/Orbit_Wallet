@@ -83,7 +83,7 @@ export default function HorizontalScroll() {
         <section
             id="horizontal-scroll-section"
             ref={containerRef}
-            className="relative w-full h-screen overflow-hidden bg-white text-slate-900"
+            className="relative w-full md:h-screen overflow-hidden bg-white text-slate-900 py-12 md:py-0"
         >
             {/* HORIZONTAL TRACK - 200vw Total Width (2 slides) */}
             <div

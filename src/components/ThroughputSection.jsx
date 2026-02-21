@@ -123,7 +123,7 @@ export default function ThroughputSection({ containerAnimation }) {
             <div className="w-full md:w-[40%] h-full flex flex-col justify-center px-8 md:px-16 lg:px-24 z-20 relative bg-[#FAFBFF]">
 
                 <div className="mb-8">
-                    <h2 className="tp-headline text-4xl md:text-5xl lg:text-6xl font-bold font-bricolage text-[#0B0B0F] leading-tight mb-6 opacity-0">
+                    <h2 className="tp-headline text-4xl md:text-5xl lg:text-6xl font-bold font-bricolage text-[#0B0B0F] leading-tight mb-12 opacity-0">
                         When Movement Flows, <span className="text-[#22075e]">Cities Breathe.</span>
                     </h2>
 
@@ -146,7 +146,7 @@ export default function ThroughputSection({ containerAnimation }) {
                 {/* Visual Background - Asset */}
                 <div
                     ref={visualRef}
-                    className="absolute inset-0 z-0"
+                    className="absolute inset-0 z-0 mobile-hide-bg"
                 >
                     <img
                         src={throughputBg}

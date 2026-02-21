@@ -82,7 +82,7 @@ export default function Navbar() {
 
     const MagneticLink = ({ children, href, internal, isActive }) => {
         const className = cn(
-            "group relative px-4 py-2 text-sm font-medium transition-all duration-300 block hover:scale-110",
+            "group relative px-4 py-2 text-sm font-medium transition-all duration-300 inline-flex items-center hover:scale-110",
             isActive ? "text-slate-900" : "text-slate-600 hover:text-black"
         );
 
@@ -227,7 +227,7 @@ export default function Navbar() {
                         initial={{ opacity: 0, y: -20, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: -20, scale: 0.95 }}
-                        className="absolute top-24 left-6 right-6 p-4 rounded-3xl bg-white/95 backdrop-blur-xl border border-slate-200 flex flex-col gap-2 md:hidden shadow-2xl origin-top"
+                        className="absolute top-24 left-6 right-6 p-4 rounded-3xl bg-white/95 backdrop-blur-xl border border-slate-200 flex flex-col gap-2 md:hidden shadow-2xl origin-top pointer-events-auto"
                     >
                         {/* Orbit Card – direct link */}
                         <Link

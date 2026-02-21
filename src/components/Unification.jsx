@@ -105,10 +105,10 @@ export default function Unification() {
     return (
         <section
             ref={containerRef}
-            className="relative w-full h-screen bg-gradient-to-br from-[#FAFBFF] via-white to-[#F5F3FF] overflow-hidden"
+            className="relative w-full md:h-screen bg-gradient-to-br from-[#FAFBFF] via-white to-[#F5F3FF] overflow-hidden py-12 md:py-0"
         >
             {/* Background Image */}
-            <div className="absolute inset-0 z-0 pointer-events-none">
+            <div className="absolute inset-0 z-0 pointer-events-none mobile-hide-bg">
                 <img
                     src={unificationBg}
                     alt="Orbit Wallet connecting India"
@@ -119,7 +119,7 @@ export default function Unification() {
             {/* Animated Connection Rays SVG Overlay */}
             <svg
                 ref={raysContainerRef}
-                className="absolute inset-0 w-full h-full pointer-events-none z-[1]"
+                className="absolute inset-0 w-full h-full pointer-events-none z-[1] hidden md:block"
                 viewBox="0 0 1920 1080"
                 preserveAspectRatio="xMidYMid slice"
             >
@@ -283,7 +283,7 @@ export default function Unification() {
             </div>
 
             {/* Main Layout Container */}
-            <div className="relative w-full h-full flex items-center justify-end px-8 md:px-16 z-40">
+            <div className="relative w-full md:h-full flex items-center justify-end px-4 md:px-16 z-40">
 
                 {/* Centered Text Content */}
                 <div className="relative w-full max-w-4xl h-full flex flex-col items-end justify-center text-right">

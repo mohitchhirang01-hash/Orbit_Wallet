@@ -45,7 +45,7 @@ export default function MeetOrbit() {
     return (
         <section
             ref={containerRef}
-            className="relative w-full min-h-screen bg-[#fff6ff] flex items-center justify-center px-8 md:px-16 py-32"
+            className="relative w-full md:min-h-screen bg-[#fff6ff] flex items-center justify-center px-4 md:px-16 py-12 md:py-32"
         >
             {/* Top Gradient Overlay - Blends from Interoperability's #FAFBFF */}
             <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-[#FAFBFF] via-[#FAFBFF]/80 to-transparent z-10" />
@@ -56,9 +56,15 @@ export default function MeetOrbit() {
                     <BlurText text="Meet Orbit Wallet" className="text-[#22075e]" animateBy="chars" />
                 </h1>
 
-                {/* Main Description - Three parts with different colors */}
                 <h2 className="meet-orbit-headline font-bricolage font-bold text-4xl md:text-6xl mb-12 leading-[1.15]">
-                    <BlurText text="truly interoperable interface for the" className="text-[#0B0B0F] whitespace-nowrap" animateBy="chars" />
+                    <span className="hidden md:inline">
+                        <BlurText text="truly interoperable interface for the" className="text-[#0B0B0F] whitespace-nowrap" animateBy="chars" />
+                    </span>
+                    <span className="md:hidden inline-block">
+                        <BlurText text="truly interoperable" className="text-[#0B0B0F]" animateBy="chars" />
+                        <br />
+                        <BlurText text="interface for the" className="text-[#0B0B0F]" animateBy="chars" delay={0.05} />
+                    </span>
                     <BlurText text="New Bharat" className="text-slate-400" animateBy="chars" delay={0.1} />
                     <BlurText text="." className="text-[#22075e]" animateBy="chars" delay={0.2} />
                 </h2>

@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
+import { Bus, TrainFront, ParkingCircle, ShoppingBag, Zap } from 'lucide-react';
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 const useInView = (ref, cb, threshold = 0.2) => {
@@ -26,11 +27,11 @@ const interopPoints = [
 ];
 
 const orbitNodes = [
-    { label: 'Bus', angle: -90 },
-    { label: 'Metro', angle: -18 },
-    { label: 'Parking', angle: 54 },
-    { label: 'Retail + Ecom', angle: 126 },
-    { label: 'EV Charging', angle: 198 },
+    { label: 'Bus', icon: Bus, angle: -90 },
+    { label: 'Metro', icon: TrainFront, angle: -18 },
+    { label: 'Parking', icon: ParkingCircle, angle: 54 },
+    { label: 'Retail + Ecom', icon: ShoppingBag, angle: 126 },
+    { label: 'EV Charging', icon: Zap, angle: 198 },
 ];
 
 const toRad = (deg) => (deg * Math.PI) / 180;
@@ -38,7 +39,6 @@ const toRad = (deg) => (deg * Math.PI) / 180;
 const InteroperabilityOverview = () => {
     const ref = useRef(null);
     const svgRef = useRef(null);
-    const CX = 160, CY = 160, R = 108;
 
     useInView(ref, () => {
         // Section 3 (Left) Animations
@@ -75,7 +75,7 @@ const InteroperabilityOverview = () => {
 
     return (
         <div ref={ref} className="w-full py-14 px-8 md:px-16 bg-white border-b border-slate-100">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16 md:gap-20 items-center">
                 {/* Left: Interoperability Points */}
                 <div className="order-1 lg:order-1">
                     <h2 className="font-bricolage font-bold text-slate-900 text-[clamp(1.3rem,2vw,1.9rem)] leading-tight mb-7">
@@ -93,38 +93,41 @@ const InteroperabilityOverview = () => {
 
                 {/* Center: Hub-and-Spoke Figure */}
                 <div className="flex items-center justify-center order-2 lg:order-2">
-                    <svg ref={svgRef} viewBox={`0 0 ${CX * 2} ${CY * 2}`} className="w-full max-w-[340px]">
+                    <svg ref={svgRef} viewBox="0 0 400 400" className="w-full max-w-[440px]">
+                        {/* CX=200, CY=200, R=140 */}
                         {orbitNodes.map((n, i) => {
                             const rad = toRad(n.angle);
-                            const nx = CX + R * Math.cos(rad);
-                            const ny = CY + R * Math.sin(rad);
+                            const nx = 200 + 140 * Math.cos(rad);
+                            const ny = 200 + 140 * Math.sin(rad);
                             return (
                                 <line key={i} className="orbit-spoke"
-                                    x1={CX} y1={CY} x2={nx} y2={ny}
-                                    stroke="#7c3aed" strokeWidth="1.6" strokeLinecap="round"
+                                    x1={200} y1={200} x2={nx} y2={ny}
+                                    stroke="#7c3aed" strokeWidth="2" strokeLinecap="round"
                                 />
                             );
                         })}
                         {orbitNodes.map((n, i) => {
                             const rad = toRad(n.angle);
-                            const nx = CX + R * Math.cos(rad);
-                            const ny = CY + R * Math.sin(rad);
+                            const nx = 200 + 140 * Math.cos(rad);
+                            const ny = 200 + 140 * Math.sin(rad);
+                            const Icon = n.icon;
                             return (
                                 <g key={i} className="orbit-node-g" style={{ transformOrigin: `${nx}px ${ny}px` }}>
-                                    <circle cx={nx} cy={ny} r="21" fill="#f1f5f9" stroke="#7c3aed" strokeWidth="1.2" />
-                                    <text x={nx} y={ny} textAnchor="middle" dominantBaseline="middle"
-                                        fill="#6d28d9" fontSize="6" fontFamily="sans-serif" fontWeight="700">
-                                        {n.label}
-                                    </text>
+                                    <circle cx={nx} cy={ny} r="28" fill="#f1f5f9" stroke="#7c3aed" strokeWidth="1.5" />
+                                    <foreignObject x={nx - 14} y={ny - 14} width="28" height="28">
+                                        <div className="w-full h-full flex items-center justify-center text-[#6d28d9]">
+                                            <Icon size={18} strokeWidth={2.5} />
+                                        </div>
+                                    </foreignObject>
                                 </g>
                             );
                         })}
-                        <g className="orbit-center" style={{ transformOrigin: `${CX}px ${CY}px` }}>
-                            <circle cx={CX} cy={CY} r="38" fill="#22075e" />
-                            <text x={CX} y={CY - 7} textAnchor="middle" dominantBaseline="middle"
-                                fill="white" fontSize="9" fontFamily="sans-serif" fontWeight="800">ORBIT</text>
-                            <text x={CX} y={CY + 7} textAnchor="middle" dominantBaseline="middle"
-                                fill="#c4b5fd" fontSize="5" fontFamily="sans-serif">Mobility Protocol</text>
+                        <g className="orbit-center" style={{ transformOrigin: `200px 200px` }}>
+                            <circle cx={200} cy={200} r="50" fill="#22075e" />
+                            <text x={200} y={200 - 9} textAnchor="middle" dominantBaseline="middle"
+                                fill="white" fontSize="12" fontFamily="sans-serif" fontWeight="800">ORBIT</text>
+                            <text x={200} y={200 + 9} textAnchor="middle" dominantBaseline="middle"
+                                fill="#c4b5fd" fontSize="7" fontFamily="sans-serif">Mobility Protocol</text>
                         </g>
                     </svg>
                 </div>

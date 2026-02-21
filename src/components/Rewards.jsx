@@ -94,13 +94,13 @@ export default function Rewards() {
             <div ref={podsRef} className="relative z-20 flex flex-col md:flex-row gap-6 md:gap-8 items-center justify-center w-full max-w-6xl px-4">
 
                 {/* Pod 1 */}
-                <div className="group relative w-full md:w-[300px] h-[320px] rounded-[24px] border border-white/70 bg-white/55 backdrop-blur-[18px] shadow-[0_25px_60px_rgba(20,40,120,0.08)] flex flex-col p-7 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_40px_80px_rgba(20,40,120,0.12)]">
+                <div className="group relative w-full max-w-[320px] md:w-[300px] h-[320px] rounded-[24px] border border-white/70 bg-white/55 backdrop-blur-[18px] shadow-[0_25px_60px_rgba(20,40,120,0.08)] flex flex-col p-7 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_40px_80px_rgba(20,40,120,0.12)]">
                     <div className="mb-auto">
                         <div className="w-12 h-12 rounded-2xl bg-blue-50/50 flex items-center justify-center mb-6 text-blue-600">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /><path d="M12 18V6" /></svg>
                         </div>
                         <h3 className="text-2xl font-bold text-slate-800 mb-2 font-bricolage">Cashback</h3>
-                        <p className="text-slate-500 leading-relaxed">Unlimited cashback on every prepaid transaction you make.</p>
+                        <p className="text-slate-500 leading-relaxed">Unlimited cashback on every spend you make.</p>
                     </div>
                     <div>
                         <div className="text-4xl font-bold text-slate-900 mb-1 flex items-center gap-2">
@@ -112,14 +112,14 @@ export default function Rewards() {
                 </div>
 
                 {/* Pod 2 */}
-                <div className="group relative min-w-[280px] w-[280px] snap-center md:w-[300px] h-[320px] rounded-[24px] border border-white/70 bg-white/55 backdrop-blur-[18px] shadow-[0_25px_60px_rgba(20,40,120,0.08)] flex flex-col p-7 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_40px_80px_rgba(20,40,120,0.12)]">
+                <div className="group relative w-full max-w-[320px] md:w-[300px] h-[320px] rounded-[24px] border border-white/70 bg-white/55 backdrop-blur-[18px] shadow-[0_25px_60px_rgba(20,40,120,0.08)] flex flex-col p-7 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_40px_80px_rgba(20,40,120,0.12)]">
                     <div className="mb-auto">
                         <div className="w-12 h-12 rounded-2xl bg-indigo-50/50 flex items-center justify-center mb-6 text-indigo-600">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5" /><path d="m12 19-7-7 7-7" /></svg>
                             {/* Transit Icon */}
                         </div>
                         <h3 className="text-2xl font-bold text-slate-800 mb-2 font-bricolage">Transit</h3>
-                        <p className="text-slate-500 leading-relaxed">Operator discounts on metro and bus journeys nationwide.</p>
+                        <p className="text-slate-500 leading-relaxed">Operator discounts on transit journeys nationwide.</p>
                     </div>
                     <div>
                         <div className="text-4xl font-bold text-slate-900 mb-1 flex items-center gap-2">
@@ -131,7 +131,7 @@ export default function Rewards() {
                 </div>
 
                 {/* Pod 3 */}
-                <div className="group relative min-w-[280px] w-[280px] snap-center md:w-[300px] h-[320px] rounded-[24px] border border-white/70 bg-white/55 backdrop-blur-[18px] shadow-[0_25px_60px_rgba(20,40,120,0.08)] flex flex-col p-7 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_40px_80px_rgba(20,40,120,0.12)]">
+                <div className="group relative w-full max-w-[320px] md:w-[300px] h-[320px] rounded-[24px] border border-white/70 bg-white/55 backdrop-blur-[18px] shadow-[0_25px_60px_rgba(20,40,120,0.08)] flex flex-col p-7 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_40px_80px_rgba(20,40,120,0.12)]">
                     <div className="mb-auto">
                         <div className="w-12 h-12 rounded-2xl bg-amber-50/50 flex items-center justify-center mb-6 text-amber-600">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>

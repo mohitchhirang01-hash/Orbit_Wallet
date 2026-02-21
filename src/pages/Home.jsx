@@ -23,39 +23,39 @@ export default function Home() {
                 url="https://orbitwallet.com/"
             />
             <main className="main-site-wrapper">
-                <div id="hero-section">
+                <section id="hero-section">
                     <Hero />
-                </div>
-                <div id="interoperability-section">
+                </section>
+                <section id="interoperability-section">
                     <Interoperability />
-                </div>
-                <div id="meet-orbit-section">
+                </section>
+                <section id="meet-orbit-section">
                     <MeetOrbit />
-                </div>
-                <div id="unification-section">
+                </section>
+                <section id="unification-section">
                     <Unification />
-                </div>
-                <div id="fragmented-vs-orbit-section">
+                </section>
+                <section id="fragmented-vs-orbit-section">
                     <FragmentedVsOrbit />
-                </div>
-                <div id="horizontal-scroll-section-wrapper">
+                </section>
+                <section id="horizontal-scroll-section-wrapper">
                     <HorizontalScroll />
-                </div>
-                <div id="ncmc-interface-section">
+                </section>
+                <section id="ncmc-interface-section">
                     <NCMCInterface />
-                </div>
-                <div id="ncmc-capabilities-section">
+                </section>
+                <section id="ncmc-capabilities-section">
                     <NCMCCapabilities />
-                </div>
-                <div id="rewards-section">
+                </section>
+                <section id="rewards-section">
                     <Rewards />
-                </div>
-                <div id="partnerships-section">
+                </section>
+                <section id="partnerships-section">
                     <Partnerships />
-                </div>
-                <div id="faq-section">
+                </section>
+                <section id="faq-section">
                     <FAQ />
-                </div>
+                </section>
                 <Footer />
             </main>
         </>

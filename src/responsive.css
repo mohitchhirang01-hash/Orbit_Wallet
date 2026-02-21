@@ -1,0 +1,105 @@
+/* responsive.css - Mobile First Design System */
+
+/* 1. Base Defaults (mobile) */
+body,
+html {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 2. Hide Background Images on Mobile */
+@media (max-width: 768px) {
+    .mobile-hide-bg {
+        display: none !important;
+    }
+}
+
+/* 3. Typography Scaling */
+body {
+    font-size: clamp(14px, 2.5vw, 18px);
+}
+
+h1 {
+    font-size: clamp(24px, 5vw, 32px);
+}
+
+h2 {
+    font-size: clamp(20px, 4vw, 28px);
+}
+
+/* 4. Touch Targets (Mobile Only) */
+@media (max-width: 768px) {
+
+    button,
+    a,
+    .touch-target {
+        min-height: 48px;
+        min-width: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* 5. Responsive Breakpoints */
+
+/* Tablets and larger phones */
+@media (min-width: 600px) {
+    .cards-stack {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* Navigation Fix for Mobile */
+@media (max-width: 768px) {
+    nav .mobile-nav-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* Specific Section Adjustments */
+
+/* Hero Heading scaling */
+.overlap-heading {
+    font-size: clamp(2.4rem, 8vw, 4.8rem) !important;
+}
+
+/* Footer layout */
+@media (max-width: 768px) {
+    .site-footer .grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Touch Targets for small elements */
+.lucide,
+svg:not(.connection-ray) {
+    min-width: 24px;
+    min-height: 24px;
+}

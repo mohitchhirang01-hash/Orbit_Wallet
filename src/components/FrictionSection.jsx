@@ -27,14 +27,11 @@ const FrictionSection = () => {
     return (
         <section ref={containerRef} className="friction-section w-full h-full bg-[#fff] text-[#0F172A] flex items-center justify-center">
 
-            <div className="friction-container relative z-20 w-full h-full grid grid-cols-1 md:grid-cols-[1.05fr_0.95fr] gap-[clamp(40px,6vw,120px)] p-[clamp(60px,8vw,140px)] min-h-screen">
+            <div className="friction-container relative z-20 w-full md:h-full grid grid-cols-1 md:grid-cols-[1.05fr_0.95fr] gap-[clamp(40px,6vw,120px)] py-12 px-6 md:p-[clamp(60px,8vw,140px)] md:min-h-screen">
 
                 {/* LEFT: Content Wrapper */}
                 <div className="friction-content flex flex-col justify-center max-w-[540px]">
                     <div className="mb-6">
-                        <span className="inline-block py-1 px-3 rounded-full bg-slate-200/50 text-slate-500 text-xs font-semibold tracking-wider uppercase mb-4">
-                            The Reality
-                        </span>
                         <h2 className="text-[clamp(32px,4vw,56px)] font-bold tracking-tight leading-[1.1] text-[#0F172A] mb-8 font-bricolage">
                             We Are Losing <br />
                             <span className="text-[#22075e]">Time at the Gate.</span>
