@@ -137,16 +137,16 @@ const Footer = () => {
                         <h4 className="text-white font-semibold mb-6">Important Links</h4>
                         <ul className="space-y-4 text-white/60">
                             <li className="hover:text-white transition-colors">
-                                <a href="https://orbitwallet.notion.site/Privacy-Policy-03a80c22b72f4b53b057bd4965015142" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                                <a href="https://orbitwallet.notion.site/Privacy-Policy-03a80c22b72f4b53b057bd4965015142">Privacy Policy</a>
                             </li>
                             <li className="hover:text-white transition-colors">
-                                <a href="https://orbitwallet.notion.site/Terms-Conditions-71db29ea149e443e92516e2e8499969c" target="_blank" rel="noopener noreferrer">Terms and Conditions</a>
+                                <a href="https://orbitwallet.notion.site/Terms-Conditions-71db29ea149e443e92516e2e8499969c">Terms and Conditions</a>
                             </li>
                             <li className="hover:text-white transition-colors">
-                                <a href="https://orbitwallet.notion.site/Pricing-Fees-Terms-b7b16445650c416dacd1a0d780501162" target="_blank" rel="noopener noreferrer">Pricing and Fees</a>
+                                <a href="https://orbitwallet.notion.site/Pricing-Fees-Terms-b7b16445650c416dacd1a0d780501162">Pricing and Fees</a>
                             </li>
                             <li className="hover:text-white transition-colors">
-                                <a href="https://orbitwallet.notion.site/Refund-Policy-53bd02d3ae7f4ee8a9de8860d7dfe9d5" target="_blank" rel="noopener noreferrer">Refund Policy</a>
+                                <a href="https://orbitwallet.notion.site/Refund-Policy-53bd02d3ae7f4ee8a9de8860d7dfe9d5">Refund Policy</a>
                             </li>
                         </ul>
                     </div>

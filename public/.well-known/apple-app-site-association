@@ -1,0 +1,42 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "Q37384TFXZ.com.orbitwallet",
+                "appIDs": [
+                    "Q37384TFXZ.com.orbitwallet"
+                ],
+                "paths": [
+                    "/card-details/*",
+                    "/referral/*",
+                    "/manage-card/*",
+                    "/onboarding/full-kyc/*"
+                ],
+                "components": [
+                    {
+                        "#": "no_universal_links",
+                        "exclude": true,
+                        "comment": "Matches any URL whose fragment equals no_universal_links and instructs the system not to open it as a universal link"
+                    },
+                    {
+                        "/": "/card-details/*",
+                        "comment": "Matches any URL whose path starts with /card-details/"
+                    },
+                    {
+                        "/": "/referral/*",
+                        "comment": "Matches any URL whose path starts with /referral/"
+                    },
+                    {
+                        "/": "/onboarding/full-kyc/*",
+                        "comment": "Matches any URL whose path starts with /onboarding/full-kyc/"
+                    },
+                    {
+                        "/": "/manage-card/*",
+                        "comment": "Matches any URL whose path starts with /manage-card/*"
+                    }
+                ]
+            }
+        ]
+    }
+}
