@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import BlurText from './BlurText'; // Assuming BlurText exists, as used in other files. If not, standard text.
 import { ArrowRight } from 'lucide-react';
-import throughputBg from '../assets/throughput_bg.png';
+import throughputBg from '../assets/throughput_bg.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 

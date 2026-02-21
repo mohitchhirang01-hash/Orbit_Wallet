@@ -1,11 +1,11 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import partnerMumbaiMetro from '../assets/mumbai_metro_icon.png';
-import partnerMumbaiBest from '../assets/mumbai_best_icon.png';
-import partnerLucknowMetro from '../assets/lucknow_metro_icon.png';
-import partnerDelhiMetro from '../assets/delhi_metro_icon.png';
-import partnerBangaloreMetro from '../assets/bangalore_metro_icon.png';
+import partnerMumbaiMetro from '../assets/mumbai_metro_icon.webp';
+import partnerMumbaiBest from '../assets/mumbai_best_icon.webp';
+import partnerLucknowMetro from '../assets/lucknow_metro_icon.webp';
+import partnerDelhiMetro from '../assets/delhi_metro_icon.webp';
+import partnerBangaloreMetro from '../assets/bangalore_metro_icon.webp';
 
 
 const Footer = () => {

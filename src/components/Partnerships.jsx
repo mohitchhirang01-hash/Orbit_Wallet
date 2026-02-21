@@ -2,15 +2,15 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Shield, Building2, Lock, Landmark } from 'lucide-react';
-import partnerNsdl from '../assets/partner_nsdl.png';
-import partnerLivquik from '../assets/partner_livquik.png';
-import partnerIob from '../assets/partner_iob.png';
-import partnerRbl from '../assets/partner_rbl.png';
-import npciLogo from '../assets/npci_logo.png';
-import mtcLogo from '../assets/mtc_logo.png';
+import partnerNsdl from '../assets/partner_nsdl.webp';
+import partnerLivquik from '../assets/partner_livquik.webp';
+import partnerIob from '../assets/partner_iob.webp';
+import partnerRbl from '../assets/partner_rbl.webp';
+import npciLogo from '../assets/npci_logo.webp';
+import mtcLogo from '../assets/mtc_logo.webp';
 import toyotaLogo from '../assets/toyota_mobility_logo.svg';
 import wriLogo from '../assets/wri-india-logo.svg';
-import isgLogo from '../assets/ISG_logo.png';
+import isgLogo from '../assets/ISG_logo.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 

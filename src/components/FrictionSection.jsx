@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import queue1 from '../assets/queue_1.png';
-import queue2 from '../assets/queue_2.png';
+import queue1 from '../assets/queue_1.webp';
+import queue2 from '../assets/queue_2.webp';
 
 
 const FrictionSection = () => {

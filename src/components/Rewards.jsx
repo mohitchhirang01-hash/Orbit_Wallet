@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Star } from 'lucide-react';
-import rewardsBg from '../assets/reward_section_bg.png';
+import rewardsBg from '../assets/reward_section_bg.webp';
 
 
 gsap.registerPlugin(ScrollTrigger);

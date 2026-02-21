@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import BlurText from './BlurText';
-import unificationBg from '../assets/oneNation_bg.png';
+import unificationBg from '../assets/oneNation_bg.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 

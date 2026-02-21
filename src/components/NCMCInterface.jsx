@@ -91,7 +91,7 @@ export default function NCMCInterface() {
                         muted
                         loop
                         playsInline
-                        poster="/assets/images/solution/scene_1.png"
+                        poster="/assets/images/solution/scene_1.webp"
                     />
 
                     {/* Inner Glow / Vignette */}

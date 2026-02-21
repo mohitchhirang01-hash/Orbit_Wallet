@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useLocation } from "react-router-dom";
-import rupayLogo from "../assets/rupay_logo.png";
+import rupayLogo from "../assets/rupay_logo.webp";
 
 // Register ScrollTrigger - we don't need MotionPathPlugin anymore
 gsap.registerPlugin(ScrollTrigger);

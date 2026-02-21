@@ -4,10 +4,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Lock, Smartphone, ArrowRight, Star, Sparkles, Palette } from 'lucide-react';
 
-import card2 from '../assets/card_2.png';
-import card3 from '../assets/card_3.png';
-import card4 from '../assets/card_4.png';
-import cardSectionBg from '../assets/card_section_background.png';
+import card2 from '../assets/card_2.webp';
+import card3 from '../assets/card_3.webp';
+import card4 from '../assets/card_4.webp';
+import cardSectionBg from '../assets/card_section_background.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 

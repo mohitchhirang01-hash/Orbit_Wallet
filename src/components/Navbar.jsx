@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-import orbitLogo from '../assets/orbit_logo.png';
+import orbitLogo from '../assets/orbit_logo.webp';
 
 const companyItems = [
     {

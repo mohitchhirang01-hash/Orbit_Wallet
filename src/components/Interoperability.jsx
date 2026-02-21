@@ -2,8 +2,8 @@ import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import bgImage from '../assets/interopreabilty_section_page_1_bg.png';
-import mobileIllustration from '../assets/interopreabilty_section_page_1_bg2 - mobile.png';
+import bgImage from '../assets/interopreabilty_section_page_1_bg.webp';
+import mobileIllustration from '../assets/interopreabilty_section_page_1_bg2 - mobile.webp';
 import BlurText from './BlurText';
 
 gsap.registerPlugin(ScrollTrigger);

@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Smartphone, RefreshCw, ArrowRight } from 'lucide-react';
-import phoneMockup from '../assets/image.png';
+import phoneMockup from '../assets/image.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 

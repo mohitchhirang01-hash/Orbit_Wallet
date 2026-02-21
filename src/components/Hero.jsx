@@ -5,7 +5,7 @@ import { useGSAP } from '@gsap/react';
 import BlurText from './BlurText';
 
 
-import bgLight from '../assets/bg_herosection_light_without_card.png';
+import bgLight from '../assets/bg_herosection_light_without_card.webp';
 
 
 export default function Hero() {
