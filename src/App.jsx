@@ -9,6 +9,7 @@ import Features from './pages/Features';
 import OrbitCardPage from './pages/OrbitCardPage';
 import AboutUs from './pages/AboutUs';
 import FloatingCard from './components/FloatingCard';
+import { ReactLenis } from 'lenis/react';
 
 function Layout() {
   const location = useLocation();
@@ -35,11 +36,13 @@ function Layout() {
 
 function App() {
   return (
-    <HelmetProvider>
-      <Router>
-        <Layout />
-      </Router>
-    </HelmetProvider>
+    <ReactLenis root options={{ lerp: 0.08, duration: 1.2, smoothWheel: true }}>
+      <HelmetProvider>
+        <Router>
+          <Layout />
+        </Router>
+      </HelmetProvider>
+    </ReactLenis>
   );
 }
 

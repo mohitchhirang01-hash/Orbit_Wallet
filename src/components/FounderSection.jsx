@@ -105,7 +105,7 @@ export default function FounderSection() {
                 <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-[60px] items-center">
 
                     {/* LEFT COLUMN: Typography Hierarchy */}
-                    <div className="flex flex-col max-w-[600px] lg:pr-4">
+                    <div className="flex flex-col max-w-4xl lg:pr-4">
                         {/* Badge */}
                         <div className="mb-6">
                             <span className="inline-block py-1.5 px-4 rounded-full bg-purple-50 text-purple-700 text-[10px] md:text-[11px] font-bold tracking-[0.18em] uppercase border border-purple-100/50">
@@ -123,7 +123,6 @@ export default function FounderSection() {
                             <span className="word inline-block">rails</span>{' '}
                             <span className="word inline-block">for</span>{' '}
                             <span className="word inline-block">a</span>{' '}
-                            <br className="hidden md:block" />
                             <span className="word inline-block bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">unified</span>{' '}
                             <span className="word inline-block bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">New Bharat.</span>
                         </h2>
@@ -131,7 +130,7 @@ export default function FounderSection() {
                         {/* Paragraph Text */}
                         <div
                             ref={paragraphsRef}
-                            className="space-y-6 text-gray-500 max-w-[540px]"
+                            className="space-y-6 text-gray-500 max-w-[760px]"
                         >
                             <p className="text-[16px] md:text-[17px] leading-[1.7]">
                                 We call ourselves a digital nation but sadly, even in the most urban cities 90% of public transportation and daily movement across life relies on physical cash, paper tickets, tokens, multiple IDs and cards. The journey inside a metro or taking a bus is so broken and retard - It’s a massive failure to our systems.

@@ -121,7 +121,7 @@ export default function CardShowcase() {
             title: "Orbit × OG ",
             subtitle: "Premium Experience",
             desc: "Orbit card is your all in one transit and payment card that works across for transit, online/offline payments across India. Easily add money, check balance and claim balance from your NFC phone without the need to visit any counter or add value machine for your seamless tap in and out journey!",
-            tags: ["1% Cashback on all spends", "upto 20% on transit spends", "KYC onboarding"],
+            tags: ["1% Cashback on all spends", "upto 20% on transit spends", "KYC onboarding", "Limit upto Rs 2,00,000 monthly"],
             bgColors: "bg-slate-100 text-slate-900",
             orientation: "landscape"
         },
@@ -178,25 +178,24 @@ export default function CardShowcase() {
 
                 <div className="relative">
                     {cardCollection.map((card, index) => (
-                        <div key={card.id} className={`sticky-card-section flex flex-col ${index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center justify-between min-h-[80vh] py-20 border-t border-slate-200/60 sticky top-0 z-${10 + index} transition-all duration-500`}>
+                        <div key={card.id} className={`sticky-card-section flex flex-col ${index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center justify-center gap-8 md:gap-16 h-screen py-12 border-t border-slate-200/60 sticky top-0 z-${10 + index} transition-all duration-500`}>
 
                             {/* Text Content */}
-                            <div className={`w-full md:w-1/2 ${index % 2 === 1 ? 'md:pl-16' : 'md:pr-16'} mb-12 md:mb-0 px-6 md:px-12`}>
+                            <div className={`w-full md:w-auto md:max-w-3xl ${index % 2 === 1 ? 'md:pl-0' : 'md:pr-12'} mb-12 md:mb-0 px-4 md:px-0`}>
                                 <span className={`${card.bgColors.split(' ')[1]} font-bold tracking-widest text-sm uppercase mb-4 block font-bricolage`}>0{index + 1}. {card.title.replace('Orbit Wallet', '').replace('Orbit', '').trim() || card.title}</span>
                                 <h3 className="text-6xl md:text-8xl font-bold text-[#0B0B0F] mb-6 tracking-tighter font-bricolage">{card.title}</h3>
-                                <p className="text-lg text-slate-600 font-light mb-8 max-w-md leading-relaxed">
+                                <p className="text-lg text-slate-600 font-light mb-8 max-w-2xl leading-relaxed">
                                     {card.desc}
                                 </p>
 
-                                <div className="space-y-4 mb-10">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
                                     {card.tags.map((tag, i) => (
-                                        <div key={i} className="bg-white/60 p-4 rounded-2xl flex items-center gap-4 max-w-sm border border-white/50 shadow-sm">
-                                            <div className={`w-10 h-10 rounded-full flex items-center justify-center ${card.bgColors.split(' ')[1].replace('text-', 'bg-').replace('900', '100')} ${card.bgColors.split(' ')[1]}`}>
+                                        <div key={i} className="bg-white/60 p-4 rounded-2xl flex items-center gap-4 border border-white/50 shadow-sm h-full">
+                                            <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${card.bgColors.split(' ')[1].replace('text-', 'bg-').replace('900', '100')} ${card.bgColors.split(' ')[1]}`}>
                                                 <Star size={20} />
                                             </div>
                                             <div>
-                                                <p className="font-semibold text-sm">{tag}</p>
-                                                <p className="text-xs text-slate-500">Included in plan</p>
+                                                <p className="font-semibold text-sm leading-tight">{tag}</p>
                                             </div>
                                         </div>
                                     ))}
@@ -210,7 +209,7 @@ export default function CardShowcase() {
                             </div>
 
                             {/* Card Image */}
-                            <div className="w-full md:w-1/2 flex justify-center perspective-1000 px-6 card-image-content">
+                            <div className="w-full md:w-auto flex justify-center perspective-1000 px-6 card-image-content">
                                 <div className="relative transform transition-transform hover:scale-105 duration-700">
                                     <div className="flex items-center justify-center p-6 bg-transparent h-[400px] md:h-[500px]">
                                         <ImageCard3D

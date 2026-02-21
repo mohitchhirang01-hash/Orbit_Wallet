@@ -52,7 +52,7 @@ export default function Hero() {
                         <div className="overflow-hidden">
                             <span ref={line1Ref} className="inline-block">
                                 <span className="overlap-item">Movement</span>{" "}
-                                <span className="gradient-text overlap-item font-bold">Unlocked</span>.
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#22075e] to-[#7c3aed] overlap-item font-bold">Unlocked</span>.
                             </span>
                         </div>
                     </h1>

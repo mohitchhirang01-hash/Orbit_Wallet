@@ -75,10 +75,10 @@ const InteroperabilityOverview = () => {
 
     return (
         <div ref={ref} className="w-full py-14 px-8 md:px-16 bg-white border-b border-slate-100">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16 md:gap-20 items-center">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16 md:gap-20 items-start">
                 {/* Left: Interoperability Points */}
                 <div className="order-1 lg:order-1">
-                    <h2 className="font-bricolage font-bold text-slate-900 text-[clamp(1.3rem,2vw,1.9rem)] leading-tight mb-7">
+                    <h2 className="font-bricolage font-bold text-slate-900 text-[clamp(1.6rem,2.4vw,2.2rem)] leading-[1.1] mb-7">
                         What True Interoperability Means
                     </h2>
                     <ul className="space-y-3">
@@ -124,17 +124,17 @@ const InteroperabilityOverview = () => {
                         })}
                         <g className="orbit-center" style={{ transformOrigin: `200px 200px` }}>
                             <circle cx={200} cy={200} r="50" fill="#22075e" />
-                            <text x={200} y={200 - 9} textAnchor="middle" dominantBaseline="middle"
-                                fill="white" fontSize="12" fontFamily="sans-serif" fontWeight="800">ORBIT</text>
-                            <text x={200} y={200 + 9} textAnchor="middle" dominantBaseline="middle"
-                                fill="#c4b5fd" fontSize="7" fontFamily="sans-serif">Mobility Protocol</text>
+                            <text x={200} y={200 - 10} textAnchor="middle" dominantBaseline="middle"
+                                fill="white" fontSize="16" fontFamily="sans-serif" fontWeight="800">ORBIT</text>
+                            <text x={200} y={200 + 12} textAnchor="middle" dominantBaseline="middle"
+                                fill="#c4b5fd" fontSize="10" fontFamily="sans-serif">Mobility Protocol</text>
                         </g>
                     </svg>
                 </div>
 
                 {/* Right: Architecture Text */}
                 <div className="order-3 lg:order-3">
-                    <h2 className="font-bricolage font-bold text-slate-900 text-[clamp(1.3rem,2vw,1.9rem)] leading-tight mb-4">
+                    <h2 className="font-bricolage font-bold text-slate-900 text-[clamp(1.6rem,2.4vw,2.2rem)] leading-[1.1] mb-4">
                         Orbit Wallet: A Unified Mobility Layers
                     </h2>
                     <p className="text-slate-500 text-sm leading-relaxed mb-6">
