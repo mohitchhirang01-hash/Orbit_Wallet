@@ -239,7 +239,7 @@ export default function CardShowcase() {
                         {[
                             { icon: Lock, title: "Vault Security", desc: "Bank-grade encryption for every tap." },
                             { icon: Smartphone, title: "App Control", desc: "Freeze card instantly from the app." },
-                            { icon: Star, title: "Rewards", desc: "Earn points on every metro ride." },
+                            { icon: Star, title: "Rewards", desc: "Earn cashback and discounts on every ride." },
                             { icon: Sparkles, title: "Premium Support", desc: "24/7 priority assistance." }
                         ].map((item, i) => (
                             <div key={i} className="benefit-card p-6 rounded-2xl bg-slate-50 hover:bg-slate-100 transition-colors border border-slate-100">

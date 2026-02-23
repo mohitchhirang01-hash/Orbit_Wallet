@@ -146,7 +146,7 @@ export default function ThroughputSection({ containerAnimation }) {
                 {/* Visual Background - Asset */}
                 <div
                     ref={visualRef}
-                    className="absolute inset-0 z-0 mobile-hide-bg"
+                    className="absolute inset-0 z-0 opacity-[0.3] md:opacity-100"
                 >
                     <img
                         src={throughputBg}

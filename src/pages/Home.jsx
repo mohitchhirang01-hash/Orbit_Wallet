@@ -7,7 +7,7 @@ import Unification from '../components/Unification';
 import FragmentedVsOrbit from '../components/FragmentedVsOrbit';
 import HorizontalScroll from '../components/HorizontalScroll';
 import NCMCInterface from '../components/NCMCInterface';
-import NCMCCapabilities from '../components/NCMCCapabilities';
+import FeatureSection from '../components/FeatureSection';
 import Rewards from '../components/Rewards';
 import Partnerships from '../components/Partnerships';
 import FAQ from '../components/FAQ';
@@ -42,8 +42,8 @@ export default function Home() {
                 <section id="horizontal-scroll-section-wrapper">
                     <HorizontalScroll />
                 </section>
-                <section id="ncmc-capabilities-section">
-                    <NCMCCapabilities />
+                <section id="features-section">
+                    <FeatureSection />
                 </section>
                 <section id="ncmc-interface-section">
                     <NCMCInterface />

@@ -58,7 +58,7 @@ export default function Hero() {
                     </h1>
 
                     {/* Mobile Only CTA Button */}
-                    <div className="-mt-4 md:hidden px-4 flex justify-center">
+                    <div className="mt-8 md:hidden px-4 flex justify-center">
                         <button
                             onClick={() => window.open('https://play.google.com/store/apps/details?id=com.orbitwallet&hl=en_IN', '_blank')}
                             className="btn-shimmer flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-slate-900 text-white font-semibold text-sm hover:scale-105 active:scale-95 transition-transform shadow-lg hover:shadow-cyan-500/25 w-max"

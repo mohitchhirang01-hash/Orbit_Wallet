@@ -108,11 +108,11 @@ export default function Unification() {
             className="relative w-full md:h-screen bg-gradient-to-br from-[#FAFBFF] via-white to-[#F5F3FF] overflow-hidden py-12 md:py-0"
         >
             {/* Background Image */}
-            <div className="absolute inset-0 z-0 pointer-events-none mobile-hide-bg">
+            <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.15] md:opacity-100">
                 <img
                     src={unificationBg}
                     alt="Orbit Wallet connecting India"
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full object-cover object-left md:object-center"
                 />
             </div>
 

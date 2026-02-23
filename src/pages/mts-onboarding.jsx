@@ -21,15 +21,10 @@ export default function MtsOnboarding() {
 
             const waUrl = `https://wa.me/917676354969?text=MTS%20singara%20card%20activation.%20cardRef%3D${encodedCardRef}`;
 
-            // Give a slight delay for tracking
-            const timer = setTimeout(() => {
-                // First go back to home page (simulating router.replace("/"))
-                navigate("/", { replace: true });
-                // Then open WhatsApp
-                window.location.href = waUrl;
-            }, 1000);
-
-            return () => clearTimeout(timer);
+            // First go back to home page (simulating router.replace("/"))
+            navigate("/", { replace: true });
+            // Then open WhatsApp
+            window.location.href = waUrl;
         } else {
             // Default tracking for view without cardRef
             track("MTS_Onboarding_Viewed");
