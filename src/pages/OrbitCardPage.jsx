@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import CardShowcase from '../components/CardShowcase';
+import OneNationCard from '../components/OneNationCard';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 
@@ -18,6 +19,7 @@ export default function OrbitCardPage() {
             />
             <main className="pt-20"> {/* Add padding for fixed navbar */}
                 <CardShowcase />
+                <OneNationCard />
                 <Footer />
             </main>
         </>

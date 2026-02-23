@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ChevronRight, Home, ChevronDown, ChevronUp, Copy, Check, TrainFront, Bus, CableCar, ShoppingBag, CircleParking, Ticket } from 'lucide-react';
 import SEO from '../components/SEO';
+import OneNationCard from '../components/OneNationCard';
 import Footer from '../components/Footer';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -244,7 +245,7 @@ const NCMCDocumentation = () => {
                                                     <div className="w-5 h-5 rounded-full border-2 border-[#22075e] flex items-center justify-center shrink-0 mt-0.5">
                                                         <div className="w-2.5 h-1.5 border-b-2 border-r-2 border-[#22075e] rotate-45 mb-1"></div>
                                                     </div>
-                                                    <span>ATM withdrawals (if enabled)</span>
+                                                    <span>ATM withdrawals</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -252,7 +253,7 @@ const NCMCDocumentation = () => {
                                         <div className="grid md:grid-cols-2 gap-4">
                                             <div className="bg-gradient-to-br from-[#22075e]/10 to-[#22075e]/5 rounded-xl p-6">
                                                 <h4 className="font-semibold text-slate-900 mb-2">Commonly Known As</h4>
-                                                <p className="text-[#22075e] font-bold text-lg pb-2">"One Nation <br /> One Card"</p>
+                                                <p className="text-[#22075e] font-bold text-lg pb-2">"One Nation, One Card"</p>
                                             </div>
                                             <div className="bg-gradient-to-br from-slate-100 to-slate-50 rounded-xl p-6">
                                                 <h4 className="font-semibold text-slate-900 mb-2">Launched Under</h4>
@@ -366,45 +367,13 @@ const NCMCDocumentation = () => {
                                             </ul>
                                         </div>
 
-                                        <div className="stagger-item bg-white rounded-xl p-6 border border-slate-200 hover:shadow-lg transition-shadow">
-                                            <h3 className="text-lg font-bold text-slate-900 mb-3 font-bricolage">Offline Transaction Capability</h3>
-                                            <ul className="space-y-2 text-slate-700 text-sm">
-                                                <li>• Essential for metro turnstiles</li>
-                                                <li>• Fast tap (&lt;300 ms)</li>
-                                                <li>• Deferred settlement</li>
-                                            </ul>
-                                        </div>
-
-                                        <div className="stagger-item bg-white rounded-xl p-6 border border-slate-200 hover:shadow-lg transition-shadow">
-                                            <h3 className="text-lg font-bold text-slate-900 mb-3 font-bricolage">Clearing & Settlement</h3>
-                                            <ul className="space-y-2 text-slate-700 text-sm">
-                                                <li>• NPCI manages switching</li>
-                                                <li>• T+3 or defined cycle settlement</li>
-                                            </ul>
-                                        </div>
                                     </div>
                                 </section>
 
                                 {/* Section 4: Card Types */}
                                 <section id="card-types" className="doc-section">
-                                    <h2 className="text-3xl md:text-4xl font-bold font-bricolage text-[#22075e] mb-6">
-                                        Types of NCMC Cards
-                                    </h2>
-
-                                    <div className="grid md:grid-cols-2 gap-4 mb-6">
-                                        {[
-                                            { name: 'Debit Card with NCMC', desc: 'Full banking functionality with transit payments' },
-                                            { name: 'Prepaid Card', desc: 'Load and use for transit, retail and e-commerce' },
-                                        ].map((card, i) => (
-                                            <div key={i} className="stagger-item bg-white rounded-xl p-6 border border-slate-200 hover:border-[#22075e]/30 transition-all">
-                                                <h3 className="font-bold text-slate-900 mb-2 font-bricolage">{card.name}</h3>
-                                                <p className="text-slate-600 text-sm">{card.desc}</p>
-                                            </div>
-                                        ))}
-                                    </div>
-
                                     {/* Comparison Table */}
-                                    <div className="bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+                                    <div className="bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm mb-6">
                                         <table className="w-full">
                                             <thead className="bg-slate-50">
                                                 <tr>
@@ -431,6 +400,22 @@ const NCMCDocumentation = () => {
                                                 </tr>
                                             </tbody>
                                         </table>
+                                    </div>
+
+                                    <h2 className="text-3xl md:text-4xl font-bold font-bricolage text-[#22075e] mb-6">
+                                        Types of NCMC Cards
+                                    </h2>
+
+                                    <div className="grid md:grid-cols-2 gap-4">
+                                        {[
+                                            { name: 'Debit Card with NCMC', desc: 'Full banking functionality with transit payments' },
+                                            { name: 'Prepaid Card', desc: 'Load and use for transit, retail and e-commerce' },
+                                        ].map((card, i) => (
+                                            <div key={i} className="stagger-item bg-white rounded-xl p-6 border border-slate-200 hover:border-[#22075e]/30 transition-all">
+                                                <h3 className="font-bold text-slate-900 mb-2 font-bricolage">{card.name}</h3>
+                                                <p className="text-slate-600 text-sm">{card.desc}</p>
+                                            </div>
+                                        ))}
                                     </div>
                                 </section>
 
@@ -475,7 +460,7 @@ const NCMCDocumentation = () => {
                                             { icon: TrainFront, title: 'Metro Systems', desc: 'Seamless entry/exit across metro networks', color: 'text-blue-600', bg: 'bg-blue-50' },
                                             { icon: Bus, title: 'State Transport Buses', desc: 'Pay for intercity and local bus rides', color: 'text-green-600', bg: 'bg-green-50' },
                                             { icon: CableCar, title: 'Rope Ways', desc: 'Pay for scenic and urban ropeway journeys', color: 'text-purple-600', bg: 'bg-purple-50' },
-                                            { icon: ShoppingBag, title: 'Retail + Ecom POS', desc: 'Shopping at enabled merchant outlets and online', color: 'text-amber-600', bg: 'bg-amber-50' },
+                                            { icon: ShoppingBag, title: 'Retail + Ecom', desc: 'Shopping at enabled merchant outlets and online', color: 'text-amber-600', bg: 'bg-amber-50' },
                                             { icon: CircleParking, title: 'Smart City Parking', desc: 'Automated parking fee collection', color: 'text-slate-600', bg: 'bg-slate-50' },
                                             { icon: Ticket, title: 'Event Access Control', desc: 'Entry to venues and controlled areas', color: 'text-pink-600', bg: 'bg-pink-50' }
                                         ].map((useCase, i) => (
@@ -551,7 +536,7 @@ const NCMCDocumentation = () => {
                                 {/* Section 8: Comparison */}
                                 <section id="comparison" className="doc-section">
                                     <h2 className="text-3xl md:text-4xl font-bold font-bricolage text-[#22075e] mb-6">
-                                        NCMC vs UPI vs Closed Loop
+                                        NCMC CARD vs QR CODE vs Closed Loop
                                     </h2>
 
                                     <div className="bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm overflow-x-auto">
@@ -566,8 +551,6 @@ const NCMCDocumentation = () => {
                                             </thead>
                                             <tbody className="divide-y divide-slate-200">
                                                 {[
-                                                    { feature: 'Offline Support', ncmc: 'Yes', upi: 'No', closed: 'Yes' },
-                                                    { feature: 'Bank Linked', ncmc: 'Yes', upi: 'Yes', closed: 'No' },
                                                     { feature: 'Interoperable', ncmc: 'Yes', upi: 'Yes', closed: 'No' },
                                                     { feature: 'Tap Speed', ncmc: 'High', upi: 'Medium', closed: 'High' },
                                                     { feature: 'Internet Required', ncmc: 'No', upi: 'Yes', closed: 'No' },
@@ -592,7 +575,7 @@ const NCMCDocumentation = () => {
                                 {/* Section 9: Future Roadmap */}
                                 <section id="future" className="doc-section">
                                     <h2 className="text-3xl md:text-4xl font-bold font-bricolage text-[#22075e] mb-6">
-                                        The Future of Mobility Interoperability
+                                        The Future of Mobility
                                     </h2>
 
                                     <div className="space-y-6">
@@ -616,12 +599,7 @@ const NCMCDocumentation = () => {
                                             ))}
                                         </div>
 
-                                        <div className="bg-gradient-to-r from-[#22075e] to-[#1a0548] text-white rounded-2xl p-8 mt-8">
-                                            <h3 className="text-2xl font-bold font-bricolage mb-4">OrbitWallet's Vision</h3>
-                                            <p className="text-purple-100 text-lg leading-relaxed">
-                                                At OrbitWallet, we're building towards this future. Our platform embraces NCMC as a foundational layer while pioneering the next generation of truly interoperable mobility infrastructure — where one tap connects you to the entire nation's transit ecosystem.
-                                            </p>
-                                        </div>
+
                                     </div>
                                 </section>
 
@@ -630,6 +608,7 @@ const NCMCDocumentation = () => {
                     </div>
                 </div>
 
+                <OneNationCard />
                 <Footer />
             </div>
         </>

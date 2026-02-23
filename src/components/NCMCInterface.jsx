@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import ncmcVid from '../assets/ncmc_vid.mp4';
+import posterImage from '../assets/images/struggle/scene_1.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -86,12 +88,12 @@ export default function NCMCInterface() {
                 <div ref={phoneRef} className="relative w-[210px] h-[460px] md:w-[240px] md:h-[480px] rounded-2xl overflow-hidden shadow-xl shadow-[#22075e]/15 z-20 group">
                     <video
                         ref={videoRef}
-                        src="/assets/ncmc_vid.mp4"
+                        src={ncmcVid}
                         className="w-full h-full object-fill transform group-hover:scale-105 transition-transform duration-700 ease-out"
                         muted
                         loop
                         playsInline
-                        poster="/assets/images/solution/scene_1.webp"
+                        poster={posterImage}
                     />
 
                     {/* Inner Glow / Vignette */}

@@ -16,6 +16,8 @@ import Referral from './pages/referral';
 import SubscriptionAuthStatus from './pages/subscription-auth-status';
 import Subscription from './pages/subscription';
 import VerifyEmail from './pages/verify-email';
+import RefundPolicy from './pages/refund-policy';
+import TermsAndConditions from './pages/terms-and-conditions';
 import FloatingCard from './components/FloatingCard';
 import { ReactLenis } from 'lenis/react';
 // Assuming initMixpanel is defined in a utility file; please adjust the path if placed elsewhere.
@@ -58,6 +60,8 @@ function Layout() {
         <Route path="/subscription-auth-status" element={<SubscriptionAuthStatus />} />
         <Route path="/subscription" element={<Subscription />} />
         <Route path="/verify-email" element={<VerifyEmail />} />
+        <Route path="/refund-policy" element={<RefundPolicy />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       </Routes>
     </div>
   );

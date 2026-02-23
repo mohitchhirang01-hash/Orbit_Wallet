@@ -283,10 +283,10 @@ export default function Unification() {
             </div>
 
             {/* Main Layout Container */}
-            <div className="relative w-full md:h-full flex items-center justify-end px-4 md:px-16 z-40">
+            <div className="relative w-full md:h-full flex items-center justify-center md:justify-end px-4 md:px-16 z-40">
 
                 {/* Centered Text Content */}
-                <div className="relative w-full max-w-4xl h-full flex flex-col items-end justify-center text-right">
+                <div className="relative w-full max-w-4xl h-full flex flex-col items-center md:items-end justify-center text-center md:text-right">
                     {/* Headline */}
                     <h2
                         ref={headlineRef}

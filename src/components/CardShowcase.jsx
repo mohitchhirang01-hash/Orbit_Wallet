@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Lock, Smartphone, ArrowRight, Star, Sparkles, Palette } from 'lucide-react';
 
-import card2 from '../assets/card_2.webp';
+import card2 from '../assets/card.webp';
 import card3 from '../assets/card_3.webp';
 import card4 from '../assets/card_4.webp';
 import cardSectionBg from '../assets/card_section_background.webp';
@@ -121,7 +121,7 @@ export default function CardShowcase() {
             title: "Orbit × OG ",
             subtitle: "Premium Experience",
             desc: "Orbit card is your all in one transit and payment card that works across for transit, online/offline payments across India. Easily add money, check balance and claim balance from your NFC phone without the need to visit any counter or add value machine for your seamless tap in and out journey!",
-            tags: ["1% Cashback on all spends", "upto 20% on transit spends", "KYC onboarding", "Limit upto Rs 2,00,000 monthly"],
+            tags: ["1% Cashback on all spends", "upto 20% on transit spends", "KYC onboarding", "Limit upto Rs 2,00,000 monthly", "ATM withdrawl"],
             bgColors: "bg-slate-100 text-slate-900",
             orientation: "landscape"
         },
@@ -130,7 +130,7 @@ export default function CardShowcase() {
             img: card4, // Assuming blue is similar to standard/prepaid
             title: " Singara Chennai × Orbit Wallet ",
             subtitle: "Minimalist Blue",
-            desc: "Singara card is designed in collaboration with Metropolitan transport corporation Chennai to promote and digitise transit transactions in the city. It works across all NCMC enabled transit systems across nation.",
+            desc: "Singara Chennai is designed in collaboration with Metropolitan transport corporation Chennai to promote and digitise transit transactions in the city. It works across all NCMC enabled transit operators across nation.",
             tags: ["No - KYC onboarding", "Works across all NCMC enabled public transit", "Reloadable upto Rs 2000"],
             bgColors: "bg-blue-50 text-blue-900",
             orientation: "landscape"
@@ -171,26 +171,24 @@ export default function CardShowcase() {
             {/* 2. CARD VARIANTS SECTION - New Sticky Layout */}
             <div className="py-24 border-t border-slate-200/60 relative bg-gradient-to-b from-transparent via-[#F4F5F7]/80 to-[#F4F5F7]">
                 <div className="max-w-7xl mx-auto px-6 md:px-12 mb-24 text-center">
-                    <span className="text-[#22075e] font-bold tracking-widest text-sm uppercase block mb-2">Card for all your daily movements across the city.</span>
-                    <h2 className="text-5xl md:text-7xl font-bold font-bricolage text-[#0B0B0F] tracking-tighter leading-none">Cards for every need</h2>
-
+                    <h2 className="text-5xl md:text-7xl font-bold font-bricolage text-[#0B0B0F] tracking-tighter leading-tight max-w-4xl mx-auto">Card for all your daily movements across the city.</h2>
                 </div>
 
                 <div className="relative">
                     {cardCollection.map((card, index) => (
-                        <div key={card.id} className={`sticky-card-section flex flex-col ${index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center justify-center gap-8 md:gap-16 h-screen py-12 border-t border-slate-200/60 sticky top-0 z-${10 + index} transition-all duration-500`}>
+                        <div key={card.id} className={`sticky-card-section flex flex-col ${index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center justify-center gap-8 md:gap-16 min-h-screen h-auto md:h-screen py-12 md:py-24 border-t border-slate-200/60 sticky top-0 z-[${10 + index}] bg-[#F4F5F7] transition-all duration-500`}>
 
                             {/* Text Content */}
-                            <div className={`w-full md:w-auto md:max-w-3xl ${index % 2 === 1 ? 'md:pl-0' : 'md:pr-12'} mb-12 md:mb-0 px-4 md:px-0`}>
+                            <div className={`w-full md:w-1/2 flex flex-col justify-center ${index % 2 === 1 ? 'md:pl-6 lg:pl-16 md:pr-12 lg:pr-24' : 'md:pr-6 lg:pr-16 md:pl-12 lg:pl-24'} mb-8 md:mb-0 px-6 sm:px-12`}>
                                 <span className={`${card.bgColors.split(' ')[1]} font-bold tracking-widest text-sm uppercase mb-4 block font-bricolage`}>0{index + 1}. {card.title.replace('Orbit Wallet', '').replace('Orbit', '').trim() || card.title}</span>
-                                <h3 className="text-6xl md:text-8xl font-bold text-[#0B0B0F] mb-6 tracking-tighter font-bricolage">{card.title}</h3>
-                                <p className="text-lg text-slate-600 font-light mb-8 max-w-2xl leading-relaxed">
+                                <h3 className="text-4xl md:text-6xl lg:text-8xl font-bold text-[#0B0B0F] mb-6 tracking-tighter font-bricolage">{card.title}</h3>
+                                <p className="text-base md:text-lg text-slate-600 font-light mb-8 max-w-2xl leading-relaxed">
                                     {card.desc}
                                 </p>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 w-full">
                                     {card.tags.map((tag, i) => (
-                                        <div key={i} className="bg-white/60 p-4 rounded-2xl flex items-center gap-4 border border-white/50 shadow-sm h-full">
+                                        <div key={i} className="bg-white/60 p-4 rounded-2xl flex items-center gap-4 border border-white/50 shadow-sm w-full">
                                             <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${card.bgColors.split(' ')[1].replace('text-', 'bg-').replace('900', '100')} ${card.bgColors.split(' ')[1]}`}>
                                                 <Star size={20} />
                                             </div>
@@ -201,24 +199,22 @@ export default function CardShowcase() {
                                     ))}
                                 </div>
 
-                                <div className="flex items-center gap-6">
-                                    <button className="bg-[#0B0B0F] text-white px-8 py-4 rounded-full text-sm font-bold hover:opacity-80 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
-                                        Get {card.title}
+                                <div className="flex items-center gap-4 mt-auto">
+                                    <button className="bg-[#0B0B0F] text-white px-6 md:px-8 py-3 md:py-4 rounded-full text-sm font-bold hover:opacity-80 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 w-full sm:w-auto">
+                                        {card.id === 3 ? "Enquire for your institution" : `Get ${card.title}`}
                                     </button>
                                 </div>
                             </div>
 
                             {/* Card Image */}
-                            <div className="w-full md:w-auto flex justify-center perspective-1000 px-6 card-image-content">
-                                <div className="relative transform transition-transform hover:scale-105 duration-700">
-                                    <div className="flex items-center justify-center p-6 bg-transparent h-[400px] md:h-[500px]">
-                                        <ImageCard3D
-                                            img={card.img}
-                                            title={card.title}
-                                            orientation={card.orientation}
-                                            className={card.orientation === 'portrait' ? 'scale-125' : 'scale-110'}
-                                        />
-                                    </div>
+                            <div className="w-full md:w-1/2 flex items-center justify-center perspective-1000 px-6 card-image-content">
+                                <div className="relative transform transition-transform hover:scale-105 duration-700 w-full flex justify-center py-10 md:py-0">
+                                    <ImageCard3D
+                                        img={card.img}
+                                        title={card.title}
+                                        orientation={card.orientation}
+                                        className={card.orientation === 'portrait' ? 'scale-110 md:scale-125' : 'scale-100 md:scale-110'}
+                                    />
                                 </div>
                             </div>
 

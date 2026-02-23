@@ -11,6 +11,7 @@ import NCMCCapabilities from '../components/NCMCCapabilities';
 import Rewards from '../components/Rewards';
 import Partnerships from '../components/Partnerships';
 import FAQ from '../components/FAQ';
+import OneNationCard from '../components/OneNationCard';
 import Footer from '../components/Footer';
 
 export default function Home() {
@@ -41,11 +42,11 @@ export default function Home() {
                 <section id="horizontal-scroll-section-wrapper">
                     <HorizontalScroll />
                 </section>
-                <section id="ncmc-interface-section">
-                    <NCMCInterface />
-                </section>
                 <section id="ncmc-capabilities-section">
                     <NCMCCapabilities />
+                </section>
+                <section id="ncmc-interface-section">
+                    <NCMCInterface />
                 </section>
                 <section id="rewards-section">
                     <Rewards />
@@ -56,6 +57,7 @@ export default function Home() {
                 <section id="faq-section">
                     <FAQ />
                 </section>
+                <OneNationCard />
                 <Footer />
             </main>
         </>

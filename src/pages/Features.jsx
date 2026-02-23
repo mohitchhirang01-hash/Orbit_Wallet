@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, CheckCircle2, Zap, Shield, GitBranch, Cpu, Lock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
+import OneNationCard from '../components/OneNationCard';
 import Footer from '../components/Footer';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -323,6 +324,7 @@ const Features = () => {
                     </div>
                 </section>
 
+                <OneNationCard />
                 <Footer />
             </div>
         </>

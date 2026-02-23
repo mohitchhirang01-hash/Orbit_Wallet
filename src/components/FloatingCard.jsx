@@ -209,6 +209,15 @@ export default function FloatingCard() {
                             rotation: 360,
                             duration: 1.1,
                             scale: 1
+                        })
+                        
+                        .to(card, {
+                            x: "-35vw",
+                            y: "25vh",
+                            rotation: 15,
+                            scale: 0,
+                            ease: "power1.inOut",
+                            duration: .8
                         });
 
                     // =========================================================

@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import BlogHero from '../components/BlogHero';
 import FeaturedBlogCard from '../components/FeaturedBlogCard';
 import BlogCard from '../components/BlogCard';
+import OneNationCard from '../components/OneNationCard';
 import Footer from '../components/Footer';
 // NEW: Use blog provider instead of direct data import
 import { getAllPosts, getFeaturedPost, getPostsByCategory, searchPosts } from '../lib/blogProvider';
@@ -181,6 +182,7 @@ const Blog = () => {
                 )}
             </div>
 
+            <OneNationCard />
             <Footer />
         </div>
     );

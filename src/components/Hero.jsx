@@ -52,16 +52,16 @@ export default function Hero() {
                         <div className="overflow-hidden">
                             <span ref={line1Ref} className="inline-block">
                                 <span className="overlap-item">Movement</span>{" "}
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#22075e] to-[#7c3aed] overlap-item font-bold">Unlocked</span>.
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7c3aed] to-[#22075e] overlap-item font-bold">Unlocked</span>.
                             </span>
                         </div>
                     </h1>
 
                     {/* Mobile Only CTA Button */}
-                    <div className="mt-8 md:hidden px-4">
+                    <div className="-mt-4 md:hidden px-4 flex justify-center">
                         <button
                             onClick={() => window.open('https://play.google.com/store/apps/details?id=com.orbitwallet&hl=en_IN', '_blank')}
-                            className="w-full max-w-[280px] py-4 rounded-2xl bg-[#0B0B0F] text-white font-bold shadow-xl active:scale-95 transition-transform"
+                            className="btn-shimmer flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-slate-900 text-white font-semibold text-sm hover:scale-105 active:scale-95 transition-transform shadow-lg hover:shadow-cyan-500/25 w-max"
                         >
                             Get Orbit Wallet
                         </button>

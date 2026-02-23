@@ -7,6 +7,7 @@ import { blogAuthors } from '../data/blogData';
 import { getPostBySlug, getRelatedPosts } from '../lib/blogProvider';
 import NotionContent from '../components/NotionContent';
 import BlogCard from '../components/BlogCard';
+import OneNationCard from '../components/OneNationCard';
 import Footer from '../components/Footer';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -293,6 +294,7 @@ const BlogArticle = () => {
                 </div>
             )}
 
+            <OneNationCard />
             <Footer />
         </div>
     );

@@ -10,34 +10,57 @@ export default function VerifyEmail() {
     const token = searchParams.get("token");
     const navigate = useNavigate();
 
-    // The 'useAuth' hook and 'verifyEmail' function do not exist in the Vite project yet.
-    // This is a placeholder that simulates the verification process.
-    // const { verifyEmail, isLoading } = useAuth();
-
     useEffect(() => {
-        if (token) {
-            (async () => {
-                setIsLoading(true);
-                // Simulate an API call:
-                // const success = await verifyEmail(token);
+        let isMounted = true;
 
-                // Placeholder simulation (Change to true/false to test states):
-                const mockSuccess = true;
+        const verifyToken = async () => {
+            if (!token) {
+                if (isMounted) {
+                    setIsLoading(false);
+                    setSuccess(false);
+                }
+                return;
+            }
 
-                // Simulate network delay
-                await new Promise((resolve) => setTimeout(resolve, 1000));
-                setSuccess(mockSuccess);
-                setIsLoading(false);
+            try {
+                if (isMounted) setIsLoading(true);
 
-                // Redirect after 5 seconds
-                setTimeout(() => {
-                    navigate("/", { replace: true });
-                }, 5000);
-            })();
-        } else {
-            setIsLoading(false);
-            setSuccess(false);
-        }
+                // Replacing the old `verifyEmail` hook with a direct API fetch.
+                // NOTE: Change this API URL to match your actual backend endpoint.
+                const apiUrl = import.meta.env.VITE_API_URL || "https://api.orbitwallet.in";
+                const response = await fetch(`${apiUrl}/auth/verify-email`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ token }),
+                });
+
+                if (isMounted) {
+                    // Check if response is successful
+                    setSuccess(response.ok);
+                }
+            } catch (error) {
+                console.error("Email verification error:", error);
+                if (isMounted) {
+                    setSuccess(false);
+                }
+            } finally {
+                if (isMounted) {
+                    setIsLoading(false);
+                    // Redirect after 5 seconds just like the NextJS version
+                    setTimeout(() => {
+                        navigate("/", { replace: true });
+                    }, 5000);
+                }
+            }
+        };
+
+        verifyToken();
+
+        return () => {
+            isMounted = false;
+        };
     }, [token, navigate]);
 
     if (isLoading) {

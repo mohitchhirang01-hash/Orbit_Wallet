@@ -1,8 +1,11 @@
 import React from "react";
 // Assuming the image is actually stored here in the Vite project:
 import referralImage from "../assets/card.webp"; // Using card.webp as fallback if referral.webp is missing
+import { useAppRedirect } from "../hooks/useAppRedirect";
 
 export default function Referral() {
+    useAppRedirect();
+
     return (
         <div className="flex flex-col items-center justify-center w-full min-h-screen bg-[var(--orbit-primary)] px-6">
             <img

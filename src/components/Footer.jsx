@@ -23,58 +23,7 @@ const Footer = () => {
                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5"></div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col gap-16">
-
-                {/* Top Section: Split Layout (Text Left, Icons Right) */}
-                <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-                    {/* Left Column: Text Content */}
-                    <div className="w-full relative z-20 flex flex-col items-start text-left">
-                        <h2
-                            className="font-bold tracking-tight leading-[0.9] mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/70 font-bricolage"
-                            style={{ fontSize: 'clamp(3rem, 6vw, 6rem)', letterSpacing: '-0.03em' }}
-                        >
-                            A Nation,<br />Already in Orbit.
-                        </h2>
-
-
-
-                        {/* Trust Metric (Moved near text) */}
-                        <div className="mt-8 text-sm text-white/40 tracking-widest uppercase">
-                            Powering mobility and payments infrastructure nationwide
-                        </div>
-                    </div>
-
-                    {/* Right Column: Active Card Icons */}
-                    <div className="w-full flex justify-center lg:justify-end gap-6 flex-wrap">
-                        {/* Wrapper for grid layout of icons */}
-                        <div className="grid grid-cols-3 gap-6">
-                            {[
-                                { name: 'Mumbai Metro', icon: partnerMumbaiMetro },
-                                { name: 'Mumbai BEST', icon: partnerMumbaiBest },
-                                { name: 'Lucknow Metro', icon: partnerLucknowMetro },
-                                { name: 'Delhi Metro', icon: partnerDelhiMetro },
-                                { name: 'Bangalore Metro', icon: partnerBangaloreMetro },
-                            ].map((item, index) => (
-                                <div key={index} className="flex flex-col items-center gap-3 group">
-                                    <div className="w-40 h-40 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center p-6 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-300">
-                                        <img
-                                            src={item.icon}
-                                            alt={item.name}
-                                            className="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-all duration-500 hover:scale-110"
-                                        />
-                                    </div>
-                                    <span className="text-xs text-white/60 group-hover:text-white/80 transition-colors text-center max-w-[100px] leading-tight opacity-100 duration-300">
-                                        {item.name}
-                                    </span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-
-                {/* 3. Divider */}
-                <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent mb-16"></div>
+            <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col gap-12">
 
                 {/* 4. Lower Footer (Utility) */}
                 <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
@@ -123,9 +72,7 @@ const Footer = () => {
                             <li className="hover:text-white transition-colors">
                                 <Link to="/about">About Us</Link>
                             </li>
-                            <li className="hover:text-white transition-colors">
-                                <Link to="/media">Media</Link>
-                            </li>
+
                             <li className="hover:text-white transition-colors">
                                 <Link to="/blog">Blogs</Link>
                             </li>
@@ -137,16 +84,16 @@ const Footer = () => {
                         <h4 className="text-white font-semibold mb-6">Important Links</h4>
                         <ul className="space-y-4 text-white/60">
                             <li className="hover:text-white transition-colors">
-                                <a href="https://orbitwallet.notion.site/Privacy-Policy-03a80c22b72f4b53b057bd4965015142">Privacy Policy</a>
+                                <a href="https://orbitwallet.notion.site/Privacy-Policy-03a80c22b72f4b53b057bd4965015142" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
                             </li>
                             <li className="hover:text-white transition-colors">
-                                <a href="https://orbitwallet.notion.site/Terms-Conditions-71db29ea149e443e92516e2e8499969c">Terms and Conditions</a>
+                                <a href="https://orbitwallet.notion.site/Terms-Conditions-71db29ea149e443e92516e2e8499969c" target="_blank" rel="noopener noreferrer">Terms and Conditions</a>
                             </li>
                             <li className="hover:text-white transition-colors">
-                                <a href="https://orbitwallet.notion.site/Pricing-Fees-Terms-b7b16445650c416dacd1a0d780501162">Pricing and Fees</a>
+                                <a href="https://orbitwallet.notion.site/Pricing-Fees-Terms-b7b16445650c416dacd1a0d780501162" target="_blank" rel="noopener noreferrer">Pricing and Fees</a>
                             </li>
                             <li className="hover:text-white transition-colors">
-                                <a href="https://orbitwallet.notion.site/Refund-Policy-53bd02d3ae7f4ee8a9de8860d7dfe9d5">Refund Policy</a>
+                                <a href="https://orbitwallet.notion.site/Refund-Policy-53bd02d3ae7f4ee8a9de8860d7dfe9d5" target="_blank" rel="noopener noreferrer">Refund Policy</a>
                             </li>
                         </ul>
                     </div>

@@ -1,7 +1,10 @@
 import React from "react";
 import cardImage from "../assets/card.webp";
+import { useAppRedirect } from "../hooks/useAppRedirect";
 
 export default function ManageCard() {
+    useAppRedirect();
+
     return (
         <div className="flex flex-col items-center justify-center w-full min-h-screen bg-[var(--orbit-primary)] px-6">
             <img

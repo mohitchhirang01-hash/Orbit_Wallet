@@ -151,7 +151,7 @@ const Partnerships = () => {
                         {splitText("Built on Giants")}
                     </h2>
                     <p ref={subtextRef} className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
-                        Orbit Wallet isn't just an app; it’s a financial fortress backed by India’s leading banking institutions.
+                        Orchestrating banks, regulators, and operators to make NCMC a reality for millions.
                     </p>
                 </div>
 

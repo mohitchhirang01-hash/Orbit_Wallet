@@ -129,16 +129,6 @@ const FAQ = () => {
                         </div>
                     ))}
                 </div>
-
-                <div className="mt-12 text-center">
-                    <p className="text-slate-600 mb-4">Still have questions?</p>
-                    <a
-                        href="mailto:help@orbitwallet.in"
-                        className="inline-block px-8 py-3 bg-[#22075e] hover:bg-[#1a0548] text-white font-semibold rounded-full transition-colors"
-                    >
-                        Contact Us
-                    </a>
-                </div>
             </div>
         </section>
     );

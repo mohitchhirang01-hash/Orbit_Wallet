@@ -16,12 +16,7 @@ const companyItems = [
         href: '/about',
         icon: Info,
         desc: 'Our mission, vision and values',
-    },
-    {
-        name: 'Media',
-        href: '/media',
-        icon: Megaphone,
-        desc: 'Latest news and press releases',
+
     },
     {
         name: 'NCMC Documentation',
